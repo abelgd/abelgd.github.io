@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
   <meta name="theme-color" content="#4F7DC9">
   <meta charset="UTF-8">
-  <title>Proyecto 1: Guía para bastionar la BIOS/UEFI de un ordenador</title>
+  <title>Proyecto 1: Guía para bastionar la BIOS/UEFI</title>
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
   <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://storage.googleapis.com/claat-public/codelab-elements.css">
@@ -23,16 +23,9 @@
   <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
   <google-codelab codelab-gaid="ID de Google Analytics"
                   id="identificador-unico-del-codelab"
-                  title="Proyecto 1: Guía para bastionar la BIOS/UEFI de un ordenador"
+                  title="Proyecto 1: Guía para bastionar la BIOS/UEFI"
                   environment="web"
                   feedback-link="Un enlace en el que los usuarios puedan darte feedback (quizás creando un issue en un repositorio de git)">
-    
-      <google-codelab-step label="Modelo de ordenador" duration="0">
-        <p><strong>Duración estimada:</strong> 1 minuto <em>(Escribe aquí el modelo cuando lo sepas)</em></p>
-<h3 is-upgraded>Autor: <em>Abel García Domínguez</em></h3>
-
-
-      </google-codelab-step>
     
       <google-codelab-step label="Introducción" duration="0">
         <p><strong>Duración estimada:</strong> 5 minutos</p>
@@ -42,15 +35,76 @@
 
       </google-codelab-step>
     
-      <google-codelab-step label="Preparación previa" duration="0">
+      <google-codelab-step label="Menú Security" duration="0">
         <p><strong>Duración estimada:</strong> 5 minutos</p>
-<p>Preparación previa</p>
+<p>En este menú se configuran todas las contraseñas y permisos de seguridad de la BIOS/UEFI.</p>
+<h2 is-upgraded>Pasos:</h2>
+<ol type="1">
+<li><strong>Contraseña de administración de la BIOS</strong><ul>
+<li>Accede al menú Security →  Admin Password.</li>
+<li>Selecciona &#34;Set Administrator Password&#34; y crea una contraseña segura.</li>
+<li>Guarda los cambios y confirma.</li>
+<li>Insertar foto 1 (Admin password sobremarcado)</li>
+</ul>
+</li>
+<li><strong>Contraseña de usuario de la BIOS</strong><ul>
+<li>Dentro del mismo menú Security → User Password.</li>
+<li>Configura una contraseña diferente a la de administrador.</li>
+<li>Esta contraseña será requerida para entrar al BIOS sin privilegios de administrador.</li>
+<li>Insertar foto 1 (User password sobremarcado)</li>
+</ul>
+</li>
+<li><strong>Contraseña de arranque del dispositivo (Power-On / HDD)</strong><ul>
+<li>Todavía en Security, localiza Set Hard Disk Passwords.</li>
+<li>Configura la contraseña según tus necesidades.</li>
+<li>Esta contraseña se solicita al encender el equipo y protege el arranque del disco.</li>
+<li>Insertar foto 2 (HDD Sobremarcado)</li>
+</ul>
+</li>
+</ol>
 
 
       </google-codelab-step>
     
-      <google-codelab-step label="Bastionado paso a paso" duration="0">
-        
+      <google-codelab-step label="Menú Boot" duration="0">
+        <p><strong>Duración estimada:</strong> 5 minutos</p>
+<p>Este menú controla <strong>desde qué dispositivos puede arrancar el ordenador</strong> y en qué orden, así como la seguridad del arranque.</p>
+<h2 is-upgraded>Pasos:</h2>
+<ol type="1">
+<li><strong>Boot Mode</strong><ul>
+<li>Selecciona <strong>UEFI</strong> para garantizar compatibilidad con Secure Boot, discos GPT y arranque seguro moderno.</li>
+<li>Insertar foto 3 (remarcar esta opcion)</li>
+</ul>
+</li>
+<li><strong>Fast Boot</strong><ul>
+<li>Puedes activar Fast Boot para un arranque más rápido.</li>
+<li>Nota: desactivarlo permite acceso a teclas de BIOS y diagnóstico; activar o desactivar según tu política de seguridad.</li>
+<li>Insertar foto 3 (remarcar esta opcion)</li>
+</ul>
+</li>
+<li><strong>USB Boot</strong><ul>
+<li>Deshabilita el arranque desde USB si no necesitas iniciar desde medios externos.</li>
+<li>Recomendación: mantenerlo desactivado para evitar arranques no autorizados.</li>
+<li>Insertar foto 3 (remarcar esta opcion)</li>
+</ul>
+</li>
+<li><strong>PXE Boot to LAN</strong><ul>
+<li>Deshabilita el arranque desde la red si no se requiere.</li>
+<li>Esto previene que el equipo arranque con sistemas operativos no autorizados desde la red.</li>
+<li>Insertar foto 3 (remarcar esta opcion)</li>
+</ul>
+</li>
+<li><strong>IPV4 PXE First</strong><ul>
+<li>Desactívalo, ya que no se utilizará arranque por red en entornos domésticos o personales.</li>
+</ul>
+</li>
+<li><strong>EFI</strong><ul>
+<li>Confirma que el arranque se realiza en modo <strong>EFI</strong> para Secure Boot y discos GPT.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Nota de seguridad:</strong> Al desactivar Fast Boot, USB Boot o PXE Boot, algunas opciones relacionadas pueden desaparecer del menú. Esto es <strong>normal</strong> y forma parte de la configuración más segura del arranque.</p>
+
 
       </google-codelab-step>
     
