@@ -1,0 +1,26 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2025-10-30T10:42:10+01:00",
+  "id": "identificador2",
+  "duration": 0,
+  "title": "Parte 2: Guía para bastionar la BIOS/UEFI de un ordenador",
+  "summary": "Resumen del CodeLab",
+  "source": "codelab2.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "codelab",
+    "markdown"
+  ],
+  "tags": [
+    "web"
+  ],
+  "feedback": "Un enlace en el que los usuarios puedan darte feedback (quizás creando un issue en un repositorio de git)",
+  "ga": "ID de Google Analytics",
+  "url": "identificador2"
+}
