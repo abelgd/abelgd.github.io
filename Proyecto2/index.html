@@ -36,7 +36,69 @@
       </google-codelab-step>
     
       <google-codelab-step label="Configuración y medidas de bastionado del arranque" duration="0">
-        
+        <p>En esta práctica se realizará la instalación y configuración segura de <strong>Ubuntu Server 24.04.3 LTS (minimized)</strong>, aplicando medidas de seguridad desde el proceso de instalación.<br> El bastionado comienza en el propio instalador, donde definiremos una estructura de particiones cifradas y configuraciones de arranque seguras.</p>
+<h2 is-upgraded>Requisitos previos</h2>
+<p>Antes de comenzar, asegúrate de contar con los siguientes elementos:</p>
+<ul>
+<li>Imagen ISO de Ubuntu Server 24.04.3 LTS: <em>ubuntu-24.04.3-live-server-amd64.iso</em></li>
+<li>Máquina virtual o equipo físico preparado para la instalación.</li>
+<li>Se recomienda asignar <strong>2 núcleos de CPU</strong>, <strong>2 GB de RAM</strong> y <strong>20 GB de disco duro</strong> para la máquina virtual.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Instalación de Ubuntu Server 24.04.3 LTS" duration="0">
+        <h2 is-upgraded>Paso 1: Iniciar la instalación</h2>
+<ol type="1">
+<li>Inicia la máquina virtual utilizando la ISO: <em>ubuntu-24.04.3-live-server-amd64.iso</em></li>
+</ol>
+<p>(Insertar pantallazo del arranque de la ISO)</p>
+<ol type="1" start="2">
+<li>En el menú inicial, selecciona la opción: <em>Try or Install Ubuntu Server</em></li>
+</ol>
+<p>(Insertar pantallazo del menú de instalación)</p>
+<ol type="1" start="3">
+<li>Elige el idioma de instalación y pulsa Enter.</li>
+</ol>
+<p>(Insertar pantallazo de selección de idioma)</p>
+<ol type="1" start="4">
+<li>Configura el diseño de teclado según corresponda.</li>
+</ol>
+<p>(Insertar pantallazo de selección de teclado)</p>
+<ol type="1" start="5">
+<li>En la pantalla <strong>&#34;Choose the type of installation&#34;</strong>, selecciona: <em>Ubuntu Server (minimized)</em></li>
+</ol>
+<ul>
+<li>Esta opción instala un sistema base reducido, más seguro y sin paquetes innecesarios.</li>
+</ul>
+<p>(Insertar pantallazo de selección de tipo de instalación)</p>
+<h2 is-upgraded>Paso 2: Configuración de red, proxy y mirror</h2>
+<p>Durante la instalación, se presentan tres apartados relacionados con la conectividad y descarga de paquetes:</p>
+<ul>
+<li><strong>Configuración de red (Network connections)</strong></li>
+<li><strong>Proxy</strong></li>
+<li><strong>Mirror del repositorio (Ubuntu archive mirror)</strong></li>
+</ul>
+<p>En nuestro caso, <strong>omitiremos su configuración manual</strong> por motivos de seguridad y control de entorno:</p>
+<ul>
+<li>En entornos de bastionado o despliegues seguros, se recomienda mantener la red desconectada o sin configuración adicional durante la instalación inicial para evitar que el sistema descargue paquetes desde fuentes externas antes de verificar su integridad.</li>
+<li>Esto reduce la exposición a repositorios o proxies no verificados y permite aplicar las actualizaciones de forma controlada una vez finalizada la instalación, dentro de un entorno supervisado.</li>
+</ul>
+<h2 is-upgraded>Paso 3: Configuración del almacenamiento</h2>
+<p>En este apartado se definirá el esquema de particiones del sistema.<br> El objetivo es crear una estructura <strong>segura y cifrada</strong>, protegiendo los datos desde el arranque.</p>
+<ol type="1">
+<li>En la pantalla <strong>&#34;Guided storage configuration&#34;</strong>, selecciona: <em>Custom storage layout</em></li>
+</ol>
+<p>(Insertar pantallazo de selección de Custom storage layout)</p>
+<ul>
+<li>Esta opción permite definir manualmente las particiones del sistema, garantizando un mayor control sobre su estructura y posibilitando la aplicación de cifrado en los volúmenes de datos.</li>
+</ul>
+<ol type="1" start="2">
+<li>Aparecerá la interfaz <strong>&#34;Storage configuration&#34;</strong>, donde se mostrará el disco disponible. Desde esta interfaz se crearán:</li>
+</ol>
+<p>(Insertar pantallazo de la interfaz de particionado)</p>
+
 
       </google-codelab-step>
     
