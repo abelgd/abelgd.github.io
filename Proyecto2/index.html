@@ -184,7 +184,7 @@
 <h3 is-upgraded>6.2 Configurar el archivo /etc/grub.d/40_custom</h3>
 <ul>
 <li>Abrir y editar el archivo personalizado del GRUB: <em>sudo nano /etc/grub.d/40_custom</em></li>
-<li>Añadir el siguiente comando: *set superusers=&#34;grubadmin&#34; <strong>password_pbkdf2 grubadmin grub.pbkdf2.sha512.100000.[HASH_GENERADO]</strong></li>
+<li>Añadir el siguiente comando: <strong>set superusers=&#34;grubadmin&#34; password_pbkdf2 grubadmin grub.pbkdf2.sha512.100000.[HASH_GENERADO]</strong></li>
 </ul>
 <p>-<img alt="Imagen12" src="img\\55ac54469eb5b61f.png"></p>
 <ul>
@@ -192,11 +192,15 @@
 </ul>
 <h3 is-upgraded>6.3 Actualizar GRUB y aplicar permisos</h3>
 <ul>
-<li>Actualizar la configuración del GRUB y restringir permisos: <em>sudo update-grubsudo chmod 600 /boot/grub/grub.cfgsudo chown root:root /boot/grub/grub.cfgsudo chmod 700 /etc/grub.d/40_custom</em></li>
+<li>Actualizar la configuración del GRUB y restringir permisos:</li>
+<li><em>sudo update-grub</em></li>
+<li><em>sudo chmod 600 /boot/grub/grub.cfg</em></li>
+<li><em>sudo chown root:root /boot/grub/grub.cfg</em></li>
+<li><em>sudo chmod 700 /etc/grub.d/40_custom</em></li>
 </ul>
 <p class="image-container"><img alt="Imagen13" src="img\\c79e4d617e1bfefc.png"></p>
 <ul>
-<li>Estos permisos garantizan que solo ‘root&#39; pueda leer o modificar la configuración crítica del gestor de arranque.</li>
+<li>Estos permisos garantizan que solo <strong>root</strong> pueda leer o modificar la configuración crítica del gestor de arranque.</li>
 </ul>
 <h3 is-upgraded>6.4 Ocultar el menú del GRUB</h3>
 
