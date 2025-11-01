@@ -3,7 +3,7 @@
   "format": "html",
   "prefix": "https://storage.googleapis.com",
   "mainga": "UA-49880327-14",
-  "updated": "2025-10-30T13:41:27+01:00",
+  "updated": "2025-11-01T11:48:32+01:00",
   "id": "identificador-unico-del-codelab",
   "duration": 0,
   "title": "Proyecto 1: Guía para bastionar la BIOS/UEFI",
@@ -20,7 +20,7 @@
   "tags": [
     "web"
   ],
-  "feedback": "Un enlace en el que los usuarios puedan darte feedback (quizás creando un issue en un repositorio de git)",
+  "feedback": "https://github.com/abelgd/abelgd.github.io/issues/1",
   "ga": "ID de Google Analytics",
   "url": "identificador-unico-del-codelab"
 }
