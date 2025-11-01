@@ -175,7 +175,21 @@
       <google-codelab-step label="Configuración posterior al arranque y bastionado del sistema" duration="0">
         <p>Una vez finalizada la instalación del sistema, se procederá a aplicar medidas de seguridad adicionales sobre el arranque, el kernel y los puntos de montaje.<br> El objetivo de este apartado es reforzar la integridad del sistema frente a accesos no autorizados o manipulaciones en las fases iniciales del arranque.</p>
 <h2 is-upgraded>Paso 5: Reactivar el adaptador de red e instalar utilidades</h2>
-<p>Antes de continuar con la configuración del GRUB, es necesario <strong>reactivar el adaptador de red</strong> para poder instalar las herramientas requeridas.</p>
+<p>Antes de continuar con la configuración del GRUB, es necesario <strong>reactivar el adaptador de red</strong> para poder instalar las herramientas requeridas. Actualizar los repositorios e instalar el editor ‘nano&#39;.</p>
+<h2 is-upgraded>Paso 6: Configuración segura del gestor de arranque (GRUB)</h2>
+<p>El gestor de arranque <strong>GRUB</strong> será protegido mediante una contraseña cifrada, impidiendo el acceso no autorizado al menú de arranque o la modificación de parámetros críticos del sistema.</p>
+<h3 is-upgraded>6.1 Generar el hash PBKDF2</h3>
+<p>Ejecuta el siguiente comando para generar el hash de la contraseña del GRUB:</p>
+<p class="image-container"><img alt="Imagen11" src="img\\e3df0c1a444ab550.png"></p>
+<h3 is-upgraded>6.2 Configurar el archivo /etc/grub.d/40_custom</h3>
+<ul>
+<li>Abrir y editar el archivo personalizado del GRUB: <em>sudo nano /etc/grub.d/40_custom</em></li>
+<li>Añadir el siguiente comando: *set superusers=&#34;admin&#34; *password_pbkdf2 admin [HASH_GENERADO]</li>
+</ul>
+<p>-<img alt="Imagen12" src="img\\55ac54469eb5b61f.png"></p>
+<ul>
+<li>El usuario <em>admin</em> se define como superusuario del GRUB y usará el hash PBKDF2 para autenticación.</li>
+</ul>
 
 
       </google-codelab-step>
