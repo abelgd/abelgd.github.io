@@ -189,10 +189,10 @@
 <h3 is-upgraded>6.3 Actualizar GRUB y aplicar permisos</h3>
 <p>Actualizar la configuración del GRUB y restringir permisos:</p>
 <ul>
-<li>sudo update-grub</li>
-<li>sudo chmod 600 /boot/grub/grub.cfg</li>
-<li>sudo chown root:root /boot/grub/grub.cfg</li>
-<li>sudo chmod 700 /etc/grub.d/40_custom</li>
+<li><strong><em>sudo update-grub</em></strong></li>
+<li><strong><em>sudo chmod 600 /boot/grub/grub.cfg</em></strong></li>
+<li><strong><em>sudo chown root:root /boot/grub/grub.cfg</em></strong></li>
+<li><strong><em>sudo chmod 700 /etc/grub.d/40_custom</em></strong></li>
 </ul>
 <p class="image-container"><img alt="Imagen13" src="img\\c79e4d617e1bfefc.png"></p>
 <p>Estos permisos garantizan que solo <strong>root</strong> pueda leer o modificar la configuración crítica del gestor de arranque.</p>
