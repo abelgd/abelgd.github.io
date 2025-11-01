@@ -25,7 +25,7 @@
                   id="identificador2"
                   title="Proyecto 2: Guía para bastionar el arranque de Ubuntu Server"
                   environment="web"
-                  feedback-link="Un enlace en el que los usuarios puedan darte feedback (quizás creando un issue en un repositorio de git)">
+                  feedback-link="https://github.com/abelgd/abelgd.github.io/issues/1">
     
       <google-codelab-step label="Introducción" duration="0">
         <p>El proceso de arranque de un sistema operativo es una fase crítica en la que se cargan los componentes esenciales del sistema.<br> Bastionar el arranque de <strong>Ubuntu Server</strong> consiste en aplicar configuraciones y medidas de seguridad que garanticen la <strong>integridad</strong>, <strong>confidencialidad</strong> y <strong>autenticidad</strong> del sistema desde el momento en que se enciende el equipo.</p>
@@ -92,9 +92,7 @@
 <li>En la pantalla <strong>&#34;Guided storage configuration&#34;</strong>, selecciona: <em>Custom storage layout</em></li>
 </ol>
 <p class="image-container"><img alt="Imagen5" src="img\\adf93eba505f15c5.png"></p>
-<ul>
-<li>Esta opción permite definir manualmente las particiones del sistema, garantizando un mayor control sobre su estructura y posibilitando la aplicación de cifrado en los volúmenes de datos.</li>
-</ul>
+<p>Esta opción permite definir manualmente las particiones del sistema, garantizando un mayor control sobre su estructura y posibilitando la aplicación de cifrado en los volúmenes de datos.</p>
 <ol type="1" start="2">
 <li>Aparecerá la interfaz <strong>&#34;Storage configuration&#34;</strong>, donde se mostrará el disco disponible. Desde esta interfaz se crearán:</li>
 </ol>
@@ -187,22 +185,53 @@
 <li>Añadir el siguiente comando: <strong>set superusers=&#34;grubadmin&#34; password_pbkdf2 grubadmin grub.pbkdf2.sha512.100000.[HASH_GENERADO]</strong></li>
 </ul>
 <p>-<img alt="Imagen12" src="img\\55ac54469eb5b61f.png"></p>
-<ul>
-<li>El usuario <em>admin</em> se define como superusuario del GRUB y usará el hash PBKDF2 para autenticación.</li>
-</ul>
+<p>El usuario <em>admin</em> se define como superusuario del GRUB y usará el hash PBKDF2 para autenticación.</p>
 <h3 is-upgraded>6.3 Actualizar GRUB y aplicar permisos</h3>
+<p>Actualizar la configuración del GRUB y restringir permisos:</p>
 <ul>
-<li>Actualizar la configuración del GRUB y restringir permisos:</li>
-<li><em>sudo update-grub</em></li>
-<li><em>sudo chmod 600 /boot/grub/grub.cfg</em></li>
-<li><em>sudo chown root:root /boot/grub/grub.cfg</em></li>
-<li><em>sudo chmod 700 /etc/grub.d/40_custom</em></li>
+<li>sudo update-grub</li>
+<li>sudo chmod 600 /boot/grub/grub.cfg</li>
+<li>sudo chown root:root /boot/grub/grub.cfg</li>
+<li>sudo chmod 700 /etc/grub.d/40_custom</li>
 </ul>
 <p class="image-container"><img alt="Imagen13" src="img\\c79e4d617e1bfefc.png"></p>
-<ul>
-<li>Estos permisos garantizan que solo <strong>root</strong> pueda leer o modificar la configuración crítica del gestor de arranque.</li>
-</ul>
+<p>Estos permisos garantizan que solo <strong>root</strong> pueda leer o modificar la configuración crítica del gestor de arranque.</p>
 <h3 is-upgraded>6.4 Ocultar el menú del GRUB</h3>
+<ul>
+<li>Editar el archivo de configuración por defecto con el comando: sudo nano <em>/etc/default/grub</em></li>
+<li>Modificar la variable <strong>GRUB_TIMEOUT=0</strong> para que el menú del GRUB no aparezca durante el arranque.</li>
+</ul>
+<p>El sistema arrancará directamente sin mostrar el menú del GRUB, evitando accesos no autorizados al gestor de arranque.</p>
+<h2 is-upgraded>Paso 7: Restringir permisos del kernel</h2>
+<p>Aplicar permisos restrictivos sobre los binarios y archivos del kernel ubicados en <em>/boot</em> a través de los siguientes comandos:</p>
+<p class="image-container"><img alt="Imagen14" src="img\\55922409f3212157.png"></p>
+<p>Con el objetivo de prevenir lecturas o modificaciones no autorizadas de los artefactos críticos del kernel, protegiendo así la integridad del sistema.</p>
+<h2 is-upgraded>Paso 8: Configuración de montajes seguros en /etc/fstab</h2>
+<p>El archivo /etc/fstab define cómo se montan las particiones del sistema. Aplicar opciones restrictivas reduce el riesgo de ejecución de código malicioso o de escaladas de privilegios.</p>
+<h3 is-upgraded>8.1 Editar /etc/fstab</h3>
+<p>Abrir el archivo con privilegios de administrador: <em>sudo nano /etc/fstab</em> Editar el archivo de la siguiente forma:</p>
+<p class="image-container"><img alt="Imagen15" src="img\\8fe522025d2c250.png"></p>
+<p>Opciones de seguridad:</p>
+<ul>
+<li>&#34;<strong>nodev</strong>: evita el uso de dispositivos especiales.&#34;</li>
+<li>&#34;<strong>nosuid</strong>: bloquea la ejecución con privilegios elevados (SUID/SGID).&#34;</li>
+<li>&#34;<strong>noexec</strong>: impide ejecutar binarios desde ese sistema de archivos.&#34;</li>
+<li>&#34;<strong>ro</strong>: monta el sistema de solo lectura (aplicable a /boot).&#34;</li>
+</ul>
+<h3 is-upgraded>8.2 Aplicar las nuevas opciones de montaje</h3>
+<p class="image-container"><img alt="Imagen16" src="img\\d627ab26d8d88007.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Conclusión" duration="0">
+        <p>Mediante las configuraciones aplicadas se ha logrado:</p>
+<ul>
+<li>Proteger el <strong>gestor de arranque GRUB</strong> con contraseña cifrada y permisos restringidos.</li>
+<li>Asegurar la <strong>integridad del kernel</strong> mediante permisos seguros sobre los binarios del sistema.</li>
+<li>Implementar <strong>montajes seguros</strong> que previenen la ejecución o manipulación indebida de archivos en directorios sensibles.</li>
+</ul>
+<p>Estas medidas fortalecen el bastionado del arranque de <strong>Ubuntu Server</strong>, garantizando un entorno más robusto frente a accesos no autorizados.</p>
 
 
       </google-codelab-step>

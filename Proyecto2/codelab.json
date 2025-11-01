@@ -3,7 +3,7 @@
   "format": "html",
   "prefix": "https://storage.googleapis.com",
   "mainga": "UA-49880327-14",
-  "updated": "2025-11-01T11:16:04+01:00",
+  "updated": "2025-11-01T11:46:03+01:00",
   "id": "identificador2",
   "duration": 0,
   "title": "Proyecto 2: Guía para bastionar el arranque de Ubuntu Server",
@@ -20,7 +20,7 @@
   "tags": [
     "web"
   ],
-  "feedback": "Un enlace en el que los usuarios puedan darte feedback (quizás creando un issue en un repositorio de git)",
+  "feedback": "https://github.com/abelgd/abelgd.github.io/issues/1",
   "ga": "ID de Google Analytics",
   "url": "identificador2"
 }
