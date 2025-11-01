@@ -82,24 +82,79 @@
 <li><strong>Proxy</strong></li>
 <li><strong>Mirror del repositorio (Ubuntu archive mirror)</strong></li>
 </ul>
-<p>En nuestro caso, <strong>omitiremos su configuración manual</strong> por motivos de seguridad y control de entorno:</p>
+<p>En nuestro caso, <strong>omitiremos su configuración manual</strong> por motivos de seguridad y control de entorno.</p>
 <ul>
-<li>En entornos de bastionado o despliegues seguros, se recomienda mantener la red desconectada o sin configuración adicional durante la instalación inicial para evitar que el sistema descargue paquetes desde fuentes externas antes de verificar su integridad.</li>
-<li>Esto reduce la exposición a repositorios o proxies no verificados y permite aplicar las actualizaciones de forma controlada una vez finalizada la instalación, dentro de un entorno supervisado.</li>
+<li><strong>Al llegar al paso del mirror</strong>, se debe <strong>desactivar el adaptador de red.</strong></li>
 </ul>
 <h2 is-upgraded>Paso 3: Configuración del almacenamiento</h2>
 <p>En este apartado se definirá el esquema de particiones del sistema.<br> El objetivo es crear una estructura <strong>segura y cifrada</strong>, protegiendo los datos desde el arranque.</p>
 <ol type="1">
 <li>En la pantalla <strong>&#34;Guided storage configuration&#34;</strong>, selecciona: <em>Custom storage layout</em></li>
 </ol>
-<p>(Insertar pantallazo de selección de Custom storage layout)</p>
+<p class="image-container"><img alt="Imagen5" src="img\\adf93eba505f15c5.png"></p>
 <ul>
 <li>Esta opción permite definir manualmente las particiones del sistema, garantizando un mayor control sobre su estructura y posibilitando la aplicación de cifrado en los volúmenes de datos.</li>
 </ul>
 <ol type="1" start="2">
 <li>Aparecerá la interfaz <strong>&#34;Storage configuration&#34;</strong>, donde se mostrará el disco disponible. Desde esta interfaz se crearán:</li>
 </ol>
-<p>(Insertar pantallazo de la interfaz de particionado)</p>
+<p class="image-container"><img alt="Imagen6" src="img\\6633e6adf6132a34.png"></p>
+<h2 is-upgraded>Estructura de particionado recomendada</h2>
+<table>
+<tr><td colspan="1" rowspan="1"><p>Punto de montaje</p>
+</td><td colspan="1" rowspan="1"><p>Tamaño aproximado</p>
+</td><td colspan="1" rowspan="1"><p>Cifrado</p>
+</td><td colspan="1" rowspan="1"><p>Descripción</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><code>/boot</code></p>
+</td><td colspan="1" rowspan="1"><p>1 GB</p>
+</td><td colspan="1" rowspan="1"><p>No</p>
+</td><td colspan="1" rowspan="1"><p>Contiene el kernel y archivos de arranque</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>Espacio restante</p>
+</td><td colspan="1" rowspan="1"><p>Todo el disco</p>
+</td><td colspan="1" rowspan="1"><p>Sí</p>
+</td><td colspan="1" rowspan="1"><p>Volumen LUKS cifrado con LVM</p>
+</td></tr>
+</table>
+<h2 is-upgraded>Pasos de configuración del disco</h2>
+<ol type="1">
+<li>Crear partición <code>/boot</code> (1 GB) sin cifrar.</li>
+<li>Crear una segunda partición con el resto del espacio sin formato.</li>
+<li>Crear un <strong>grupo de volúmenes LVM</strong> sobre esa partición.</li>
+<li>Activar <strong>cifrado LUKS</strong> y establecer una contraseña segura.</li>
+<li>Crear los siguientes volúmenes lógicos dentro del grupo cifrado:</li>
+</ol>
+<table>
+<tr><td colspan="1" rowspan="1"><p>Volumen</p>
+</td><td colspan="1" rowspan="1"><p>Punto de montaje</p>
+</td><td colspan="1" rowspan="1"><p>Tamaño aprox.</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>root</p>
+</td><td colspan="1" rowspan="1"><p>(<code>/</code>)</p>
+</td><td colspan="1" rowspan="1"><p>10 GB</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>home</p>
+</td><td colspan="1" rowspan="1"><p>(<code>/home</code>)</p>
+</td><td colspan="1" rowspan="1"><p>6 GB</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>var</p>
+</td><td colspan="1" rowspan="1"><p>(<code>/var</code>)</p>
+</td><td colspan="1" rowspan="1"><p>4 GB</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>tmp</p>
+</td><td colspan="1" rowspan="1"><p>(<code>/tmp</code>)</p>
+</td><td colspan="1" rowspan="1"><p>1.5 GB</p>
+</td></tr>
+<tr><td colspan="2" rowspan="1"><p>swap</p>
+</td><td colspan="1" rowspan="1"></td><td colspan="1" rowspan="1"><p>2 GB</p>
+</td></tr>
+</table>
+<p>Esta estructura segmenta el sistema en diferentes áreas protegidas y evita que fallos en una partición afecten a las demás.</p>
+<h2 is-upgraded>Paso 4: Finalización de la instalación</h2>
+<ol type="1">
+<li>Crear el usuario administrador y establecer la contraseña.</li>
+</ol>
 
 
       </google-codelab-step>
