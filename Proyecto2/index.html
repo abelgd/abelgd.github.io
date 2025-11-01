@@ -43,9 +43,11 @@
 <li>Imagen ISO de Ubuntu Server 24.04.3 LTS: <em>ubuntu-24.04.3-live-server-amd64.iso</em></li>
 <li>Máquina virtual o equipo físico preparado para la instalación.</li>
 </ul>
-<h2 is-upgraded>Medida de seguridad inicial: desconectar el adaptador de red</h2>
+<h2 is-upgraded>Medida de seguridad inicial: adaptador de red activo hasta el mirror</h2>
 <ul>
-<li>Antes de iniciar la instalación, se debe <strong>desactivar o desconectar el adaptador de red de la máquina virtual</strong>.<br> Esta medida evita cualquier conexión externa durante la instalación, garantizando que el sistema se configure en un entorno completamente aislado y controlado.</li>
+<li>Antes de iniciar la instalación, se debe <strong>mantener el adaptador de red activado</strong> para permitir que el instalador configure correctamente los componentes de red del sistema y detecte los recursos necesarios al finalizar la instalación.</li>
+<li>Una vez alcanzado el paso del <strong>mirror (Ubuntu archive mirror)</strong>, se procederá a <strong>desactivar el adaptador de red</strong> para evitar la descarga de paquetes desde fuentes externas no verificadas.</li>
+<li>El adaptador de red <strong>se volverá a activar</strong> una vez completada la instalación, justo antes de la configuración del GRUB.</li>
 </ul>
 
 
@@ -54,21 +56,18 @@
       <google-codelab-step label="Instalación de Ubuntu Server 24.04.3 LTS" duration="0">
         <h2 is-upgraded>Paso 1: Iniciar la instalación</h2>
 <ol type="1">
-<li>Inicia la máquina virtual utilizando la ISO: <em>ubuntu-24.04.3-live-server-amd64.iso</em></li>
-</ol>
-<p>(Insertar pantallazo del arranque de la ISO)</p>
-<ol type="1" start="2">
+<li>Inicia la máquina virtual utilizando la ISO: <em>ubuntu-24.04.3-live-server-amd64.iso</em>. Selecciona la opción <em>Omitir la instalación desatendida</em></li>
 <li>En el menú inicial, selecciona la opción: <em>Try or Install Ubuntu Server</em></li>
 </ol>
-<p>(Insertar pantallazo del menú de instalación)</p>
+<p class="image-container"><img alt="Imagen1" src="img\\47f86acaa9f31dba.png"></p>
 <ol type="1" start="3">
 <li>Elige el idioma de instalación y pulsa <em>Enter</em></li>
 </ol>
-<p>(Insertar pantallazo de selección de idioma)</p>
+<p class="image-container"><img alt="Imagen2" src="img\\1a05b1867ad59fc3.png"></p>
 <ol type="1" start="4">
 <li>Configura el diseño de teclado según corresponda.</li>
 </ol>
-<p>(Insertar pantallazo de selección de teclado)</p>
+<p class="image-container"><img alt="Imagen3" src="img\\ce80f12a6f6882b2.png"></p>
 <ol type="1" start="5">
 <li>En la pantalla <strong>&#34;Choose the type of installation&#34;</strong>, selecciona: <em>Ubuntu Server (minimized)</em></li>
 </ol>
