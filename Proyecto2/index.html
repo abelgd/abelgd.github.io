@@ -171,18 +171,18 @@
       </google-codelab-step>
     
       <google-codelab-step label="Configuración posterior al arranque y bastionado del sistema" duration="0">
-        <p>Una vez finalizada la instalación del sistema, se procederá a aplicar medidas de seguridad adicionales sobre el arranque, el kernel y los puntos de montaje.<br> El objetivo de este apartado es reforzar la integridad del sistema frente a accesos no autorizados o manipulaciones en las fases iniciales del arranque.</p>
+        <p>Una vez finalizada la instalación del sistema, se procederá a aplicar medidas de seguridad adicionales sobre el arranque, el kernel y los puntos de montaje.<br> El objetivo de este apartado es <strong>reforzar la integridad del sistema</strong> frente a accesos no autorizados o manipulaciones en las fases iniciales del arranque.</p>
 <h2 is-upgraded>Paso 5: Reactivar el adaptador de red e instalar utilidades</h2>
-<p>Antes de continuar con la configuración del GRUB, es necesario <strong>reactivar el adaptador de red</strong> para poder instalar las herramientas requeridas. Actualizar los repositorios e instalar el editor ‘nano&#39;.</p>
+<p>Antes de continuar con la configuración del GRUB, es necesario <strong>reactivar el adaptador de red</strong> para poder instalar las herramientas requeridas. Actualizar los repositorios e instalar el editor <strong>‘nano&#39;</strong>.</p>
 <h2 is-upgraded>Paso 6: Configuración segura del gestor de arranque (GRUB)</h2>
 <p>El gestor de arranque <strong>GRUB</strong> será protegido mediante una contraseña cifrada, impidiendo el acceso no autorizado al menú de arranque o la modificación de parámetros críticos del sistema.</p>
 <h3 is-upgraded>6.1 Generar el hash PBKDF2</h3>
-<p>Ejecuta el siguiente comando para generar el hash de la contraseña del GRUB: <em>sudo grub-mkpasswd-pbkdf2</em></p>
+<p>Ejecuta el siguiente comando para generar el hash de la contraseña del GRUB: <strong><em>sudo grub-mkpasswd-pbkdf2</em></strong></p>
 <p class="image-container"><img alt="Imagen11" src="img\\e3df0c1a444ab550.png"></p>
 <h3 is-upgraded>6.2 Configurar el archivo /etc/grub.d/40_custom</h3>
 <ul>
-<li>Abrir y editar el archivo personalizado del GRUB: <em>sudo nano /etc/grub.d/40_custom</em></li>
-<li>Añadir el siguiente comando: <strong>set superusers=&#34;grubadmin&#34; password_pbkdf2 grubadmin grub.pbkdf2.sha512.100000.[HASH_GENERADO]</strong></li>
+<li>Abrir y editar el archivo personalizado del GRUB: <strong><em>sudo nano /etc/grub.d/40_custom</em></strong></li>
+<li>Añadir el siguiente comando: <strong><em>set superusers=&#34;grubadmin&#34; password_pbkdf2 grubadmin grub.pbkdf2.sha512.100000.[HASH_GENERADO]</em></strong></li>
 </ul>
 <p>-<img alt="Imagen12" src="img\\55ac54469eb5b61f.png"></p>
 <p>El usuario <em>admin</em> se define como superusuario del GRUB y usará el hash PBKDF2 para autenticación.</p>
@@ -198,18 +198,18 @@
 <p>Estos permisos garantizan que solo <strong>root</strong> pueda leer o modificar la configuración crítica del gestor de arranque.</p>
 <h3 is-upgraded>6.4 Ocultar el menú del GRUB</h3>
 <ul>
-<li>Editar el archivo de configuración por defecto con el comando: sudo nano <em>/etc/default/grub</em></li>
-<li>Modificar la variable <strong>GRUB_TIMEOUT=0</strong> para que el menú del GRUB no aparezca durante el arranque.</li>
+<li>Editar el archivo de configuración por defecto con el comando: <strong><em>sudo nano /etc/default/grub</em></strong></li>
+<li>Modificar la variable <strong><em>GRUB_TIMEOUT=0</em></strong> para que el menú del GRUB no aparezca durante el arranque.</li>
 </ul>
 <p>El sistema arrancará directamente sin mostrar el menú del GRUB, evitando accesos no autorizados al gestor de arranque.</p>
 <h2 is-upgraded>Paso 7: Restringir permisos del kernel</h2>
-<p>Aplicar permisos restrictivos sobre los binarios y archivos del kernel ubicados en <em>/boot</em> a través de los siguientes comandos:</p>
+<p>Aplicar permisos restrictivos sobre los binarios y archivos del kernel ubicados en <strong><em>/boot</em></strong> a través de los siguientes comandos:</p>
 <p class="image-container"><img alt="Imagen14" src="img\\55922409f3212157.png"></p>
 <p>Con el objetivo de prevenir lecturas o modificaciones no autorizadas de los artefactos críticos del kernel, protegiendo así la integridad del sistema.</p>
 <h2 is-upgraded>Paso 8: Configuración de montajes seguros en /etc/fstab</h2>
 <p>El archivo /etc/fstab define cómo se montan las particiones del sistema. Aplicar opciones restrictivas reduce el riesgo de ejecución de código malicioso o de escaladas de privilegios.</p>
 <h3 is-upgraded>8.1 Editar /etc/fstab</h3>
-<p>Abrir el archivo con privilegios de administrador: <em>sudo nano /etc/fstab</em> Editar el archivo de la siguiente forma:</p>
+<p>Abrir el archivo con privilegios de administrador: <strong><em>sudo nano /etc/fstab</em></strong>. Editar el archivo de la siguiente forma:</p>
 <p class="image-container"><img alt="Imagen15" src="img\\8fe522025d2c250.png"></p>
 <p>Opciones de seguridad:</p>
 <ul>
