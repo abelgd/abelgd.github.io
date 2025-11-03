@@ -1,12 +1,17 @@
-# Portfolio de proyectos — Abel García Domínguez
+# Portfolio de proyectos — Abel García Domínguez (abelgd)
 
-Este repositorio contiene una colección de proyectos desarrollados por **Abel García Domínguez (abelgd)**, enfocados en diferentes áreas del ámbito tecnológico.  
-Su propósito es servir como **portfolio técnico**, mostrando prácticas, configuraciones y desarrollos relacionados principalmente con:
+Este repositorio recopila diversos proyectos desarrollados por **Abel García Domínguez**, enfocados en el ámbito de la **administración de sistemas, redes y ciberseguridad**.  
+Su objetivo es servir como **portfolio técnico**, mostrando prácticas y configuraciones aplicadas en entornos reales y formativos.
 
-- **Administración de sistemas Linux y Windows**  
-- **Diseño y gestión de redes**  
-- **Ciberseguridad y bastionado de sistemas**  
-- **Automatización de entornos y scripting**  
-- **Infraestructura y servicios en entornos virtualizados**
+---
 
-Cada proyecto documenta procedimientos, configuraciones y resultados obtenidos en distintos entornos, con un enfoque **didáctico, técnico y reproducible**, siguiendo estándares de documentación en formato **Markdown** y **CodeLab**.
+## ⚙️ Áreas principales de trabajo
+
+-  **Administración de sistemas Linux y Windows**  
+-  **Diseño, implementación y gestión de redes**  
+-  **Ciberseguridad y bastionado de sistemas**  
+-  **Análisis y gestión de riesgos**  
+-  **Automatización y scripting**  
+-  **Infraestructura y servicios virtualizados**
+
+Cada proyecto está documentado de forma **didáctica y reproducible**, siguiendo estándares de documentación en **Markdown** y **Codelab**.
