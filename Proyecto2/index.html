@@ -210,7 +210,11 @@
 <h2 is-upgraded>Paso 8: Configuración de montajes seguros en /etc/fstab</h2>
 <p>El archivo /etc/fstab define cómo se montan las particiones del sistema. Aplicar opciones restrictivas reduce el riesgo de ejecución de código malicioso o de escaladas de privilegios.</p>
 <h3 is-upgraded>8.1 Crear copia de seguridad y editar /etc/fstab</h3>
-<p>Antes de editar el archivo realiza una copia de seguridad: <strong><em>sudo cp /etc/fstab /etc/fstab.bak</em></strong> Abrir el archivo con privilegios de administrador: <strong><em>sudo nano /etc/fstab</em></strong>. Editar el archivo de la siguiente forma:</p>
+<ul>
+<li>Antes de editar el archivo realiza una copia de seguridad: <strong><em>sudo cp /etc/fstab /etc/fstab.bak</em></strong></li>
+<li>Abrir el archivo con privilegios de administrador: <strong><em>sudo nano /etc/fstab</em></strong>.</li>
+<li>Editar el archivo de la siguiente forma:</li>
+</ul>
 <p class="image-container"><img alt="Imagen15" src="img\\8fe522025d2c250.png"></p>
 <p>Opciones de seguridad:</p>
 <ul>
