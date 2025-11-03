@@ -55,12 +55,13 @@
 <li><strong>Contraseña de usuario de la BIOS</strong><ul>
 <li>Dentro del mismo menú Security → User Password.</li>
 <li>Configura una contraseña diferente a la de administrador.</li>
+<li>Introduce la nueva contraseña y confírmala cuando el sistema lo solicite.</li>
 <li>Esta contraseña será requerida para entrar al BIOS sin privilegios de administrador.</li>
 </ul>
 <img alt="Imagen 2" src="img\\4a1985fd1fb2ba79.png"></li>
 <li><strong>Contraseña de arranque del dispositivo (Power-On / HDD)</strong><ul>
 <li>Todavía en Security, localiza Set Hard Disk Passwords.</li>
-<li>Configura la contraseña según tus necesidades.</li>
+<li>Introduce y confirma la contraseña de arranque cuando el sistema lo indique.</li>
 <li>Esta contraseña se solicita al encender el equipo y protege el arranque del disco.</li>
 </ul>
 <img alt="Imagen 3" src="img\\1b3f1b8a85bcc272.png"></li>
@@ -75,6 +76,12 @@
 <ol type="1">
 <li><strong>Boot Mode</strong><ul>
 <li>Selecciona <strong>UEFI</strong> para garantizar compatibilidad con Secure Boot, discos GPT y arranque seguro moderno.</li>
+</ul>
+<h3 is-upgraded>1.1 Orden de arranque (Boot Priority Order)</h3>
+<ul>
+<li>En este modelo, la BIOS no muestra una lista manual de prioridad de arranque, ya que al usar <strong>modo UEFI</strong>, la prioridad la gestiona automáticamente el sistema operativo mediante <strong>Windows Boot Manager</strong>.</li>
+<li>Asegúrate de que el equipo está configurado en <strong>modo UEFI</strong> (paso anterior) y que <strong>Windows Boot Manager</strong> aparece como opción de arranque en la pestaña &#34;EFI&#34;.</li>
+<li>De esta forma, el sistema siempre arrancará primero desde el disco interno autorizado.</li>
 </ul>
 </li>
 <li><strong>Fast Boot</strong><ul>
@@ -100,6 +107,12 @@
 <li>Confirma que el arranque se realiza en modo <strong>EFI</strong> para Secure Boot y discos GPT.</li>
 </ul>
 <img alt="Imagen 4" src="img\\c881c4c03d6615ae.png"></li>
+<li><strong>Secure Boot</strong><ul>
+<li>Localiza la opción <strong>Secure Boot</strong> (pestaña <em>Security</em>).</li>
+<li>Asegúrate de que esté configurada como <strong>Enabled</strong>.</li>
+<li>Esto evita que el sistema arranque con sistemas operativos o controladores no firmados digitalmente.</li>
+</ul>
+</li>
 </ol>
 <p><strong>Nota de seguridad:</strong> Al desactivar Fast Boot, USB Boot o PXE Boot, algunas opciones relacionadas pueden desaparecer del menú. Esto es <strong>normal</strong> y forma parte de la configuración más segura del arranque.</p>
 
@@ -129,7 +142,7 @@
 </ul>
 </li>
 </ol>
-<p><strong>Resultado esperado:<br></strong> El sistema arranca de forma segura, solicitando las contraseñas configuradas y sin permitir el arranque desde dispositivos no autorizados.</p>
+<p><strong>Resultado esperado:<br></strong> El sistema arranca de forma segura, solicitando las contraseñas configuradas y sin permitir el arranque desde dispositivos no autorizados. Por lo tanto, el equipo queda protegido frente a accesos no autorizados al firmware, garantizando un arranque seguro y controlado por el usuario.</p>
 
 
       </google-codelab-step>
