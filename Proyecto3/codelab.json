@@ -3,7 +3,7 @@
   "format": "html",
   "prefix": "https://storage.googleapis.com",
   "mainga": "UA-49880327-14",
-  "updated": "2025-11-03T18:05:39+01:00",
+  "updated": "2025-11-03T18:08:08+01:00",
   "id": "identificador3",
   "duration": 0,
   "title": "Proyecto 3: Guía para realizar un análisis de riesgos",
@@ -22,5 +22,6 @@
     "web"
   ],
   "feedback": "https://github.com/abelgd/abelgd.github.io/issues/1",
+  "ga": "ID de Google Analytics",
   "url": "identificador3"
 }
