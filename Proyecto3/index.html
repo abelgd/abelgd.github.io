@@ -28,36 +28,23 @@
                   feedback-link="https://github.com/abelgd/abelgd.github.io/issues/1">
     
       <google-codelab-step label="Introducción" duration="0">
-        <p>En el ámbito de la ciberseguridad y la gestión tecnológica, <strong>el análisis de riesgos</strong> constituye un pilar esencial para garantizar la <strong>continuidad operativa</strong> y la <strong>fiabilidad</strong> de una organización.</p>
-<p>No se trata de eliminar por completo las amenazas —lo cual es imposible—, sino de <strong>identificarlas, evaluarlas y gestionarlas</strong> de forma que el impacto sobre el negocio sea <strong>controlable y asumible</strong>.</p>
-<p>El propósito de esta guía es establecer un <strong>procedimiento técnico y estructurado</strong> que permita a cualquier organización:</p>
+        <p>El presente documento tiene como objetivo servir como <strong>guía técnica y práctica</strong> para la realización de un <strong>análisis de riesgos</strong>.</p>
+<p>El análisis de riesgos es un proceso esencial para garantizar la <strong>continuidad operativa</strong>, la <strong>fiabilidad</strong> y la <strong>resiliencia</strong> de cualquier organización.<br> Su propósito no es eliminar las amenazas por completo —algo imposible—, sino <strong>identificarlas, evaluarlas y gestionarlas</strong> para que el impacto sobre el negocio sea <strong>asumible y controlado</strong>.</p>
+<p>Esta guía se estructura en pasos claros que permiten comprender cada fase del proceso, y se complementa con un <strong>ejemplo práctico aplicado a la empresa AGGuard</strong>, que servirá como referencia para ilustrar los conceptos tratados en cada punto.</p>
+<p>El proceso se apoya en los principios de la <strong>triada CIA</strong>:</p>
 <ul>
-<li>Conocer sus activos más críticos.</li>
-<li>Identificar amenazas y vulnerabilidades.</li>
-<li>Evaluar el nivel de riesgo asociado a cada amenaza.</li>
-<li>Implementar medidas proporcionales que garanticen la <strong>resiliencia</strong> y la <strong>fiabilidad</strong> del entorno.</li>
+<li><strong>Confidencialidad:</strong> la información solo es accesible por quien debe.</li>
+<li><strong>Integridad:</strong> los datos se mantienen exactos y verificables.</li>
+<li><strong>Disponibilidad:</strong> los sistemas permanecen accesibles cuando se necesitan.</li>
 </ul>
-<p>En seguridad, la perfección no existe: lo que se busca es <strong>una empresa fiable, operativa y capaz de recuperarse ante cualquier incidente</strong>.</p>
-<p>Este proceso se alinea con los principios de la <strong>triada CIA</strong>:</p>
-<ul>
-<li><strong>Confidencialidad</strong> → la información solo es accesible por quien debe.</li>
-<li><strong>Integridad</strong> → los datos y sistemas se mantienen íntegros y verificables.</li>
-<li><strong>Disponibilidad</strong> → los servicios permanecen accesibles cuando se necesitan.</li>
-</ul>
+<p>En ciberseguridad, la meta no es eliminar los riesgos, sino <strong>aprender a gestionarlos para seguir operando con fiabilidad incluso ante el fallo.</strong></p>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="1. Identificación de activos por criticidad" duration="0">
-        <p>El primer paso del análisis consiste en <strong>identificar los activos</strong> de la organización y determinar su <strong>nivel de criticidad</strong>.<br> La criticidad se define como el <strong>grado de impacto que tendría la pérdida, daño o indisponibilidad</strong> de un activo sobre la operativa o los objetivos de la empresa.</p>
-<p>Los activos pueden ser:</p>
-<ul>
-<li><strong>Tecnológicos</strong>: servidores, bases de datos, equipos, redes.</li>
-<li><strong>De información</strong>: documentación, datos de clientes, software interno.</li>
-<li><strong>Humanos</strong>: personal técnico, administradores, usuarios clave.</li>
-<li><strong>Organizativos</strong>: procesos, políticas, reputación, relaciones con clientes.</li>
-</ul>
-<p>Cada activo se clasifica según su <strong>criticidad e importancia para la continuidad del negocio</strong>:</p>
+        <p>El primer paso del análisis de riesgos es <strong>identificar los activos</strong> de la empresa.<br> Un activo puede definirse como <strong>todo elemento que tiene valor para la organización</strong> y cuya pérdida o daño puede afectar a su operativa, reputación o continuidad.</p>
+<p>Los activos incluyen tanto recursos <strong>tecnológicos</strong> (como servidores o redes) como <strong>informativos, humanos u organizativos</strong>.<br> Cada uno de ellos se evalúa según su <strong>criticidad</strong>, es decir, el nivel de impacto que tendría su pérdida o indisponibilidad para la empresa.</p>
 <table>
 <tr><td colspan="1" rowspan="1"><p>Nivel de criticidad</p>
 </td><td colspan="1" rowspan="1"><p>Descripción</p>
@@ -75,9 +62,9 @@
 </td><td colspan="1" rowspan="1"><p>Genera un impacto leve o fácilmente recuperable.</p>
 </td></tr>
 </table>
-<p>Una clasificación por criticidad permite priorizar los recursos de seguridad donde realmente importa.</p>
+<p>Clasificar los activos por criticidad permite centrar los recursos de seguridad en lo que realmente importa.</p>
 <h2 is-upgraded>Ejemplo práctico: Identificación de activos en AGGuard</h2>
-<p><strong>Contexto:</strong> AGGuard es una empresa mediana dedicada a la seguridad de redes y bastionado de sistemas, con clientes corporativos y pymes.<br> Su prioridad es garantizar la continuidad de los servicios de monitorización y soporte 24/7.</p>
+<p><strong>Contexto:</strong> AGGuard es una empresa especializada en seguridad de redes y bastionado de sistemas.<br> Su operativa depende de la <strong>disponibilidad constante</strong> de sus servicios de monitorización y soporte a clientes.</p>
 <table>
 <tr><td colspan="1" rowspan="1"><p>Activo</p>
 </td><td colspan="1" rowspan="1"><p>Descripción</p>
@@ -85,152 +72,124 @@
 </td><td colspan="1" rowspan="1"><p>Justificación</p>
 </td></tr>
 <tr><td colspan="1" rowspan="1"><p>Servidor principal</p>
-</td><td colspan="1" rowspan="1"><p>Alojamiento de servicios de monitorización y copias remotas</p>
-</td><td colspan="1" rowspan="1"><p>🔴 Crítico</p>
-</td><td colspan="1" rowspan="1"><p>Su caída paraliza el servicio a clientes</p>
+</td><td colspan="1" rowspan="1"><p>Aloja servicios de monitorización y control remoto</p>
+</td><td colspan="1" rowspan="1"><p>🔴 Muy alto</p>
+</td><td colspan="1" rowspan="1"><p>Su caída paraliza la atención a clientes</p>
 </td></tr>
 <tr><td colspan="1" rowspan="1"><p>Base de datos de clientes</p>
 </td><td colspan="1" rowspan="1"><p>Información técnica, contraseñas cifradas y contratos</p>
-</td><td colspan="1" rowspan="1"><p>🔴 Crítico</p>
-</td><td colspan="1" rowspan="1"><p>Contiene información sensible y de cumplimiento legal</p>
+</td><td colspan="1" rowspan="1"><p>🔴 Muy alto</p>
+</td><td colspan="1" rowspan="1"><p>Contiene datos confidenciales y de cumplimiento legal</p>
 </td></tr>
 <tr><td colspan="1" rowspan="1"><p>Firewall corporativo</p>
-</td><td colspan="1" rowspan="1"><p>Protección perimetral y filtrado de tráfico</p>
+</td><td colspan="1" rowspan="1"><p>Control de tráfico y seguridad perimetral</p>
 </td><td colspan="1" rowspan="1"><p>🟠 Alto</p>
-</td><td colspan="1" rowspan="1"><p>Su fallo aumenta la exposición a ataques externos</p>
+</td><td colspan="1" rowspan="1"><p>Su fallo aumenta la exposición ante ciberataques</p>
 </td></tr>
-<tr><td colspan="1" rowspan="1"><p>Administradores de red</p>
-</td><td colspan="1" rowspan="1"><p>Personal encargado del mantenimiento diario</p>
+<tr><td colspan="1" rowspan="1"><p>Personal técnico</p>
+</td><td colspan="1" rowspan="1"><p>Encargado del mantenimiento diario</p>
 </td><td colspan="1" rowspan="1"><p>🟡 Medio</p>
-</td><td colspan="1" rowspan="1"><p>Su ausencia puede gestionarse con reemplazos temporales</p>
+</td><td colspan="1" rowspan="1"><p>Puede suplirse temporalmente</p>
 </td></tr>
-<tr><td colspan="1" rowspan="1"><p>Procedimientos internos</p>
-</td><td colspan="1" rowspan="1"><p>Guías, scripts y documentación técnica</p>
+<tr><td colspan="1" rowspan="1"><p>Documentación interna</p>
+</td><td colspan="1" rowspan="1"><p>Procedimientos y guías técnicas</p>
 </td><td colspan="1" rowspan="1"><p>🟢 Bajo</p>
-</td><td colspan="1" rowspan="1"><p>Su pérdida es molesta, pero recuperable desde backups</p>
+</td><td colspan="1" rowspan="1"><p>Su pérdida es recuperable desde copias locales</p>
 </td></tr>
 </table>
-<p>Resultado: se priorizarán las medidas de seguridad sobre los activos <strong>críticos</strong> y <strong>altos</strong>, garantizando su disponibilidad y fiabilidad.</p>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="2. Identificación de amenazas" duration="0">
-        <p>Las <strong>amenazas</strong> son los eventos o agentes externos que pueden afectar negativamente a los activos de la organización.<br> Pueden ser de naturaleza <strong>humana, tecnológica, accidental o natural</strong>, y su valoración depende de dos factores principales:</p>
-<ul>
-<li><strong>Probabilidad</strong> de que ocurran.</li>
-<li><strong>Impacto potencial</strong> sobre los activos afectados.</li>
-</ul>
-<p>El análisis busca <strong>determinar la criticidad de cada amenaza</strong> y <strong>la probabilidad de que ocurra</strong>, combinando ambos factores para establecer el <strong>nivel de riesgo</strong>.<br> Esta fase nos da una visión de las condiciones que podrían comprometer la <strong>continuidad operativa</strong> de la empresa.</p>
-<p>Una amenaza con impacto alto y probabilidad media puede tener la misma criticidad que otra con impacto medio y probabilidad alta.</p>
-<h2 is-upgraded>Ejemplo práctico: Amenazas externas para AGGuard</h2>
+        <p>Una amenaza es cualquier evento que pueda afectar negativamente a los activos o la operativa de una organización, provocando daños, pérdidas o interrupciones. Las evaluaremos en función de su <strong>nivel de riesgo</strong>, definido por la combinación de <strong>impacto</strong> y <strong>probabilidad</strong>.</p>
+<p>Cuanto mayor sea el impacto y la probabilidad, mayor será la prioridad de actuación.</p>
+<h2 is-upgraded>Ejemplo práctico: Amenazas ordenadas por riesgo en AGGuard</h2>
 <table>
 <tr><td colspan="1" rowspan="1"><p>Amenaza</p>
 </td><td colspan="1" rowspan="1"><p>Activo afectado</p>
-</td><td colspan="1" rowspan="1"><p>Probabilidad</p>
 </td><td colspan="1" rowspan="1"><p>Impacto</p>
+</td><td colspan="1" rowspan="1"><p>Probabilidad</p>
+</td><td colspan="1" rowspan="1"><p>Nivel de riesgo</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>Ataque de ransomware</p>
+</td><td colspan="1" rowspan="1"><p>Servidor principal</p>
+</td><td colspan="1" rowspan="1"><p>Muy alto</p>
+</td><td colspan="1" rowspan="1"><p>Alta</p>
+</td><td colspan="1" rowspan="1"><p>🔴 Muy alto</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>Fuga de datos (phishing o robo de credenciales)</p>
+</td><td colspan="1" rowspan="1"><p>Base de datos de clientes</p>
+</td><td colspan="1" rowspan="1"><p>Muy alto</p>
+</td><td colspan="1" rowspan="1"><p>Media</p>
+</td><td colspan="1" rowspan="1"><p>🔴 Muy alto</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>Corte eléctrico prolongado</p>
+</td><td colspan="1" rowspan="1"><p>Servidor principal y firewall</p>
+</td><td colspan="1" rowspan="1"><p>Alto</p>
+</td><td colspan="1" rowspan="1"><p>Media</p>
+</td><td colspan="1" rowspan="1"><p>🟠 Alto</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>Fallo del proveedor cloud</p>
+</td><td colspan="1" rowspan="1"><p>Copias de respaldo y servicios externos</p>
+</td><td colspan="1" rowspan="1"><p>Medio</p>
+</td><td colspan="1" rowspan="1"><p>Baja</p>
+</td><td colspan="1" rowspan="1"><p>🟡 Medio</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>Error humano en configuración</p>
+</td><td colspan="1" rowspan="1"><p>Red interna</p>
+</td><td colspan="1" rowspan="1"><p>Medio</p>
+</td><td colspan="1" rowspan="1"><p>Baja</p>
+</td><td colspan="1" rowspan="1"><p>🟢 Bajo</p>
+</td></tr>
+</table>
+<p>Las amenazas con <strong>mayor impacto y probabilidad</strong> deben ser gestionadas de inmediato, ya que comprometen la continuidad y la confianza del cliente.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="3. Identificación de vulnerabilidades relacionadas" duration="0">
+        <p>Las <strong>vulnerabilidades</strong> son las debilidades internas que permiten que una amenaza se haga efectiva.<br> Cada vulnerabilidad debe analizarse <strong>en relación directa con la amenaza asociada</strong>, para entender cómo afecta al riesgo total.</p>
+<p>Una amenaza solo se convierte en un problema real si existe una vulnerabilidad que la hace posible.</p>
+<h2 is-upgraded>Ejemplo práctico: Relación amenazas-vulnerabilidades en AGGuard</h2>
+<table>
+<tr><td colspan="1" rowspan="1"><p>Amenaza asociada</p>
+</td><td colspan="1" rowspan="1"><p>Vulnerabilidad interna</p>
+</td><td colspan="1" rowspan="1"><p>Riesgo para la empresa</p>
 </td><td colspan="1" rowspan="1"><p>Criticidad</p>
 </td></tr>
 <tr><td colspan="1" rowspan="1"><p>Ciberataque (ransomware)</p>
-</td><td colspan="1" rowspan="1"><p>Servidor principal</p>
-</td><td colspan="1" rowspan="1"><p>Alta</p>
-</td><td colspan="1" rowspan="1"><p>Muy alto</p>
-</td><td colspan="1" rowspan="1"><p>🔴 Crítico</p>
+</td><td colspan="1" rowspan="1"><p>Contraseñas sin MFA y copias de seguridad conectadas a la red</p>
+</td><td colspan="1" rowspan="1"><p>Permite el cifrado total de sistemas y pérdida de servicio</p>
+</td><td colspan="1" rowspan="1"><p>🔴 Muy alto</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>Fuga de datos</p>
+</td><td colspan="1" rowspan="1"><p>Falta de formación en phishing y acceso excesivo a información sensible</p>
+</td><td colspan="1" rowspan="1"><p>Pérdida de confianza, sanciones legales y daño reputacional</p>
+</td><td colspan="1" rowspan="1"><p>🔴 Muy alto</p>
 </td></tr>
 <tr><td colspan="1" rowspan="1"><p>Corte eléctrico prolongado</p>
-</td><td colspan="1" rowspan="1"><p>Servidor principal, firewall</p>
-</td><td colspan="1" rowspan="1"><p>Media</p>
-</td><td colspan="1" rowspan="1"><p>Alto</p>
+</td><td colspan="1" rowspan="1"><p>Falta de redundancia energética y UPS limitadas</p>
+</td><td colspan="1" rowspan="1"><p>Interrupción del servicio de monitorización</p>
 </td><td colspan="1" rowspan="1"><p>🟠 Alto</p>
-</td></tr>
-<tr><td colspan="1" rowspan="1"><p>Daño físico por incendio</p>
-</td><td colspan="1" rowspan="1"><p>Infraestructura física</p>
-</td><td colspan="1" rowspan="1"><p>Baja</p>
-</td><td colspan="1" rowspan="1"><p>Muy alto</p>
-</td><td colspan="1" rowspan="1"><p>🟠 Alto</p>
-</td></tr>
-<tr><td colspan="1" rowspan="1"><p>Fuga de información por phishing</p>
-</td><td colspan="1" rowspan="1"><p>Base de datos de clientes</p>
-</td><td colspan="1" rowspan="1"><p>Media</p>
-</td><td colspan="1" rowspan="1"><p>Muy alto</p>
-</td><td colspan="1" rowspan="1"><p>🔴 Crítico</p>
 </td></tr>
 <tr><td colspan="1" rowspan="1"><p>Fallo del proveedor cloud</p>
-</td><td colspan="1" rowspan="1"><p>Servicios alojados</p>
-</td><td colspan="1" rowspan="1"><p>Baja</p>
-</td><td colspan="1" rowspan="1"><p>Alto</p>
+</td><td colspan="1" rowspan="1"><p>No disponer de copias locales actualizadas</p>
+</td><td colspan="1" rowspan="1"><p>Pérdida temporal de datos y dependencia externa</p>
 </td><td colspan="1" rowspan="1"><p>🟡 Medio</p>
 </td></tr>
+<tr><td colspan="1" rowspan="1"><p>Error humano</p>
+</td><td colspan="1" rowspan="1"><p>Ausencia de revisión por pares en cambios de configuración</p>
+</td><td colspan="1" rowspan="1"><p>Caídas o malfuncionamiento temporal del sistema</p>
+</td><td colspan="1" rowspan="1"><p>🟢 Bajo</p>
+</td></tr>
 </table>
-<p>El ransomware y la fuga de datos representan las <strong>amenazas más críticas</strong> por su impacto directo en la continuidad del servicio y la reputación de AGGuard.</p>
 
 
       </google-codelab-step>
     
-      <google-codelab-step label="3. Identificación de vulnerabilidades (nivel interno)" duration="0">
-        <p>Las <strong>vulnerabilidades</strong> son las debilidades internas que pueden ser explotadas por las amenazas externas.<br> Constituyen el elemento que <strong>incrementa el nivel de riesgo</strong>, al facilitar el éxito de un ataque o fallo.</p>
-<p>Estas vulnerabilidades pueden ser:</p>
-<ul>
-<li><strong>Técnicas</strong> → configuraciones inseguras, software desactualizado, contraseñas débiles.</li>
-<li><strong>Organizativas</strong> → falta de políticas claras, formación insuficiente, errores humanos.</li>
-<li><strong>Físicas</strong> → instalaciones poco seguras, acceso no controlado a equipos.</li>
-</ul>
-<p>Cada vulnerabilidad debe vincularse con una amenaza específica, para comprender cómo <strong>interactúan los factores internos y externos</strong> en el riesgo total.</p>
-<p>Las amenazas externas solo son efectivas cuando existen vulnerabilidades internas que las facilitan.</p>
-<h2 is-upgraded>Ejemplo práctico: Vulnerabilidades internas en AGGuard</h2>
-<table>
-<tr><td colspan="1" rowspan="1"><p>Vulnerabilidad</p>
-</td><td colspan="1" rowspan="1"><p>Activo afectado</p>
-</td><td colspan="1" rowspan="1"><p>Tipo</p>
-</td><td colspan="1" rowspan="1"><p>Riesgo asociado</p>
-</td><td colspan="1" rowspan="1"><p>Criticidad</p>
-</td></tr>
-<tr><td colspan="1" rowspan="1"><p>Contraseñas sin MFA</p>
-</td><td colspan="1" rowspan="1"><p>Servidor principal</p>
-</td><td colspan="1" rowspan="1"><p>Técnica</p>
-</td><td colspan="1" rowspan="1"><p>Facilita ransomware o acceso no autorizado</p>
-</td><td colspan="1" rowspan="1"><p>🔴 Crítico</p>
-</td></tr>
-<tr><td colspan="1" rowspan="1"><p>Parches de software no actualizados</p>
-</td><td colspan="1" rowspan="1"><p>Firewall</p>
-</td><td colspan="1" rowspan="1"><p>Técnica</p>
-</td><td colspan="1" rowspan="1"><p>Explotación remota de servicios</p>
-</td><td colspan="1" rowspan="1"><p>🟠 Alto</p>
-</td></tr>
-<tr><td colspan="1" rowspan="1"><p>Falta de formación en phishing</p>
-</td><td colspan="1" rowspan="1"><p>Personal de soporte</p>
-</td><td colspan="1" rowspan="1"><p>Organizativa</p>
-</td><td colspan="1" rowspan="1"><p>Riesgo de fuga de credenciales</p>
-</td><td colspan="1" rowspan="1"><p>🟠 Alto</p>
-</td></tr>
-<tr><td colspan="1" rowspan="1"><p>Copias de seguridad en la misma red</p>
-</td><td colspan="1" rowspan="1"><p>Base de datos</p>
-</td><td colspan="1" rowspan="1"><p>Técnica</p>
-</td><td colspan="1" rowspan="1"><p>Pérdida total en caso de cifrado</p>
-</td><td colspan="1" rowspan="1"><p>🔴 Crítico</p>
-</td></tr>
-<tr><td colspan="1" rowspan="1"><p>Ausencia de monitorización 24/7</p>
-</td><td colspan="1" rowspan="1"><p>Red interna</p>
-</td><td colspan="1" rowspan="1"><p>Organizativa</p>
-</td><td colspan="1" rowspan="1"><p>Detección tardía de incidentes</p>
-</td><td colspan="1" rowspan="1"><p>🟡 Medio</p>
-</td></tr>
-</table>
-<p>La existencia de vulnerabilidades técnicas y humanas incrementa la exposición general. El siguiente paso es <strong>evaluar el riesgo</strong>.</p>
-
-
-      </google-codelab-step>
-    
-      <google-codelab-step label="4. Evaluación del riesgo y definición del umbral" duration="0">
-        <p>El nivel de riesgo se calcula combinando <strong>impacto</strong> y <strong>probabilidad</strong>, estableciendo niveles de:</p>
-<ul>
-<li>🔴 Muy Alto</li>
-<li>🟠 Alto</li>
-<li>🟡 Medio</li>
-<li>🟢 Bajo</li>
-</ul>
-<p>La empresa debe determinar su <strong>umbral de riesgo aceptable</strong>, es decir, el punto a partir del cual los riesgos deben ser <strong>tratados activamente</strong>.<br> Por debajo del umbral, pueden <strong>asumirse</strong> con medidas compensatorias.</p>
-<p>A partir de este análisis, se define la <strong>estrategia de gestión</strong> para cada riesgo:</p>
+      <google-codelab-step label="4. Evaluación del riesgo y umbral de aceptación" duration="0">
+        <p>El <strong>nivel de riesgo</strong> combina la <strong>probabilidad</strong> y el <strong>impacto</strong> de cada amenaza.<br> La empresa debe definir su <strong>umbral de riesgo aceptable</strong>, a partir del cual los riesgos se deben tratar activamente.</p>
 <table>
 <tr><td colspan="1" rowspan="1"><p>Estrategia</p>
 </td><td colspan="1" rowspan="1"><p>Acción</p>
@@ -241,103 +200,119 @@
 </td><td colspan="1" rowspan="1"><p>Controlar el daño potencial.</p>
 </td></tr>
 <tr><td colspan="1" rowspan="1"><p><strong>EVITAR</strong></p>
-</td><td colspan="1" rowspan="1"><p>Eliminar la causa del riesgo o el proceso vulnerable.</p>
+</td><td colspan="1" rowspan="1"><p>Eliminar la causa o proceso vulnerable.</p>
 </td><td colspan="1" rowspan="1"><p>Prevenir completamente el riesgo.</p>
 </td></tr>
 <tr><td colspan="1" rowspan="1"><p><strong>TRANSFERIR</strong></p>
-</td><td colspan="1" rowspan="1"><p>Delegar el riesgo (seguros, outsourcing, contratos).</p>
-</td><td colspan="1" rowspan="1"><p>Reducir exposición directa.</p>
+</td><td colspan="1" rowspan="1"><p>Delegar el riesgo (contratos, servicios externos).</p>
+</td><td colspan="1" rowspan="1"><p>Reducir la exposición directa.</p>
 </td></tr>
 <tr><td colspan="1" rowspan="1"><p><strong>ASUMIR</strong></p>
-</td><td colspan="1" rowspan="1"><p>Aceptar el riesgo bajo supervisión y contingencia.</p>
-</td><td colspan="1" rowspan="1"><p>Garantizar continuidad con control.</p>
+</td><td colspan="1" rowspan="1"><p>Aceptar el riesgo bajo control.</p>
+</td><td colspan="1" rowspan="1"><p>Mantener la operativa con contingencia.</p>
 </td></tr>
 </table>
-<p>La clave está en equilibrar coste, eficacia y continuidad: <strong>no eliminar el riesgo, sino dominarlo.</strong></p>
-<h2 is-upgraded>Ejemplo práctico: Evaluación y tratamiento de riesgos en AGGuard</h2>
+<h2 is-upgraded>Ejemplo práctico: Evaluación y tratamiento en AGGuard</h2>
 <table>
 <tr><td colspan="1" rowspan="1"><p>Riesgo</p>
 </td><td colspan="1" rowspan="1"><p>Nivel</p>
 </td><td colspan="1" rowspan="1"><p>Estrategia</p>
 </td><td colspan="1" rowspan="1"><p>Medidas adoptadas</p>
 </td></tr>
-<tr><td colspan="1" rowspan="1"><p>Ataque ransomware</p>
+<tr><td colspan="1" rowspan="1"><p>Ransomware</p>
 </td><td colspan="1" rowspan="1"><p>🔴 Muy alto</p>
 </td><td colspan="1" rowspan="1"><p>🔒 Mitigar</p>
-</td><td colspan="1" rowspan="1"><p>Implementación de MFA, segmentación de red y backups offline</p>
+</td><td colspan="1" rowspan="1"><p>MFA, backups offline y segmentación de red</p>
 </td></tr>
-<tr><td colspan="1" rowspan="1"><p>Fuga de datos por phishing</p>
+<tr><td colspan="1" rowspan="1"><p>Fuga de datos</p>
 </td><td colspan="1" rowspan="1"><p>🔴 Muy alto</p>
 </td><td colspan="1" rowspan="1"><p>🛑 Evitar</p>
-</td><td colspan="1" rowspan="1"><p>Formación continua, simulaciones y políticas de acceso mínimo</p>
+</td><td colspan="1" rowspan="1"><p>Formación en seguridad a los empleados y principio de mínimo privilegio</p>
 </td></tr>
-<tr><td colspan="1" rowspan="1"><p>Corte eléctrico prolongado</p>
+<tr><td colspan="1" rowspan="1"><p>Corte eléctrico</p>
 </td><td colspan="1" rowspan="1"><p>🟠 Alto</p>
 </td><td colspan="1" rowspan="1"><p>🔁 Transferir</p>
-</td><td colspan="1" rowspan="1"><p>Contrato con proveedor de UPS y generador externo</p>
+</td><td colspan="1" rowspan="1"><p>Contrato de soporte con proveedor energético y UPS</p>
 </td></tr>
-<tr><td colspan="1" rowspan="1"><p>Software sin parches</p>
-</td><td colspan="1" rowspan="1"><p>🟠 Alto</p>
-</td><td colspan="1" rowspan="1"><p>🔒 Mitigar</p>
-</td><td colspan="1" rowspan="1"><p>Política de actualizaciones automáticas y supervisadas</p>
-</td></tr>
-<tr><td colspan="1" rowspan="1"><p>Fallo del proveedor cloud</p>
+<tr><td colspan="1" rowspan="1"><p>Fallo cloud</p>
 </td><td colspan="1" rowspan="1"><p>🟡 Medio</p>
 </td><td colspan="1" rowspan="1"><p>📦 Asumir</p>
-</td><td colspan="1" rowspan="1"><p>Copia de seguridad local diaria y revisión contractual</p>
+</td><td colspan="1" rowspan="1"><p>Copias locales y revisión periódica del SLA</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>Error humano</p>
+</td><td colspan="1" rowspan="1"><p>🟢 Bajo</p>
+</td><td colspan="1" rowspan="1"><p>🔒 Mitigar</p>
+</td><td colspan="1" rowspan="1"><p>Procedimiento de revisión doble</p>
 </td></tr>
 </table>
-<p>Con este enfoque, AGGuard prioriza la <strong>continuidad operativa</strong> sin comprometer la fiabilidad de sus servicios.</p>
 
 
       </google-codelab-step>
     
-      <google-codelab-step label="5. Aplicación de salvaguardas y riesgo residual" duration="0">
-        <p>Tras definir las estrategias de gestión, se aplican <strong>salvaguardas específicas</strong> que reducen el nivel de exposición.<br> El riesgo que permanece después de aplicar estas medidas se denomina <strong>riesgo residual</strong>.</p>
-<p>Las salvaguardas deben ser:</p>
-<ul>
-<li>Proporcionales al nivel de riesgo del activo.</li>
-<li>Económicamente justificables respecto al impacto potencial.</li>
-<li>Revisadas periódicamente para garantizar su eficacia.</li>
-</ul>
-<p>La seguridad no es estática: lo que hoy protege, mañana puede quedar obsoleto.</p>
+      <google-codelab-step label="5. Salvaguardas y nivel de madurez" duration="0">
+        <p>Las <strong>salvaguardas</strong> son las medidas aplicadas para reducir el riesgo.<br> Sin embargo, no todas las salvaguardas tienen el mismo <strong>nivel de madurez</strong>.</p>
+<p>Un sistema maduro no solo aplica controles, sino que los <strong>automatiza, monitoriza y revisa continuamente</strong>.</p>
+<table>
+<tr><td colspan="1" rowspan="1"><p>Nivel de madurez</p>
+</td><td colspan="1" rowspan="1"><p>Ejemplo</p>
+</td><td colspan="1" rowspan="1"><p>Descripción</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>🟢 <strong>Alto</strong></p>
+</td><td colspan="1" rowspan="1"><p>Copias de seguridad automáticas, cifradas y verificadas periódicamente</p>
+</td><td colspan="1" rowspan="1"><p>Medidas proactivas, automatizadas y seguras</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>🟡 <strong>Medio</strong></p>
+</td><td colspan="1" rowspan="1"><p>Copias manuales con verificación ocasional</p>
+</td><td colspan="1" rowspan="1"><p>Protección parcial, dependiente del factor humano</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>🔴 <strong>Bajo</strong></p>
+</td><td colspan="1" rowspan="1"><p>Copias sin cifrado ni revisión</p>
+</td><td colspan="1" rowspan="1"><p>Medidas reactivas o insuficientes</p>
+</td></tr>
+</table>
+<p>Las salvaguardas deben adecuarse al <strong>nivel de criticidad del activo</strong>: cuanto más crítico sea, <strong>mayor madurez</strong> deben tener las medidas aplicadas.</p>
 <h2 is-upgraded>Ejemplo práctico: Salvaguardas implementadas en AGGuard</h2>
 <table>
 <tr><td colspan="1" rowspan="1"><p>Riesgo</p>
-</td><td colspan="1" rowspan="1"><p>Medidas de salvaguarda</p>
+</td><td colspan="1" rowspan="1"><p>Salvaguardas aplicadas</p>
+</td><td colspan="1" rowspan="1"><p>Nivel de madurez</p>
 </td><td colspan="1" rowspan="1"><p>Riesgo residual</p>
 </td></tr>
 <tr><td colspan="1" rowspan="1"><p>Ransomware</p>
-</td><td colspan="1" rowspan="1"><p>Backups offline cifrados, MFA, IDS, segmentación VLAN</p>
+</td><td colspan="1" rowspan="1"><p>Backups automáticos cifrados, MFA, IDS, segmentación VLAN</p>
+</td><td colspan="1" rowspan="1"><p>🟢 Alto</p>
 </td><td colspan="1" rowspan="1"><p>🟢 Bajo</p>
 </td></tr>
 <tr><td colspan="1" rowspan="1"><p>Fuga de datos</p>
-</td><td colspan="1" rowspan="1"><p>DLP, autenticación reforzada, auditorías trimestrales</p>
+</td><td colspan="1" rowspan="1"><p>DLP, revisiones trimestrales, control de acceso mínimo</p>
+</td><td colspan="1" rowspan="1"><p>🟡 Medio</p>
 </td><td colspan="1" rowspan="1"><p>🟡 Medio</p>
 </td></tr>
 <tr><td colspan="1" rowspan="1"><p>Corte eléctrico</p>
-</td><td colspan="1" rowspan="1"><p>Generador externo, UPS redundante</p>
+</td><td colspan="1" rowspan="1"><p>UPS redundantes y generador externo</p>
+</td><td colspan="1" rowspan="1"><p>🟢 Alto</p>
 </td><td colspan="1" rowspan="1"><p>🟢 Bajo</p>
 </td></tr>
-<tr><td colspan="1" rowspan="1"><p>Software desactualizado</p>
-</td><td colspan="1" rowspan="1"><p>Control de versiones automatizado</p>
+<tr><td colspan="1" rowspan="1"><p>Fallo del proveedor cloud</p>
+</td><td colspan="1" rowspan="1"><p>Copias locales automáticas y validación de SLA</p>
+</td><td colspan="1" rowspan="1"><p>🟢 Alto</p>
 </td><td colspan="1" rowspan="1"><p>🟢 Bajo</p>
 </td></tr>
-<tr><td colspan="1" rowspan="1"><p>Proveedor cloud</p>
-</td><td colspan="1" rowspan="1"><p>Copias locales y validación de SLA</p>
+<tr><td colspan="1" rowspan="1"><p>Error humano</p>
+</td><td colspan="1" rowspan="1"><p>Doble revisión de cambios y supervisión técnica</p>
+</td><td colspan="1" rowspan="1"><p>🟡 Medio</p>
 </td><td colspan="1" rowspan="1"><p>🟢 Bajo</p>
 </td></tr>
 </table>
-<p>La combinación de salvaguardas técnicas y organizativas permite a AGGuard mantener su <strong>fiabilidad y continuidad</strong> incluso en caso de incidente.</p>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="6. Conclusión" duration="0">
-        <p>El análisis de riesgos es una herramienta fundamental para <strong>mantener la fiabilidad, disponibilidad y resiliencia</strong> de una organización.<br> Su objetivo no es alcanzar una seguridad absoluta, sino <strong>preservar la continuidad del negocio</strong> frente a los imprevistos.</p>
-<p>Una empresa madura en gestión de riesgos no es la que carece de incidentes, sino la que <strong>sabe anticiparse, reaccionar y recuperarse</strong> con rapidez y eficacia.</p>
-<p>Por ello, el análisis de riesgos debe verse como un <strong>proceso cíclico</strong>, integrado dentro del plan general de ciberseguridad y gestión empresarial.</p>
-<p>En resumen: la empresa más segura no es la que no tiene riesgos, sino la que <strong>puede continuar operando pese a ellos.</strong></p>
+        <p>A lo largo de esta guía se ha mostrado cómo realizar un <strong>análisis de riesgos estructurado y práctico</strong>, comprendiendo cada fase desde la identificación de activos hasta la aplicación de salvaguardas.</p>
+<p>El objetivo principal es lograr una <strong>empresa fiable, operativa y preparada para continuar ante el fallo</strong>, más que alcanzar una seguridad perfecta.</p>
+<p>Invertir en seguridad <strong>no es un gasto</strong>, sino una forma de evitar pérdidas mayores ante un incidente.<br> Una organización con una buena gestión de riesgos <strong>reduce el impacto, mejora su resiliencia y gana la confianza de sus clientes</strong>.</p>
+<p>En definitiva, una empresa segura no es la que no tiene incidentes, sino la que <strong>sabe enfrentarlos y seguir operando con fiabilidad.</strong></p>
 
 
       </google-codelab-step>
