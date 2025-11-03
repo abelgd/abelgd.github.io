@@ -179,8 +179,9 @@
 <h3 is-upgraded>6.1 Generar el hash PBKDF2</h3>
 <p>Ejecuta el siguiente comando para generar el hash de la contraseña del GRUB: <strong><em>sudo grub-mkpasswd-pbkdf2</em></strong></p>
 <p class="image-container"><img alt="Imagen11" src="img\\e3df0c1a444ab550.png"></p>
-<h3 is-upgraded>6.2 Configurar el archivo /etc/grub.d/40_custom</h3>
+<h3 is-upgraded>6.2 Crear una copia de seguridad y configurar el archivo /etc/grub.d/40_custom</h3>
 <ul>
+<li>Antes de modificar el archivo, <strong>realiza una copia de seguridad</strong> para poder restaurarlo en caso de error: <strong><em>sudo cp /etc/grub.d/40_custom /etc/grub.d/40_custom.bak</em></strong></li>
 <li>Abrir y editar el archivo personalizado del GRUB: <strong><em>sudo nano /etc/grub.d/40_custom</em></strong></li>
 <li>Añadir el siguiente comando: <strong><em>set superusers=&#34;grubadmin&#34; password_pbkdf2 grubadmin grub.pbkdf2.sha512.100000.[HASH_GENERADO]</em></strong></li>
 </ul>
@@ -208,8 +209,8 @@
 <p>Con el objetivo de prevenir lecturas o modificaciones no autorizadas de los artefactos críticos del kernel, protegiendo así la integridad del sistema.</p>
 <h2 is-upgraded>Paso 8: Configuración de montajes seguros en /etc/fstab</h2>
 <p>El archivo /etc/fstab define cómo se montan las particiones del sistema. Aplicar opciones restrictivas reduce el riesgo de ejecución de código malicioso o de escaladas de privilegios.</p>
-<h3 is-upgraded>8.1 Editar /etc/fstab</h3>
-<p>Abrir el archivo con privilegios de administrador: <strong><em>sudo nano /etc/fstab</em></strong>. Editar el archivo de la siguiente forma:</p>
+<h3 is-upgraded>8.1 Crear copia de seguridad y editar /etc/fstab</h3>
+<p>Antes de editar el archivo realiza una copia de seguridad: <strong><em>sudo cp /etc/fstab /etc/fstab.bak</em></strong> Abrir el archivo con privilegios de administrador: <strong><em>sudo nano /etc/fstab</em></strong>. Editar el archivo de la siguiente forma:</p>
 <p class="image-container"><img alt="Imagen15" src="img\\8fe522025d2c250.png"></p>
 <p>Opciones de seguridad:</p>
 <ul>
@@ -230,6 +231,7 @@
 <li>Proteger el <strong>gestor de arranque GRUB</strong> con contraseña cifrada y permisos restringidos.</li>
 <li>Asegurar la <strong>integridad del kernel</strong> mediante permisos seguros sobre los binarios del sistema.</li>
 <li>Implementar <strong>montajes seguros</strong> que previenen la ejecución o manipulación indebida de archivos en directorios sensibles.</li>
+<li>Incorporar <strong>copias de seguridad preventivas</strong> antes de modificar archivos críticos, garantizando la capacidad de recuperación ante errores de configuración.</li>
 </ul>
 <p>Estas medidas fortalecen el bastionado del arranque de <strong>Ubuntu Server</strong>, garantizando un entorno más robusto frente a accesos no autorizados.</p>
 
