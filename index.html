@@ -1,72 +1,143 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mis Proyectos - abelgd</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
-            background: #f5f5f5;
-        }
-        h1 {
-            color: #333;
-            border-bottom: 3px solid #007bff;
-            padding-bottom: 10px;
-        }
-        .proyecto {
-            background: white;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .proyecto h2 {
-            margin-top: 0;
-            color: #007bff;
-        }
-        .proyecto a {
-            display: inline-block;
-            background: #007bff;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
-        .proyecto a:hover {
-            background: #0056b3;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio de Proyectos - abelgd</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS (animaciones al hacer scroll) -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Typed.js (animación de texto) -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+  <!-- Fuente moderna -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #e8f0ff 0%, #f9f9ff 100%);
+      color: #1f2937;
+      scroll-behavior: smooth;
+    }
+    .card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(0,123,255,0.08), transparent 70%);
+      transition: opacity 0.3s ease;
+      opacity: 0;
+    }
+    .card:hover::before {
+      opacity: 1;
+    }
+    .btn {
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+    }
+  </style>
 </head>
-<body>
-    <h1>Portfolio de Proyectos</h1>
-    
-    <div class="proyecto">
-        <h2>Proyecto 1 - BIOS/UEFI</h2>
-        <p>Guía para bastionar la BIOS/UEFI de un ordenador Lenovo Ideapad Gaming 3. <br>
-  <span style="color:#666; font-size:0.9em;">Fecha de realización: 2025</span>
+
+<body class="min-h-screen flex flex-col items-center justify-start py-10">
+
+  <!-- HEADER -->
+  <header class="text-center mb-10" data-aos="fade-down">
+    <h1 class="text-4xl font-bold text-blue-700 mb-3 tracking-tight">Portfolio de Proyectos</h1>
+    <p id="typed" class="text-gray-600 text-lg h-6"></p>
+  </header>
+
+  <!-- CONTENEDOR PRINCIPAL -->
+  <main class="w-full max-w-5xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6">
+
+    <!-- Proyecto 1 -->
+    <div class="card bg-white p-6 rounded-2xl shadow-md" data-aos="fade-up" data-aos-delay="100">
+      <div>
+        <img src="Proyecto1/preview.jpg" alt="Proyecto 1" class="rounded-lg mb-4 w-full h-40 object-cover shadow-sm">
+        <h2 class="text-2xl font-semibold text-blue-600 mb-2">🔧 BIOS / UEFI</h2>
+        <p class="text-gray-700 mb-6">
+          Guía para bastionar la BIOS/UEFI de un ordenador Lenovo Ideapad Gaming 3.  
+          <br><span class="text-gray-500 text-sm">📅 2025</span>
         </p>
-        <a href="Proyecto1/">Ver Proyecto →</a>
+      </div>
+      <a href="Proyecto1/" class="btn inline-block bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700 self-end text-center">
+        Ver Proyecto →
+      </a>
     </div>
-    
-    <div class="proyecto">
-        <h2>Proyecto 2 - Arranque Debian</h2>
-        <p>Guía para bastionar el arranque de un sistema Ubuntu Server. <br>
-  <span style="color:#666; font-size:0.9em;">Fecha de realización: 2025</span>
+
+    <!-- Proyecto 2 -->
+    <div class="card bg-white p-6 rounded-2xl shadow-md" data-aos="fade-up" data-aos-delay="200">
+      <div>
+        <img src="Proyecto2/preview.jpg" alt="Proyecto 2" class="rounded-lg mb-4 w-full h-40 object-cover shadow-sm">
+        <h2 class="text-2xl font-semibold text-blue-600 mb-2">💻 Arranque Debian</h2>
+        <p class="text-gray-700 mb-6">
+          Guía para bastionar el arranque de un sistema Ubuntu Server.  
+          <br><span class="text-gray-500 text-sm">📅 2025</span>
         </p>
-        <a href="Proyecto2/">Ver Proyecto →</a>
+      </div>
+      <a href="Proyecto2/" class="btn inline-block bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700 self-end text-center">
+        Ver Proyecto →
+      </a>
     </div>
-    
-  <div class="proyecto">
-        <h2>Proyecto 3 - Análisis de riesgos</h2>
-        <p>Guía para realizar un análisis de riesgos. <br>
-  <span style="color:#666; font-size:0.9em;">Fecha de realización: en desarrollo</span>
+
+    <!-- Proyecto 3 -->
+    <div class="card bg-white p-6 rounded-2xl shadow-md" data-aos="fade-up" data-aos-delay="300">
+      <div>
+        <img src="Proyecto3/preview.jpg" alt="Proyecto 3" class="rounded-lg mb-4 w-full h-40 object-cover shadow-sm">
+        <h2 class="text-2xl font-semibold text-blue-600 mb-2">📊 Análisis de riesgos</h2>
+        <p class="text-gray-700 mb-6">
+          Guía para realizar un análisis de riesgos paso a paso.  
+          <br><span class="text-gray-500 text-sm">🧩 En desarrollo</span>
         </p>
-        <a href="Proyecto3/">Ver Proyecto →</a>
+      </div>
+      <a href="Proyecto3/" class="btn inline-block bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700 self-end text-center">
+        Ver Proyecto →
+      </a>
     </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="mt-16 text-gray-500 text-sm" data-aos="fade-up">
+    © 2025 <strong>abelgd</strong> — Todos los derechos reservados.
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+
+    // Animación del texto del encabezado
+    new Typed("#typed", {
+      strings: [
+        "🧠 Guías técnicas de bastionado y seguridad",
+        "🔐 Análisis de sistemas y redes",
+        "📘 Formación y documentación IT"
+      ],
+      typeSpeed: 45,
+      backSpeed: 20,
+      backDelay: 1800,
+      loop: true
+    });
+  </script>
+
 </body>
 </html>
