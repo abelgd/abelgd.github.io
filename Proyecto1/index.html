@@ -45,24 +45,34 @@
       font-weight: 300 !important;
     }
 
-    /* Sidebar y navegación de pasos */
+    /* Sidebar y navegación de pasos - CORREGIDO */
     #drawer,
-    #steps {
+    #steps,
+    .steps {
       background: var(--codelab-surface) !important;
       border-right: 1px solid var(--codelab-border) !important;
     }
 
-    .step {
+    /* Texto de los pasos en la navegación - VISIBLE */
+    .step,
+    .step a {
       color: var(--codelab-text-muted) !important;
       border-left: 3px solid transparent !important;
       transition: all 0.3s ease !important;
     }
 
     .step.selected,
-    .step:hover {
+    .step.selected a,
+    .step:hover,
+    .step:hover a {
       color: #ffffff !important;
       background: rgba(255,255,255,0.05) !important;
       border-left-color: var(--codelab-accent) !important;
+    }
+
+    /* Número de paso visible */
+    .step::before {
+      color: var(--codelab-accent) !important;
     }
 
     /* Contenido principal */
@@ -72,7 +82,7 @@
       color: var(--codelab-text) !important;
     }
 
-    p, li, td, th, span, label {
+    p, li, td, th, span:not(.material-icons), label {
       color: var(--codelab-text) !important;
     }
 
@@ -160,6 +170,13 @@
       color: var(--codelab-text-muted) !important;
     }
 
+    /* Temporizador en header - visible */
+    #codelab-time-container,
+    .codelab-time-container {
+      color: var(--codelab-accent) !important;
+      font-weight: 600 !important;
+    }
+
     /* Scrollbar personalizada */
     ::-webkit-scrollbar {
       width: 8px;
@@ -197,20 +214,20 @@
                   environment="web"
                   feedback-link="https://github.com/abelgd/abelgd.github.io/issues/1">
     
-      <google-codelab-step label="Modelo de ordenador" duration="0">
+      <google-codelab-step label="Modelo de ordenador" duration="2">
         <p><strong>Lenovo Ideapad Gaming 3 15ACH6 (82K2)</strong></p>
 <h3 is-upgraded>Autor: <em>Abel García Domínguez</em></h3>
 
       </google-codelab-step>
     
-      <google-codelab-step label="Introducción" duration="0">
+      <google-codelab-step label="Introducción" duration="3">
         <p>La <strong>BIOS</strong> (Basic Input/Output System) y la <strong>UEFI</strong> (Unified Extensible Firmware Interface) son los sistemas de firmware que inicializan el hardware del equipo y gestionan el arranque del sistema operativo. La <strong>UEFI</strong> es la evolución de la BIOS tradicional y ofrece un entorno más seguro, compatible con discos de gran capacidad y con funciones como el arranque seguro (Secure Boot).</p>
 <p>Bastionar la <strong>BIOS/UEFI</strong> consiste en configurar correctamente sus parámetros de seguridad para proteger el equipo frente a accesos no autorizados o manipulaciones durante el arranque.</p>
 <p>De esta forma, se refuerza la integridad del sistema y se reduce el riesgo de ataques que puedan comprometer el ordenador antes de iniciar el sistema operativo.</p>
 
       </google-codelab-step>
     
-      <google-codelab-step label="Menú Security" duration="0">
+      <google-codelab-step label="Menú Security" duration="5">
         <p>En este menú se configuran todas las contraseñas y permisos de seguridad de la BIOS/UEFI.</p>
 <h2 is-upgraded>Pasos:</h2>
 <ol type="1">
@@ -239,7 +256,7 @@
 
       </google-codelab-step>
     
-      <google-codelab-step label="Menú Boot" duration="0">
+      <google-codelab-step label="Menú Boot" duration="4">
         <p>Este menú controla <strong>desde qué dispositivos puede arrancar el ordenador</strong> y en qué orden, así como la seguridad del arranque.</p>
 <h2 is-upgraded>Pasos:</h2>
 <ol type="1">
@@ -286,7 +303,7 @@
 
       </google-codelab-step>
     
-      <google-codelab-step label="Menú Exit" duration="0">
+      <google-codelab-step label="Menú Exit" duration="1">
         <p>En este menú se confirman y aplican todos los cambios realizados en la BIOS/UEFI.</p>
 <h2 is-upgraded>Pasos:</h2>
 <ol type="1">
