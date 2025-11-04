@@ -1,110 +1,429 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio de Proyectos - abelgd</title>
-
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- AOS (animaciones al hacer scroll) -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  
-  <!-- Fuente moderna -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Portfolio - Abel García Domínguez</title>
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #e8f0ff 0%, #f9f9ff 100%);
-      color: #1f2937;
-      scroll-behavior: smooth;
+    /* Reset & base */
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --maxw:1400px;
+      --fg:#fff;
+      --muted:#888;
+      --muted-2:#aaa;
+      --muted-3:#999;
+      --card-bg:rgba(255,255,255,0.02);
+      --card-bd:rgba(255,255,255,0.1);
+      --card-bd-hover:rgba(255,255,255,0.3);
+      --meta:#8fb3ff;
+      --title-font:Georgia,"Times New Roman",Times,serif;
+      --ui-font:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
     }
-    .card {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 100%;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    html{scroll-behavior:smooth}
+    body{
+      font-family:var(--ui-font);
+      background:#0b0b0b;
+      color:var(--fg);
+      min-height:100vh;
+      overflow-x:hidden;
     }
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+
+    /* Fondo 3 vías: Detrás de todo el contenido */
+    .lines{
+      position:fixed;
+      inset:0;
+      z-index:0;
+      pointer-events:none;
+      overflow:hidden;
     }
-    .btn {
-      transition: background 0.3s ease, transform 0.2s ease;
+    .line{
+      position:fixed;
+      top:0;
+      height:100vh;
+      width:1px;
+      background:rgba(255,255,255,0.02);
+      box-shadow:0 0 6px rgba(255,255,255,0.008);
     }
-    .btn:hover {
-      transform: scale(1.05);
+    .line:nth-child(1){left:18%}
+    .line:nth-child(2){left:50%}
+    .line:nth-child(3){left:82%}
+
+    /* Destello: cabeza pequeña brillante + cola difuminada */
+    .line::after{
+      content:'';
+      position:absolute;
+      top:-8%;
+      left:50%;
+      transform:translateX(-50%);
+      width:4px;
+      height:40px;
+      background:
+        radial-gradient(
+          ellipse,
+          rgba(255,255,255,1) 0%,
+          rgba(255,255,255,0.85) 15%,
+          rgba(255,255,255,0.4) 40%,
+          rgba(255,255,255,0.1) 70%,
+          rgba(255,255,255,0) 100%
+        );
+      filter:blur(1px);
+      box-shadow:
+        0 0 12px rgba(255,255,255,0.7),
+        0 0 24px rgba(255,255,255,0.4);
+      opacity:0.9;
+      animation: fallSingle 4s cubic-bezier(0.25,0.8,0.25,1) infinite;
+      will-change:top;
+    }
+    .line:nth-child(1)::after{ animation-duration: 3.5s; animation-delay: 0s; }
+    .line:nth-child(2)::after{ animation-duration: 4.2s; animation-delay: -1.4s; }
+    .line:nth-child(3)::after{ animation-duration: 5s;   animation-delay: -2.8s; }
+
+    @keyframes fallSingle{
+      0%  { top: -8%; opacity:0; }
+      5%  { opacity:0.9; }
+      95% { opacity:0.9; }
+      100%{ top: 108%; opacity:0; }
+    }
+
+    /* Línea guía */
+    .vertical-line{
+      position:fixed;
+      left:50%;
+      top:0;
+      width:1px;
+      height:100vh;
+      background:rgba(255,255,255,0.04);
+      transform:translateX(-50%);
+      z-index:1;
+    }
+
+    /* Contenedor fijo para destellos del cursor */
+    #cursor-container{
+      position:fixed;
+      inset:0;
+      z-index:10000;
+      pointer-events:none;
+    }
+
+    /* Logo AG */
+    .logo{
+      position:fixed;
+      top:38px;
+      left:40px;
+      z-index:100;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:0;
+      font-family:var(--title-font);
+      font-size:2rem;
+      font-weight:300;
+      color:rgba(255,255,255,0.8);
+      transition:all .3s ease;
+      pointer-events:none;
+      user-select:none;
+      -webkit-user-select:none;
+      -moz-user-select:none;
+      line-height:0.85;
+      text-shadow:
+        0 2px 8px rgba(0,0,0,0.4),
+        0 4px 16px rgba(0,0,0,0.2);
+    }
+    .logo-a{
+      position:relative;
+      z-index:2;
+      letter-spacing:0;
+      margin-bottom:-2px;
+    }
+    .logo-g{
+      position:relative;
+      top:0;
+      z-index:1;
+      opacity:0.85;
+      letter-spacing:0;
+    }
+    .logo:hover{
+      color:rgba(255,255,255,1);
+      text-shadow:
+        0 2px 10px rgba(0,0,0,0.5),
+        0 4px 20px rgba(0,0,0,0.3),
+        0 0 16px rgba(255,255,255,0.2);
+    }
+    .logo:hover .logo-g{
+      opacity:1;
+    }
+
+    /* Navegación minimalista sin recuadro */
+    nav{
+      position:fixed;
+      top:40px; right:40px;
+      z-index:100;
+      display:flex;
+      gap:32px;
+      align-items:center;
+    }
+    nav a{
+      color:rgba(255,255,255,0.7);
+      text-decoration:none;
+      font-size:.85rem;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      font-weight:400;
+      transition:all .3s ease;
+      position:relative;
+      cursor:pointer;
+      padding-bottom:6px;
+    }
+    nav a::after{
+      content:'';
+      position:absolute;
+      bottom:0;
+      left:0;
+      width:0;
+      height:1px;
+      background:rgba(255,255,255,0.6);
+      transition:width .3s ease;
+    }
+    nav a:hover{
+      color:rgba(255,255,255,1);
+    }
+    nav a:hover::after{
+      width:100%;
+    }
+
+    .container{
+      position:relative; z-index:2;
+      max-width:var(--maxw); margin:0 auto; padding:0 40px;
+    }
+
+    /* Hero */
+    #hero{
+      min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+      text-align:center; animation:fadeInDown 1s ease-out; position:relative; z-index:2;
+    }
+    h1{
+      font-family:var(--title-font); font-size:5rem; font-weight:400; letter-spacing:10px; text-transform:uppercase; margin-bottom:8px;
+      background:linear-gradient(to right,#fff,#cfcfcf); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+    }
+    .hero-subtitle{
+      font-family:var(--title-font); font-size:1.2rem; letter-spacing:8px; text-transform:uppercase; color:#c7c7c7; font-weight:400; margin-bottom:22px; opacity:.9;
+    }
+    .name{ font-size:1.1rem; letter-spacing:4px; text-transform:uppercase; color:#888; font-weight:300; }
+
+    /* Proyectos */
+    #proyectos{ padding:100px 0; min-height:100vh; }
+    .section-title{
+      text-align:center; font-size:2.5rem; font-weight:300; letter-spacing:8px; text-transform:uppercase; margin-bottom:100px; color:#ccc; font-family:var(--title-font);
+    }
+    .projects-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(350px,1fr)); gap:60px; margin-bottom:60px; }
+    .project-card{
+      background:var(--card-bg);
+      backdrop-filter:blur(10px);
+      background-color:#0b0b0b;
+      border:1px solid var(--card-bd);
+      border-radius:8px;
+      padding:40px;
+      transition:all .5s cubic-bezier(.4,0,.2,1);
+      cursor:pointer;
+      position:relative;
+      overflow:hidden;
+      z-index:3;
+    }
+    .project-card::before{
+      content:''; position:absolute; top:0; left:-100%; width:100%; height:100%;
+      background:linear-gradient(90deg,transparent,rgba(255,255,255,0.05),transparent); transition:left .6s ease;
+    }
+    .project-card:hover::before{ left:100%; }
+    .project-card:hover{
+      transform:translateY(-10px) scale(1.02);
+      border-color:var(--card-bd-hover);
+      box-shadow:0 20px 60px rgba(255,255,255,0.1);
+      background-color:rgba(11,11,11,0.98);
+    }
+
+    .project-number{ font-size:3rem; font-weight:100; color:rgba(255,255,255,0.1); margin-bottom:20px; }
+    .project-content{ position:relative; z-index:1; }
+    .project-title{ font-size:1.8rem; font-weight:400; letter-spacing:2px; margin-bottom:16px; color:#fff; font-family:var(--title-font); }
+    .project-description{ font-size:1rem; line-height:1.9; color:var(--muted-2); margin-bottom:14px; font-weight:300; }
+    .project-meta{
+      font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+      font-size:.85rem; letter-spacing:2.5px; text-transform:uppercase; color:var(--meta); opacity:.9; margin-bottom:22px;
+    }
+    .project-link{
+      display:inline-block; padding:14px 35px; background:transparent; border:1px solid rgba(255,255,255,0.3); color:#fff; text-decoration:none; font-size:.85rem;
+      letter-spacing:2px; text-transform:uppercase; transition:all .3s ease; border-radius:2px; position:relative; overflow:hidden;
+      cursor:pointer;
+    }
+    .project-link::before{ content:''; position:absolute; top:0; left:-100%; width:100%; height:100%; background:rgba(255,255,255,0.1); transition:left .3s ease; }
+    .project-link:hover::before{ left:0; }
+    .project-link:hover{ border-color:#fff; transform:translateX(5px); }
+
+    /* Sobre mí */
+    #sobre-mi{ padding:100px 0; min-height:100vh; display:flex; align-items:center; justify-content:center; }
+    .about-content{
+      max-width:800px;
+      text-align:center;
+      padding:60px;
+      background-color:#0b0b0b;
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:8px;
+      position:relative;
+      z-index:3;
+    }
+    .about-content h2{ font-size:2.5rem; font-weight:300; letter-spacing:8px; text-transform:uppercase; margin-bottom:50px; color:#ccc; font-family:var(--title-font); }
+    .about-content p{ font-size:1.05rem; line-height:1.9; color:#999; font-weight:300; margin-bottom:20px; text-align:left; }
+    
+    /* Enlace inline en el texto */
+    .about-content a{
+      color:rgba(255,255,255,0.85);
+      text-decoration:none;
+      border-bottom:1px solid rgba(255,255,255,0.3);
+      transition:all .3s ease;
+      cursor:pointer;
+    }
+    .about-content a:hover{
+      color:rgba(255,255,255,1);
+      border-bottom-color:rgba(255,255,255,0.6);
+    }
+
+    /* Destello blanco personalizado */
+    .cursor-trail{
+      position:absolute;
+      width:20px;
+      height:20px;
+      border-radius:50%;
+      background:radial-gradient(circle,rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.2) 40%,transparent 70%);
+      pointer-events:none;
+      transform:translate(-50%,-50%);
+      filter:blur(8px);
+      animation:fadeOut .8s ease-out forwards;
+    }
+    @keyframes fadeOut{ to{ opacity:0; transform:translate(-50%,-50%) scale(2); } }
+
+    /* Intro */
+    @keyframes fadeInDown{ from{opacity:0; transform:translateY(-30px);} to{opacity:1; transform:translateY(0);} }
+
+    /* Responsive */
+    @media (max-width:768px){
+      #cursor-container{ display:none }
+      .logo{ top:20px; left:20px; font-size:1.6rem; }
+      h1{ font-size:2.6rem; letter-spacing:6px }
+      .hero-subtitle{ font-size:.9rem; letter-spacing:5px; margin-bottom:16px }
+      .name{ font-size:.9rem }
+      nav{ top:20px; right:20px; gap:24px; }
+      nav a{ font-size:.75rem; letter-spacing:2.5px; }
+      .projects-grid{ grid-template-columns:1fr; gap:40px }
+      .container{ padding:0 20px }
+      .section-title{ font-size:1.8rem; letter-spacing:4px }
+      .project-card{ padding:30px; }
+      .about-content p{ text-align:justify; }
     }
   </style>
 </head>
+<body>
+  <!-- Contenedor dedicado para destellos del cursor -->
+  <div id="cursor-container"></div>
 
-<body class="min-h-screen flex flex-col items-center justify-start py-10">
+  <!-- Fondo dinámico -->
+  <div class="lines" aria-hidden="true">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
 
-  <!-- Título principal -->
-  <header class="text-center mb-10" data-aos="fade-down">
-    <h1 class="text-4xl font-bold text-blue-700 mb-2 tracking-tight">Portfolio de Proyectos</h1>
-    <p class="text-gray-600 text-lg">Selección de guías y análisis técnicos realizados por <strong>abelgd</strong></p>
-  </header>
+  <!-- Línea guía -->
+  <div class="vertical-line"></div>
 
-  <!-- Contenedor de proyectos -->
-  <main class="w-full max-w-5xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6">
+  <!-- Logo AG apilado vertical -->
+  <div class="logo">
+    <span class="logo-a">A</span>
+    <span class="logo-g">G</span>
+  </div>
 
-    <!-- Proyecto 1 -->
-    <div class="card bg-white p-6 rounded-2xl shadow-md" data-aos="fade-up" data-aos-delay="100">
-      <div>
-        <h2 class="text-2xl font-semibold text-blue-600 mb-2">🔧 BIOS / UEFI</h2>
-        <p class="text-gray-700 mb-6">
-          Guía para bastionar la BIOS/UEFI de un ordenador Lenovo Ideapad Gaming 3.  
-          <br><span class="text-gray-500 text-sm">📅 2025</span>
+  <!-- Navegación discreta -->
+  <nav>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#sobre-mi">Sobre Mí</a>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero">
+    <h1>PORTFOLIO</h1>
+    <div class="hero-subtitle">Proyectos</div>
+    <p class="name">Abel García Domínguez</p>
+  </section>
+
+  <!-- Contenido -->
+  <div class="container">
+    <section id="proyectos">
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-number">01</div>
+          <div class="project-content">
+            <h3 class="project-title">Proyecto 1: BIOS/UEFI</h3>
+            <p class="project-description">Guía para bastionar la BIOS/UEFI de un ordenador Lenovo Ideapad Gaming 3.</p>
+            <p class="project-meta">Realizado: 2025</p>
+            <a href="https://abelgd.github.io/Proyecto1/#0" class="project-link">Ver Proyecto</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-number">02</div>
+          <div class="project-content">
+            <h3 class="project-title">Proyecto 2: Arranque Debian</h3>
+            <p class="project-description">Guía para bastionar el arranque de un sistema Ubuntu Server.</p>
+            <p class="project-meta">Realizado: 2025</p>
+            <a href="https://abelgd.github.io/Proyecto2/#0" class="project-link">Ver Proyecto</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-number">03</div>
+          <div class="project-content">
+            <h3 class="project-title">Proyecto 3: Análisis de riesgos</h3>
+            <p class="project-description">Guía para realizar un análisis de riesgos paso a paso.</p>
+            <p class="project-meta">Estado: En desarrollo</p>
+            <a href="https://abelgd.github.io/Proyecto3/#0" class="project-link">Ver Proyecto</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre-mi">
+      <div class="about-content">
+        <h2>Sobre Mí</h2>
+        <p>
+          Soy estudiante de Curso de Especialización en Ciberseguridad en Entornos de las Tecnologías de la Información, un campo que me apasiona por su constante evolución y su papel fundamental en la protección de sistemas e infraestructuras críticas.
+        </p>
+        <p>
+          Este portfolio reúne proyectos académicos desarrollados durante mi formación en el <a href="https://iesrafaelalberti.es" target="_blank" rel="noopener noreferrer">instituto</a>, así como iniciativas personales que me permiten profundizar en áreas como bastionado de redes y sistemas, análisis de riesgos y auditoría de seguridad. Cada proyecto representa un ejercicio práctico orientado tanto al aprendizaje continuo como a la aplicación real de conceptos técnicos.
+        </p>
+        <p>
+          Mi objetivo es construir una base sólida en seguridad informática que me permita contribuir de manera efectiva en entornos profesionales, siempre manteniendo un enfoque metódico, riguroso y orientado a la mejora constante.
         </p>
       </div>
-      <a href="https://abelgd.github.io/Proyecto1/#0" class="btn inline-block bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700 self-end text-center">
-        Ver Proyecto →
-      </a>
-    </div>
+    </section>
+  </div>
 
-    <!-- Proyecto 2 -->
-    <div class="card bg-white p-6 rounded-2xl shadow-md" data-aos="fade-up" data-aos-delay="200">
-      <div>
-        <h2 class="text-2xl font-semibold text-blue-600 mb-2">💻 Arranque Debian</h2>
-        <p class="text-gray-700 mb-6">
-          Guía para bastionar el arranque de un sistema Ubuntu Server.  
-          <br><span class="text-gray-500 text-sm">📅 2025</span>
-        </p>
-      </div>
-      <a href="https://abelgd.github.io/Proyecto2/#0" class="btn inline-block bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700 self-end text-center">
-        Ver Proyecto →
-      </a>
-    </div>
-
-    <!-- Proyecto 3 -->
-    <div class="card bg-white p-6 rounded-2xl shadow-md" data-aos="fade-up" data-aos-delay="300">
-      <div>
-        <h2 class="text-2xl font-semibold text-blue-600 mb-2">📊 Análisis de riesgos</h2>
-        <p class="text-gray-700 mb-6">
-          Guía para realizar un análisis de riesgos paso a paso.  
-          <br><span class="text-gray-500 text-sm">🧩 En desarrollo</span>
-        </p>
-      </div>
-      <a href="https://abelgd.github.io/Proyecto3/#0" class="btn inline-block bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700 self-end text-center">
-        Ver Proyecto →
-      </a>
-    </div>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="mt-16 text-gray-500 text-sm" data-aos="fade-up">
-    © 2025 <strong>abelgd</strong> — Todos los derechos reservados.
-  </footer>
-
-  <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
-    AOS.init({ duration: 800, once: true });
+    const cursorContainer = document.getElementById('cursor-container');
+    let lastTime = 0;
+    const throttleDelay = 30;
+    
+    document.addEventListener('mousemove', (e) => {
+      const currentTime = Date.now();
+      if (currentTime - lastTime > throttleDelay) {
+        const trail = document.createElement('div');
+        trail.className = 'cursor-trail';
+        trail.style.left = e.clientX + 'px';
+        trail.style.top = e.clientY + 'px';
+        cursorContainer.appendChild(trail);
+        setTimeout(() => { trail.remove(); }, 800);
+        lastTime = currentTime;
+      }
+    }, { passive: true });
   </script>
 </body>
 </html>
