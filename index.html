@@ -11,9 +11,6 @@
   <!-- AOS (animaciones al hacer scroll) -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-  <!-- Typed.js (animación de texto) -->
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-
   <!-- Fuente moderna -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -71,7 +68,6 @@
     <!-- Proyecto 1 -->
     <div class="card bg-white p-6 rounded-2xl shadow-md" data-aos="fade-up" data-aos-delay="100">
       <div>
-        <img src="Proyecto1/preview.jpg" alt="Proyecto 1" class="rounded-lg mb-4 w-full h-40 object-cover shadow-sm">
         <h2 class="text-2xl font-semibold text-blue-600 mb-2">🔧 BIOS / UEFI</h2>
         <p class="text-gray-700 mb-6">
           Guía para bastionar la BIOS/UEFI de un ordenador Lenovo Ideapad Gaming 3.  
@@ -86,7 +82,6 @@
     <!-- Proyecto 2 -->
     <div class="card bg-white p-6 rounded-2xl shadow-md" data-aos="fade-up" data-aos-delay="200">
       <div>
-        <img src="Proyecto2/preview.jpg" alt="Proyecto 2" class="rounded-lg mb-4 w-full h-40 object-cover shadow-sm">
         <h2 class="text-2xl font-semibold text-blue-600 mb-2">💻 Arranque Debian</h2>
         <p class="text-gray-700 mb-6">
           Guía para bastionar el arranque de un sistema Ubuntu Server.  
@@ -101,7 +96,6 @@
     <!-- Proyecto 3 -->
     <div class="card bg-white p-6 rounded-2xl shadow-md" data-aos="fade-up" data-aos-delay="300">
       <div>
-        <img src="Proyecto3/preview.jpg" alt="Proyecto 3" class="rounded-lg mb-4 w-full h-40 object-cover shadow-sm">
         <h2 class="text-2xl font-semibold text-blue-600 mb-2">📊 Análisis de riesgos</h2>
         <p class="text-gray-700 mb-6">
           Guía para realizar un análisis de riesgos paso a paso.  
@@ -124,19 +118,8 @@
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 800, once: true });
-
-    // Animación del texto del encabezado
-    new Typed("#typed", {
-      strings: [
-        "🧠 Guías técnicas de bastionado y seguridad",
-        "🔐 Análisis de sistemas y redes",
-        "📘 Formación y documentación IT"
-      ],
-      typeSpeed: 45,
-      backSpeed: 20,
-      backDelay: 1800,
-      loop: true
     });
+  </script>
   </script>
 
 </body>
