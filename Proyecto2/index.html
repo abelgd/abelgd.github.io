@@ -204,13 +204,13 @@
                   environment="web"
                   feedback-link="https://github.com/abelgd/abelgd.github.io/issues/1">
     
-    <google-codelab-step label="Introducción" duration="0">
+    <google-codelab-step label="Introducción" duration="3">
       <p>El proceso de arranque de un sistema operativo es una fase crítica en la que se cargan los componentes esenciales del sistema.<br> Bastionar el arranque de <strong>Ubuntu Server</strong> consiste en aplicar configuraciones y medidas de seguridad que garanticen la <strong>integridad</strong>, <strong>confidencialidad</strong> y <strong>autenticidad</strong> del sistema desde el momento en que se enciende el equipo.</p>
 <p>El objetivo de esta guía es proporcionar una base técnica y estructurada para asegurar el arranque de Ubuntu, reduciendo riesgos de manipulación o acceso no autorizado durante las fases iniciales del sistema.</p>
 <h3 is-upgraded>Autor: <em>Abel García Domínguez</em></h3>
     </google-codelab-step>
     
-    <google-codelab-step label="Configuración y medidas de bastionado del arranque" duration="0">
+    <google-codelab-step label="Configuración y medidas de bastionado del arranque" duration="2">
       <p>En esta práctica se realizará la instalación y configuración segura de <strong>Ubuntu Server 24.04.3 LTS (minimized)</strong>, aplicando medidas de seguridad desde el proceso de instalación.<br> El bastionado comienza en el propio instalador, donde definiremos una estructura de particiones cifradas y configuraciones de arranque seguras.</p>
 <h2 is-upgraded>Requisitos previos</h2>
 <p>Antes de comenzar, asegúrate de contar con los siguientes elementos:</p>
@@ -226,7 +226,7 @@
 </ul>
     </google-codelab-step>
     
-    <google-codelab-step label="Instalación de Ubuntu Server 24.04.3 LTS" duration="0">
+    <google-codelab-step label="Instalación de Ubuntu Server 24.04.3 LTS" duration="8">
       <h2 is-upgraded>Paso 1: Iniciar la instalación</h2>
 <ol type="1">
 <li>Inicia la máquina virtual utilizando la ISO: <em>ubuntu-24.04.3-live-server-amd64.iso</em>. Selecciona la opción <em>Omitir la instalación desatendida</em></li>
@@ -341,7 +341,7 @@
 <p class="image-container"><img alt="Imagen10" src="img\\f33aea0345eca1.png"></p>
     </google-codelab-step>
     
-    <google-codelab-step label="Configuración posterior al arranque y bastionado del sistema" duration="0">
+    <google-codelab-step label="Configuración posterior al arranque y bastionado del sistema" duration="6">
       <p>Una vez finalizada la instalación del sistema, se procederá a aplicar medidas de seguridad adicionales sobre el arranque, el kernel y los puntos de montaje.<br> El objetivo de este apartado es <strong>reforzar la integridad del sistema</strong> frente a accesos no autorizados o manipulaciones en las fases iniciales del arranque.</p>
 <h2 is-upgraded>Paso 5: Reactivar el adaptador de red e instalar utilidades</h2>
 <p>Antes de continuar con la configuración del GRUB, es necesario <strong>reactivar el adaptador de red</strong> para poder instalar las herramientas requeridas. Actualizar los repositorios e instalar el editor <strong>'nano'</strong>.</p>
@@ -398,7 +398,7 @@
 <p class="image-container"><img alt="Imagen16" src="img\\d627ab26d8d88007.png"></p>
     </google-codelab-step>
     
-    <google-codelab-step label="Conclusión" duration="0">
+    <google-codelab-step label="Conclusión" duration="1">
       <p>Mediante las configuraciones aplicadas se ha logrado:</p>
 <ul>
 <li>Proteger el <strong>gestor de arranque GRUB</strong> con contraseña cifrada y permisos restringidos.</li>
