@@ -4,18 +4,196 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-  <meta name="theme-color" content="#4F7DC9">
+  <meta name="theme-color" content="#0b0b0b">
   <meta charset="UTF-8">
   <title>Proyecto 3: Guía para realizar un análisis de riesgos</title>
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
   <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://storage.googleapis.com/claat-public/codelab-elements.css">
   <style>
-    .success {
-      color: #1e8e3e;
+    :root {
+      --codelab-bg: #0b0b0b;
+      --codelab-surface: #151515;
+      --codelab-text: #cccccc;
+      --codelab-text-muted: #888888;
+      --codelab-accent: #8fb3ff;
+      --codelab-border: rgba(255,255,255,0.1);
+      --title-font: Georgia, "Times New Roman", Times, serif;
     }
+
+    body {
+      background: var(--codelab-bg) !important;
+      color: var(--codelab-text) !important;
+    }
+
+    #codelab-title,
+    #main-toolbar,
+    google-codelab {
+      background: var(--codelab-surface) !important;
+      --primary-color: var(--codelab-accent) !important;
+      --secondary-color: var(--codelab-text-muted) !important;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      color: #ffffff !important;
+      font-family: var(--title-font) !important;
+      font-weight: 300 !important;
+    }
+
+    /* Forzar estilos del drawer y steps */
+    #drawer,
+    #steps {
+      background: #000000 !important;
+      border-right: 1px solid var(--codelab-border) !important;
+    }
+
+    #drawer *,
+    #steps * {
+      background: transparent !important;
+    }
+
+    .step {
+      color: #ffffff !important;
+      background: #000000 !important;
+      border-left: 3px solid transparent !important;
+      transition: all 0.3s ease !important;
+    }
+
+    .step.selected {
+      color: #ffffff !important;
+      background: rgba(143, 179, 255, 0.15) !important;
+      border-left-color: var(--codelab-accent) !important;
+    }
+
+    .step:hover {
+      color: #ffffff !important;
+      background: rgba(255, 255, 255, 0.08) !important;
+      border-left-color: var(--codelab-accent) !important;
+    }
+
+    #drawer h2,
+    #drawer h3,
+    #drawer span,
+    #drawer div,
+    #steps h2,
+    #steps h3,
+    #steps span,
+    #steps div {
+      color: #ffffff !important;
+      background: transparent !important;
+    }
+
+    #codelab-step,
+    .instructions {
+      background: var(--codelab-bg) !important;
+      color: var(--codelab-text) !important;
+    }
+
+    p, li, td, th, span, label {
+      color: var(--codelab-text) !important;
+    }
+
+    a {
+      color: var(--codelab-accent) !important;
+      text-decoration: none !important;
+      border-bottom: 1px solid rgba(143,179,255,0.3) !important;
+      transition: all 0.3s ease !important;
+    }
+
+    a:hover {
+      color: #ffffff !important;
+      border-bottom-color: rgba(143,179,255,0.6) !important;
+    }
+
+    pre,
+    code,
+    .prettyprint {
+      background: #1a1a1a !important;
+      color: #e0e0e0 !important;
+      border: 1px solid var(--codelab-border) !important;
+      border-radius: 4px !important;
+    }
+
+    aside {
+      background: rgba(255,255,255,0.02) !important;
+      border-left: 4px solid var(--codelab-accent) !important;
+      color: var(--codelab-text) !important;
+      padding: 16px 20px !important;
+      border-radius: 4px !important;
+    }
+
+    table {
+      background: var(--codelab-surface) !important;
+      border: 1px solid var(--codelab-border) !important;
+    }
+
+    th {
+      background: rgba(255,255,255,0.05) !important;
+      color: #ffffff !important;
+      border-bottom: 2px solid var(--codelab-border) !important;
+    }
+
+    td {
+      border: 1px solid var(--codelab-border) !important;
+    }
+
+    tr:hover {
+      background: rgba(255,255,255,0.02) !important;
+    }
+
+    paper-button,
+    button,
+    .codelab-fab {
+      background: transparent !important;
+      color: #ffffff !important;
+      border: 1px solid rgba(255,255,255,0.3) !important;
+      transition: all 0.3s ease !important;
+    }
+
+    paper-button:hover,
+    button:hover {
+      background: rgba(255,255,255,0.05) !important;
+      border-color: #ffffff !important;
+    }
+
+    img {
+      border: 1px solid var(--codelab-border) !important;
+      border-radius: 6px !important;
+      background: #ffffff !important;
+      padding: 8px !important;
+      max-width: 100% !important;
+    }
+
+    #codelab-footer {
+      background: var(--codelab-surface) !important;
+      border-top: 1px solid var(--codelab-border) !important;
+      color: var(--codelab-text-muted) !important;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--codelab-surface);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255,255,255,0.2);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(255,255,255,0.3);
+    }
+
+    .success {
+      color: #66bb6a !important;
+    }
+    
     .error {
-      color: red;
+      color: #ff5252 !important;
     }
   </style>
 </head>
@@ -27,8 +205,8 @@
                   environment="web"
                   feedback-link="https://github.com/abelgd/abelgd.github.io/issues/1">
     
-      <google-codelab-step label="Introducción" duration="0">
-        <p>El presente documento tiene como objetivo servir como <strong>guía técnica y práctica</strong> para la realización de un <strong>análisis de riesgos</strong>.</p>
+    <google-codelab-step label="Introducción" duration="0">
+      <p>El presente documento tiene como objetivo servir como <strong>guía técnica y práctica</strong> para la realización de un <strong>análisis de riesgos</strong>.</p>
 <p>El análisis de riesgos es un proceso esencial para garantizar la <strong>continuidad operativa</strong>, la <strong>fiabilidad</strong> y la <strong>resiliencia</strong> de cualquier organización.<br> Su propósito no es eliminar las amenazas por completo —algo imposible—, sino <strong>identificarlas, evaluarlas y gestionarlas</strong> para que el impacto sobre el negocio sea <strong>asumible y controlado</strong>.</p>
 <p>Esta guía se estructura en pasos claros que permiten comprender cada fase del proceso, y se complementa con un <strong>ejemplo práctico aplicado a la empresa AGGuard</strong>, que servirá como referencia para ilustrar los conceptos tratados en cada punto.</p>
 <p>El proceso se apoya en los principios de la <strong>triada CIA</strong>:</p>
@@ -39,12 +217,10 @@
 </ul>
 <p>En ciberseguridad, la meta no es eliminar los riesgos, sino <strong>aprender a gestionarlos para seguir operando con fiabilidad incluso ante el fallo.</strong> Nota: En esta guía se utilizará <strong>AGGuard</strong>, una empresa especializada en seguridad de redes, como ejemplo práctico para ilustrar cada fase del análisis de riesgos.</p>
 <h3 is-upgraded>Autor: <em>Abel García Domínguez</em></h3>
-
-
-      </google-codelab-step>
+    </google-codelab-step>
     
-      <google-codelab-step label="Índice" duration="0">
-        <h2 is-upgraded>Identificación de activos por criticidad</h2>
+    <google-codelab-step label="Índice" duration="0">
+      <h2 is-upgraded>Identificación de activos por criticidad</h2>
 <ul>
 <li><strong>Definición de activos</strong></li>
 <li><strong>Clasificación por criticidad</strong></li>
@@ -77,12 +253,10 @@
 <li><strong>Resumen del análisis de riesgos</strong></li>
 <li><strong>Recomendaciones finales</strong></li>
 </ul>
-
-
-      </google-codelab-step>
+    </google-codelab-step>
     
-      <google-codelab-step label="Identificación de activos por criticidad" duration="0">
-        <p>El primer paso del análisis de riesgos es <strong>identificar los activos</strong> de la empresa.<br> Un activo puede definirse como <strong>todo elemento que tiene valor para la organización</strong> y cuya pérdida o daño puede afectar a su operativa, reputación o continuidad.</p>
+    <google-codelab-step label="Identificación de activos por criticidad" duration="0">
+      <p>El primer paso del análisis de riesgos es <strong>identificar los activos</strong> de la empresa.<br> Un activo puede definirse como <strong>todo elemento que tiene valor para la organización</strong> y cuya pérdida o daño puede afectar a su operativa, reputación o continuidad.</p>
 <p>Los activos incluyen tanto recursos <strong>tecnológicos</strong> (como servidores o redes) como <strong>informativos, humanos u organizativos</strong>.<br> Cada uno de ellos se evalúa según su <strong>criticidad</strong>, es decir, el nivel de impacto que tendría su pérdida o indisponibilidad para la empresa.</p>
 <table>
 <tr><td colspan="1" rowspan="1"><p>Nivel de criticidad</p>
@@ -136,12 +310,10 @@
 </td><td colspan="1" rowspan="1"><p>Puede sustituirse temporalmente mediante servicios externos</p>
 </td></tr>
 </table>
-
-
-      </google-codelab-step>
+    </google-codelab-step>
     
-      <google-codelab-step label="Identificación de amenazas" duration="0">
-        <p>Una amenaza es cualquier evento que pueda afectar negativamente a los activos o la operativa de una organización, provocando daños, pérdidas o interrupciones. Las evaluaremos en función de su <strong>nivel de riesgo</strong>, definido por la combinación de <strong>impacto</strong> y <strong>probabilidad</strong>.</p>
+    <google-codelab-step label="Identificación de amenazas" duration="0">
+      <p>Una amenaza es cualquier evento que pueda afectar negativamente a los activos o la operativa de una organización, provocando daños, pérdidas o interrupciones. Las evaluaremos en función de su <strong>nivel de riesgo</strong>, definido por la combinación de <strong>impacto</strong> y <strong>probabilidad</strong>.</p>
 <p>Cuanto mayor sea el impacto y la probabilidad, mayor será la prioridad de actuación.</p>
 <h2 is-upgraded>Ejemplo práctico: Amenazas ordenadas por riesgo en AGGuard</h2>
 <table>
@@ -183,12 +355,10 @@
 </td></tr>
 </table>
 <p>Las amenazas con <strong>mayor impacto y probabilidad</strong> deben ser gestionadas de inmediato, ya que comprometen la continuidad y la confianza del cliente.</p>
-
-
-      </google-codelab-step>
+    </google-codelab-step>
     
-      <google-codelab-step label="Identificación de vulnerabilidades relacionadas" duration="0">
-        <p>Las <strong>vulnerabilidades</strong> son las debilidades internas que permiten que una amenaza se haga efectiva.<br> Cada vulnerabilidad debe analizarse <strong>en relación directa con la amenaza asociada</strong>, para entender cómo afecta al riesgo total.</p>
+    <google-codelab-step label="Identificación de vulnerabilidades relacionadas" duration="0">
+      <p>Las <strong>vulnerabilidades</strong> son las debilidades internas que permiten que una amenaza se haga efectiva.<br> Cada vulnerabilidad debe analizarse <strong>en relación directa con la amenaza asociada</strong>, para entender cómo afecta al riesgo total.</p>
 <p>Una amenaza solo se convierte en un problema real si existe una vulnerabilidad que la hace posible.</p>
 <h2 is-upgraded>Ejemplo práctico: Relación amenazas-vulnerabilidades en AGGuard</h2>
 <table>
@@ -218,12 +388,10 @@
 </td><td colspan="1" rowspan="1"><p>🟡 Medio</p>
 </td></tr>
 </table>
-
-
-      </google-codelab-step>
+    </google-codelab-step>
     
-      <google-codelab-step label="Evaluación del riesgo y umbral de aceptación" duration="0">
-        <p>El <strong>nivel de riesgo</strong> combina la <strong>probabilidad</strong> y el <strong>impacto</strong> de cada amenaza.<br> La empresa debe definir su <strong>umbral de riesgo aceptable</strong>, a partir del cual los riesgos se deben tratar activamente.</p>
+    <google-codelab-step label="Evaluación del riesgo y umbral de aceptación" duration="0">
+      <p>El <strong>nivel de riesgo</strong> combina la <strong>probabilidad</strong> y el <strong>impacto</strong> de cada amenaza.<br> La empresa debe definir su <strong>umbral de riesgo aceptable</strong>, a partir del cual los riesgos se deben tratar activamente.</p>
 <table>
 <tr><td colspan="1" rowspan="1"><p>Estrategia</p>
 </td><td colspan="1" rowspan="1"><p>Acción</p>
@@ -284,12 +452,10 @@
 </td><td colspan="1" rowspan="1"><p>Copias locales y revisión periódica del SLA</p>
 </td></tr>
 </table>
-
-
-      </google-codelab-step>
+    </google-codelab-step>
     
-      <google-codelab-step label="Salvaguardas y nivel de madurez" duration="0">
-        <p>Las <strong>salvaguardas</strong> son las medidas aplicadas para reducir el riesgo.<br> Sin embargo, no todas las salvaguardas tienen el mismo <strong>nivel de madurez</strong>.</p>
+    <google-codelab-step label="Salvaguardas y nivel de madurez" duration="0">
+      <p>Las <strong>salvaguardas</strong> son las medidas aplicadas para reducir el riesgo.<br> Sin embargo, no todas las salvaguardas tienen el mismo <strong>nivel de madurez</strong>.</p>
 <p>Un sistema maduro no solo aplica controles, sino que los <strong>automatiza, monitoriza y revisa continuamente</strong>.</p>
 <table>
 <tr><td colspan="1" rowspan="1"><p>Nivel de madurez</p>
@@ -376,21 +542,17 @@
 </td><td colspan="1" rowspan="1"><p>🟢 Alto</p>
 </td></tr>
 </table>
-
-
-      </google-codelab-step>
+    </google-codelab-step>
     
-      <google-codelab-step label="Conclusión" duration="0">
-        <p>A lo largo de esta guía se ha mostrado cómo realizar un <strong>análisis de riesgos estructurado y práctico</strong>, comprendiendo cada fase desde la identificación de activos hasta la aplicación de salvaguardas.</p>
+    <google-codelab-step label="Conclusión" duration="0">
+      <p>A lo largo de esta guía se ha mostrado cómo realizar un <strong>análisis de riesgos estructurado y práctico</strong>, comprendiendo cada fase desde la identificación de activos hasta la aplicación de salvaguardas.</p>
 <ul>
 <li>El objetivo principal es lograr una <strong>empresa fiable, operativa y preparada para continuar ante el fallo</strong>, más que alcanzar una seguridad perfecta.</li>
 <li>Invertir en seguridad <strong>no es un gasto</strong>, sino una forma de evitar pérdidas mayores ante un incidente.</li>
 <li>Una organización con una buena gestión de riesgos <strong>reduce el impacto, mejora su resiliencia y gana la confianza de sus clientes</strong>.</li>
 </ul>
 <p>En definitiva, una empresa segura no es la que no tiene incidentes, sino la que <strong>sabe enfrentarlos y seguir operando con fiabilidad.</strong></p>
-
-
-      </google-codelab-step>
+    </google-codelab-step>
     
   </google-codelab>
 
@@ -399,6 +561,78 @@
   <script src="https://storage.googleapis.com/claat-public/prettify.js"></script>
   <script src="https://storage.googleapis.com/claat-public/codelab-elements.js"></script>
   <script src="//support.google.com/inapp/api.js"></script>
+
+  <script>
+    // Forzar estilos del drawer penetrando el Shadow DOM
+    function applyDrawerStyles() {
+      const codelab = document.querySelector('google-codelab');
+      if (codelab && codelab.shadowRoot) {
+        const shadowRoot = codelab.shadowRoot;
+        
+        // Crear un style tag dentro del shadow root
+        const style = document.createElement('style');
+        style.textContent = `
+          #drawer {
+            background: #000000 !important;
+          }
+          
+          #steps {
+            background: #000000 !important;
+          }
+          
+          .step {
+            color: #ffffff !important;
+            background: #000000 !important;
+          }
+          
+          .step.selected {
+            background: rgba(143, 179, 255, 0.15) !important;
+            border-left: 3px solid #8fb3ff !important;
+          }
+          
+          .step:hover {
+            background: rgba(255, 255, 255, 0.08) !important;
+          }
+          
+          #drawer h2,
+          #drawer h3,
+          #drawer span,
+          #drawer div,
+          #steps span,
+          #steps div {
+            color: #ffffff !important;
+          }
+        `;
+        
+        shadowRoot.appendChild(style);
+      }
+    }
+
+    // Intentar aplicar estilos cuando el DOM esté listo
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(applyDrawerStyles, 100);
+        setTimeout(applyDrawerStyles, 500);
+        setTimeout(applyDrawerStyles, 1000);
+      });
+    } else {
+      setTimeout(applyDrawerStyles, 100);
+      setTimeout(applyDrawerStyles, 500);
+      setTimeout(applyDrawerStyles, 1000);
+    }
+
+    // Observar cambios en el DOM para reaplicar estilos
+    const observer = new MutationObserver(() => {
+      applyDrawerStyles();
+    });
+
+    setTimeout(() => {
+      const codelab = document.querySelector('google-codelab');
+      if (codelab) {
+        observer.observe(codelab, { childList: true, subtree: true });
+      }
+    }, 500);
+  </script>
 
 </body>
 </html>
