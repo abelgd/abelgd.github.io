@@ -45,34 +45,51 @@
       font-weight: 300 !important;
     }
 
-    /* Sidebar y navegación de pasos - CORREGIDO */
+    /* Sidebar y navegación - CORREGIDO */
     #drawer,
     #steps,
-    .steps {
+    .steps,
+    google-codelab::part(drawer),
+    google-codelab::part(steps) {
       background: var(--codelab-surface) !important;
       border-right: 1px solid var(--codelab-border) !important;
     }
 
-    /* Texto de los pasos en la navegación - VISIBLE */
-    .step,
-    .step a {
+    /* Pasos de la navegación - VISIBLE */
+    .step {
       color: var(--codelab-text-muted) !important;
-      border-left: 3px solid transparent !important;
-      transition: all 0.3s ease !important;
     }
 
-    .step.selected,
-    .step.selected a,
-    .step:hover,
-    .step:hover a {
+    .step.selected {
       color: #ffffff !important;
       background: rgba(255,255,255,0.05) !important;
-      border-left-color: var(--codelab-accent) !important;
     }
 
-    /* Número de paso visible */
-    .step::before {
-      color: var(--codelab-accent) !important;
+    .step:hover {
+      color: #ffffff !important;
+      background: rgba(255,255,255,0.05) !important;
+    }
+
+    /* Labels de los pasos - VISIBLE */
+    .step .label,
+    .step span {
+      color: var(--codelab-text-muted) !important;
+    }
+
+    .step.selected .label,
+    .step.selected span {
+      color: #ffffff !important;
+    }
+
+    /* Números de paso - ACENTO AZUL */
+    .step .number {
+      background: var(--codelab-accent) !important;
+      color: #0b0b0b !important;
+      font-weight: 600 !important;
+    }
+
+    .step.selected .number {
+      background: var(--codelab-accent) !important;
     }
 
     /* Contenido principal */
@@ -82,7 +99,7 @@
       color: var(--codelab-text) !important;
     }
 
-    p, li, td, th, span:not(.material-icons), label {
+    p, li, td, th, label {
       color: var(--codelab-text) !important;
     }
 
@@ -170,7 +187,7 @@
       color: var(--codelab-text-muted) !important;
     }
 
-    /* Temporizador en header - visible */
+    /* Temporizador */
     #codelab-time-container,
     .codelab-time-container {
       color: var(--codelab-accent) !important;
