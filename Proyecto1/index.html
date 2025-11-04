@@ -39,20 +39,18 @@
       font-weight: 300 !important;
     }
 
-    /* ESTILOS MEJORADOS PARA EL PANEL LATERAL */
+    /* Forzar estilos del drawer y steps */
     #drawer,
     #steps {
       background: #000000 !important;
       border-right: 1px solid var(--codelab-border) !important;
     }
 
-    /* Forzar estilos en los elementos dentro del drawer */
     #drawer *,
     #steps * {
       background: transparent !important;
     }
 
-    /* Estilos para cada paso en la navegación */
     .step {
       color: #ffffff !important;
       background: #000000 !important;
@@ -72,7 +70,6 @@
       border-left-color: var(--codelab-accent) !important;
     }
 
-    /* Títulos y texto dentro del drawer */
     #drawer h2,
     #drawer h3,
     #drawer span,
@@ -325,6 +322,78 @@
   <script src="https://storage.googleapis.com/claat-public/prettify.js"></script>
   <script src="https://storage.googleapis.com/claat-public/codelab-elements.js"></script>
   <script src="//support.google.com/inapp/api.js"></script>
+
+  <script>
+    // Forzar estilos del drawer penetrando el Shadow DOM
+    function applyDrawerStyles() {
+      const codelab = document.querySelector('google-codelab');
+      if (codelab && codelab.shadowRoot) {
+        const shadowRoot = codelab.shadowRoot;
+        
+        // Crear un style tag dentro del shadow root
+        const style = document.createElement('style');
+        style.textContent = `
+          #drawer {
+            background: #000000 !important;
+          }
+          
+          #steps {
+            background: #000000 !important;
+          }
+          
+          .step {
+            color: #ffffff !important;
+            background: #000000 !important;
+          }
+          
+          .step.selected {
+            background: rgba(143, 179, 255, 0.15) !important;
+            border-left: 3px solid #8fb3ff !important;
+          }
+          
+          .step:hover {
+            background: rgba(255, 255, 255, 0.08) !important;
+          }
+          
+          #drawer h2,
+          #drawer h3,
+          #drawer span,
+          #drawer div,
+          #steps span,
+          #steps div {
+            color: #ffffff !important;
+          }
+        `;
+        
+        shadowRoot.appendChild(style);
+      }
+    }
+
+    // Intentar aplicar estilos cuando el DOM esté listo
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(applyDrawerStyles, 100);
+        setTimeout(applyDrawerStyles, 500);
+        setTimeout(applyDrawerStyles, 1000);
+      });
+    } else {
+      setTimeout(applyDrawerStyles, 100);
+      setTimeout(applyDrawerStyles, 500);
+      setTimeout(applyDrawerStyles, 1000);
+    }
+
+    // Observar cambios en el DOM para reaplicar estilos
+    const observer = new MutationObserver(() => {
+      applyDrawerStyles();
+    });
+
+    setTimeout(() => {
+      const codelab = document.querySelector('google-codelab');
+      if (codelab) {
+        observer.observe(codelab, { childList: true, subtree: true });
+      }
+    }, 500);
+  </script>
 
 </body>
 </html>
