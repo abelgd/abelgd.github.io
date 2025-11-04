@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html>
 <head>
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
@@ -10,9 +9,7 @@
   <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://storage.googleapis.com/claat-public/codelab-elements.css">
   
-  <!-- Tema oscuro minimalista coherente con portfolio -->
   <style>
-    /* Variables coherentes con portfolio Abel García */
     :root {
       --codelab-bg: #0b0b0b;
       --codelab-surface: #151515;
@@ -23,13 +20,11 @@
       --title-font: Georgia, "Times New Roman", Times, serif;
     }
 
-    /* Fondo oscuro general */
     body {
       background: var(--codelab-bg) !important;
       color: var(--codelab-text) !important;
     }
 
-    /* Header y toolbar */
     #codelab-title,
     #main-toolbar,
     google-codelab {
@@ -38,34 +33,58 @@
       --secondary-color: var(--codelab-text-muted) !important;
     }
 
-    /* Títulos con tipografía Georgia */
     h1, h2, h3, h4, h5, h6 {
       color: #ffffff !important;
       font-family: var(--title-font) !important;
       font-weight: 300 !important;
     }
 
-    /* Sidebar y navegación de pasos */
+    /* ESTILOS MEJORADOS PARA EL PANEL LATERAL */
     #drawer,
     #steps {
-      background: var(--codelab-surface) !important;
+      background: #000000 !important;
       border-right: 1px solid var(--codelab-border) !important;
     }
 
+    /* Forzar estilos en los elementos dentro del drawer */
+    #drawer *,
+    #steps * {
+      background: transparent !important;
+    }
+
+    /* Estilos para cada paso en la navegación */
     .step {
-      color: var(--codelab-text-muted) !important;
+      color: #ffffff !important;
+      background: #000000 !important;
       border-left: 3px solid transparent !important;
       transition: all 0.3s ease !important;
     }
 
-    .step.selected,
-    .step:hover {
+    .step.selected {
       color: #ffffff !important;
-      background: rgba(255,255,255,0.05) !important;
+      background: rgba(143, 179, 255, 0.15) !important;
       border-left-color: var(--codelab-accent) !important;
     }
 
-    /* Contenido principal */
+    .step:hover {
+      color: #ffffff !important;
+      background: rgba(255, 255, 255, 0.08) !important;
+      border-left-color: var(--codelab-accent) !important;
+    }
+
+    /* Títulos y texto dentro del drawer */
+    #drawer h2,
+    #drawer h3,
+    #drawer span,
+    #drawer div,
+    #steps h2,
+    #steps h3,
+    #steps span,
+    #steps div {
+      color: #ffffff !important;
+      background: transparent !important;
+    }
+
     #codelab-step,
     .instructions {
       background: var(--codelab-bg) !important;
@@ -76,7 +95,6 @@
       color: var(--codelab-text) !important;
     }
 
-    /* Enlaces con estilo portfolio */
     a {
       color: var(--codelab-accent) !important;
       text-decoration: none !important;
@@ -89,7 +107,6 @@
       border-bottom-color: rgba(143,179,255,0.6) !important;
     }
 
-    /* Bloques de código */
     pre,
     code,
     .prettyprint {
@@ -99,7 +116,6 @@
       border-radius: 4px !important;
     }
 
-    /* Bloques informativos (aside) */
     aside {
       background: rgba(255,255,255,0.02) !important;
       border-left: 4px solid var(--codelab-accent) !important;
@@ -108,7 +124,6 @@
       border-radius: 4px !important;
     }
 
-    /* Tablas oscuras */
     table {
       background: var(--codelab-surface) !important;
       border: 1px solid var(--codelab-border) !important;
@@ -128,7 +143,6 @@
       background: rgba(255,255,255,0.02) !important;
     }
 
-    /* Botones minimalistas */
     paper-button,
     button,
     .codelab-fab {
@@ -144,7 +158,6 @@
       border-color: #ffffff !important;
     }
 
-    /* Imágenes con fondo blanco para destacar */
     img {
       border: 1px solid var(--codelab-border) !important;
       border-radius: 6px !important;
@@ -153,14 +166,12 @@
       max-width: 100% !important;
     }
 
-    /* Footer */
     #codelab-footer {
       background: var(--codelab-surface) !important;
       border-top: 1px solid var(--codelab-border) !important;
       color: var(--codelab-text-muted) !important;
     }
 
-    /* Scrollbar personalizada */
     ::-webkit-scrollbar {
       width: 8px;
       height: 8px;
@@ -179,7 +190,6 @@
       background: rgba(255,255,255,0.3);
     }
 
-    /* Mensajes de éxito y error */
     .success {
       color: #66bb6a !important;
     }
@@ -200,14 +210,12 @@
       <google-codelab-step label="Modelo de ordenador" duration="0">
         <p><strong>Lenovo Ideapad Gaming 3 15ACH6 (82K2)</strong></p>
 <h3 is-upgraded>Autor: <em>Abel García Domínguez</em></h3>
-
       </google-codelab-step>
     
       <google-codelab-step label="Introducción" duration="0">
         <p>La <strong>BIOS</strong> (Basic Input/Output System) y la <strong>UEFI</strong> (Unified Extensible Firmware Interface) son los sistemas de firmware que inicializan el hardware del equipo y gestionan el arranque del sistema operativo. La <strong>UEFI</strong> es la evolución de la BIOS tradicional y ofrece un entorno más seguro, compatible con discos de gran capacidad y con funciones como el arranque seguro (Secure Boot).</p>
 <p>Bastionar la <strong>BIOS/UEFI</strong> consiste en configurar correctamente sus parámetros de seguridad para proteger el equipo frente a accesos no autorizados o manipulaciones durante el arranque.</p>
 <p>De esta forma, se refuerza la integridad del sistema y se reduce el riesgo de ataques que puedan comprometer el ordenador antes de iniciar el sistema operativo.</p>
-
       </google-codelab-step>
     
       <google-codelab-step label="Menú Security" duration="0">
@@ -236,7 +244,6 @@
 </ol>
 <p><strong>Nota:</strong></p>
 <p>Tanto en el paso 2 como en el paso 3, no se incluyen capturas del proceso de introducción y confirmación de contraseñas, ya que el simulador de la BIOS de Lenovo utilizado para la elaboración de esta guía no permite acceder a la interfaz donde se establecen las contraseñas de usuario o de arranque.<br> En un entorno físico real, al seleccionar estas opciones, el sistema solicitará introducir y confirmar las contraseñas de manera secuencial antes de guardarlas.</p>
-
       </google-codelab-step>
     
       <google-codelab-step label="Menú Boot" duration="0">
@@ -283,7 +290,6 @@
 </li>
 </ol>
 <p><strong>Nota de seguridad:</strong> Al desactivar Fast Boot, USB Boot o PXE Boot, algunas opciones relacionadas pueden desaparecer del menú. Esto es <strong>normal</strong> y forma parte de la configuración más segura del arranque.</p>
-
       </google-codelab-step>
     
       <google-codelab-step label="Menú Exit" duration="0">
@@ -310,7 +316,6 @@
 </li>
 </ol>
 <p><strong>Resultado esperado:<br></strong> El sistema arranca de forma segura, solicitando las contraseñas configuradas y sin permitir el arranque desde dispositivos no autorizados. Por lo tanto, el equipo queda protegido frente a accesos no autorizados al firmware, garantizando un arranque seguro y controlado por el usuario.</p>
-
       </google-codelab-step>
     
   </google-codelab>
