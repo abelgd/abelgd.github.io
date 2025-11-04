@@ -1,38 +1,28 @@
+
+<!doctype html>
+
 <html>
 <head>
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-  <meta name="theme-color" content="#0b0b0b">
+  <meta name="theme-color" content="#f5f5f5">
   <meta charset="UTF-8">
   <title>Proyecto 1: Guía para bastionar la BIOS/UEFI</title>
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
   <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://storage.googleapis.com/claat-public/codelab-elements.css">
-  
   <style>
-    /* Variables CSS que Google Codelabs expone */
-    google-codelab {
-      --google-codelab-background: #0b0b0b;
-      --google-codelab-sidebar-background: #151515;
-      --google-codelab-step-background: #0b0b0b;
-      --google-codelab-primary-color: #8fb3ff;
-      --google-codelab-secondary-color: #cccccc;
-      --google-codelab-text-color: #cccccc;
-      --google-codelab-step-color: #888888;
-      --google-codelab-step-active-color: #ffffff;
-      --google-codelab-step-active-background: rgba(255,255,255,0.05);
-    }
-
+    /* Variables coherentes con portfolio pero adaptadas */
     :root {
-      --codelab-bg: #0b0b0b;
-      --codelab-surface: #151515;
-      --codelab-text: #cccccc;
-      --codelab-text-muted: #888888;
+      --codelab-bg: #f9f9f9;
+      --codelab-surface: #ffffff;
+      --codelab-text: #2c2c2c;
+      --codelab-text-muted: #666666;
       --codelab-accent: #8fb3ff;
-      --codelab-border: rgba(255,255,255,0.1);
+      --codelab-border: rgba(0,0,0,0.08);
       --title-font: Georgia, "Times New Roman", Times, serif;
     }
 
-    /* Fondo oscuro general */
+    /* Fondo general - gris claro */
     body {
       background: var(--codelab-bg) !important;
       color: var(--codelab-text) !important;
@@ -41,108 +31,148 @@
     /* Contenedor principal */
     google-codelab {
       background: var(--codelab-bg) !important;
+      --primary-color: var(--codelab-accent) !important;
     }
 
-    /* Sidebar oscuro */
-    google-codelab::part(drawer) {
-      background: var(--codelab-surface) !important;
-    }
-
-    /* Pasos visibles con colores correctos */
-    google-codelab::part(step-label) {
-      color: var(--codelab-text-muted) !important;
-    }
-
-    google-codelab::part(step-label-selected) {
-      color: #ffffff !important;
-      background: rgba(255,255,255,0.05) !important;
-    }
-
-    /* Títulos */
+    /* Títulos con tipografía Georgia - acento azul portfolio */
     h1, h2, h3, h4, h5, h6 {
-      color: #ffffff !important;
+      color: var(--codelab-accent) !important;
       font-family: var(--title-font) !important;
       font-weight: 300 !important;
     }
 
-    /* Contenido */
+    /* Contenido principal - texto oscuro sobre fondo claro */
+    #codelab-step,
+    .instructions {
+      background: var(--codelab-surface) !important;
+      color: var(--codelab-text) !important;
+      border-radius: 4px !important;
+      padding: 20px !important;
+    }
+
     p, li, td, th, label, span {
       color: var(--codelab-text) !important;
     }
 
-    /* Enlaces */
+    /* Enlaces - acento azul del portfolio */
     a {
       color: var(--codelab-accent) !important;
       text-decoration: none !important;
+      border-bottom: 1px solid rgba(143,179,255,0.3) !important;
+      transition: all 0.3s ease !important;
     }
 
     a:hover {
-      color: #ffffff !important;
+      border-bottom-color: rgba(143,179,255,0.6) !important;
     }
 
-    /* Código */
-    pre, code {
-      background: #1a1a1a !important;
-      color: #e0e0e0 !important;
+    /* Bloques de código - tema minimalista */
+    pre,
+    code,
+    .prettyprint {
+      background: #f5f5f5 !important;
+      color: #2c2c2c !important;
       border: 1px solid var(--codelab-border) !important;
       border-radius: 4px !important;
     }
 
-    /* Imágenes */
-    img {
-      border: 1px solid var(--codelab-border) !important;
-      border-radius: 6px !important;
-      background: #ffffff !important;
-      padding: 8px !important;
-      max-width: 100% !important;
+    /* Bloques informativos (aside) - inspirado en portfolio */
+    aside {
+      background: rgba(143,179,255,0.08) !important;
+      border-left: 4px solid var(--codelab-accent) !important;
+      color: var(--codelab-text) !important;
+      padding: 16px 20px !important;
+      border-radius: 4px !important;
     }
 
-    /* Tablas */
+    /* Tablas claras */
     table {
       background: var(--codelab-surface) !important;
       border: 1px solid var(--codelab-border) !important;
     }
 
     th {
-      background: rgba(255,255,255,0.05) !important;
-      color: #ffffff !important;
+      background: #f9f9f9 !important;
+      color: var(--codelab-text) !important;
+      border-bottom: 2px solid var(--codelab-accent) !important;
     }
 
     td {
       border: 1px solid var(--codelab-border) !important;
+      color: var(--codelab-text) !important;
     }
 
-    /* Botones */
-    button, paper-button {
-      color: #ffffff !important;
-      border: 1px solid rgba(255,255,255,0.3) !important;
+    tr:hover {
+      background: #f9f9f9 !important;
+    }
+
+    /* Imágenes con borde sutil */
+    img {
+      border: 1px solid var(--codelab-border) !important;
+      border-radius: 6px !important;
+      max-width: 100% !important;
+      background: #ffffff !important;
+    }
+
+    /* Botones minimalistas - coherentes con portfolio */
+    paper-button,
+    button,
+    .codelab-fab {
       background: transparent !important;
+      color: var(--codelab-accent) !important;
+      border: 1px solid var(--codelab-accent) !important;
+      transition: all 0.3s ease !important;
+      text-transform: uppercase !important;
+      letter-spacing: 1px !important;
     }
 
-    button:hover, paper-button:hover {
-      background: rgba(255,255,255,0.05) !important;
+    paper-button:hover,
+    button:hover {
+      background: rgba(143,179,255,0.1) !important;
+      border-color: var(--codelab-accent) !important;
     }
 
-    /* Scrollbar */
+    /* Footer */
+    #codelab-footer {
+      background: #ffffff !important;
+      border-top: 1px solid var(--codelab-border) !important;
+      color: var(--codelab-text-muted) !important;
+    }
+
+    /* Temporizador - acento azul */
+    #codelab-time-container,
+    .codelab-time-container {
+      color: var(--codelab-accent) !important;
+      font-weight: 600 !important;
+    }
+
+    /* Scrollbar personalizada - sutil */
     ::-webkit-scrollbar {
       width: 8px;
+      height: 8px;
     }
 
     ::-webkit-scrollbar-track {
-      background: var(--codelab-surface);
+      background: #f9f9f9;
     }
 
     ::-webkit-scrollbar-thumb {
-      background: rgba(255,255,255,0.2);
+      background: rgba(0,0,0,0.1);
       border-radius: 4px;
     }
 
     ::-webkit-scrollbar-thumb:hover {
-      background: rgba(255,255,255,0.3);
+      background: rgba(0,0,0,0.2);
     }
 
-    .success { color: #66bb6a !important; }
-    .error { color: #ff5252 !important; }
+    /* Mensajes */
+    .success {
+      color: #1e8e3e !important;
+    }
+    
+    .error {
+      color: #d32f2f !important;
+    }
   </style>
 </head>
 <body>
