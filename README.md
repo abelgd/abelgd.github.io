@@ -10,11 +10,6 @@ Este repositorio publica a través de Github Pages, mi portfolio técnico con pr
 - Documentación con ejemplos, comandos y buenas prácticas para entornos reales y formativos.
 - Material diseñado para reproducir configuraciones y escenarios de forma segura y controlada.
 
-## Cómo navegar el sitio
-
-- Acceso directo al portfolio: [abelgd.github.io](https://abelgd.github.io/).
-- Cada proyecto incluye objetivos, contexto, procedimientos y resultados esperados, listados de forma clara.
-
 ## Criterios de documentación
 
 - **Enfoque didáctico**: explicaciones claras, contexto y objetivos definidos en cada recurso.
