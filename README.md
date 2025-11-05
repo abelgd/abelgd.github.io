@@ -1,16 +1,32 @@
-# Portfolio de proyectos — Abel García Domínguez (abelgd)
+# Portfolio de proyectos — Abel García Domínguez (abelgd) 
+[abelgd.github.io](https://abelgd.github.io/) 
 
-Este repositorio recopila diversos proyectos desarrollados por **Abel García Domínguez**, enfocados en el ámbito de la **administración de sistemas, redes y ciberseguridad**.  
-Su objetivo es servir como **portfolio técnico**, mostrando prácticas y configuraciones aplicadas en entornos reales y formativos.
+Este repositorio publica a través de Github Pages, mi portfolio técnico con proyectos de administración de sistemas, redes y ciberseguridad, ofreciendo una visión ordenada y reproducible de trabajos académicos y personales en formato Codelab.
 
----
+## Qué encontrarás
 
-##  Áreas principales de trabajo
+- Proyectos técnicos orientados a Linux/Windows, redes, ciberseguridad y análisis de riesgos, con foco didáctico y aplicable.
+- Guías en formato Codelab con pasos claros, prerrequisitos y validaciones para su verificación.
+- Documentación con ejemplos, comandos y buenas prácticas para entornos reales y formativos.
+- Material diseñado para reproducir configuraciones y escenarios de forma segura y controlada.
 
--  **Administración de sistemas Linux y Windows**  
--  **Diseño, implementación y gestión de redes**  
--  **Ciberseguridad y bastionado de sistemas**  
--  **Análisis y gestión de riesgos**  
+## Criterios de documentación
 
-Cada proyecto está documentado de forma **didáctica y reproducible**, siguiendo estándares de documentación en **Markdown** y **Codelab**.
+- **Enfoque didáctico**: explicaciones claras, contexto y objetivos definidos en cada recurso.
+- **Reproducibilidad**: pasos verificables con comandos y evidencias de resultado.
+- **Orientación práctica**: atención a configuraciones y procedimientos aplicables en escenarios reales.
+
+## Tecnologías y formato
+
+- Publicación con GitHub Pages y estructura web estática.
+- Contenidos en HTML/CSS y Codelab para guías interactivas paso a paso.
+- Uso de Markdown para notas, resúmenes y documentación auxiliar del repositorio.
+
+## Contribuciones y feedback
+
+- Para sugerencias o mejoras, abre un **issue** con una descripción breve del cambio.
+- Para reportar errores en Codelabs, indica el paso, el comando y el resultado obtenido para su análisis.
+- Para proponer nuevos temas, describe el caso de uso y el alcance deseado de la guía o proyecto.
+
+El sitio y sus contenidos pertenecen a **Abel García Domínguez** (abelgd) y se actualizan de forma continua conforme se incorporan nuevos proyectos y guías.
 
