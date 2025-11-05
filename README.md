@@ -14,7 +14,7 @@ Este repositorio publica a través de Github Pages, mi portfolio técnico con pr
 
 - Acceso directo al portfolio: [abelgd.github.io](https://abelgd.github.io/).
 - Cada proyecto incluye objetivos, contexto, procedimientos y resultados esperados, listados de forma clara.
-- 
+
 ## Criterios de documentación
 
 - **Enfoque didáctico**: explicaciones claras, contexto y objetivos definidos en cada recurso.
@@ -32,8 +32,6 @@ Este repositorio publica a través de Github Pages, mi portfolio técnico con pr
 - Para sugerencias o mejoras, abre un **issue** con una descripción breve del cambio.
 - Para reportar errores en Codelabs, indica el paso, el comando y el resultado obtenido para su análisis.
 - Para proponer nuevos temas, describe el caso de uso y el alcance deseado de la guía o proyecto.
-
-## Autoría
 
 El sitio y sus contenidos pertenecen a **Abel García Domínguez** (abelgd) y se actualizan de forma continua conforme se incorporan nuevos proyectos y guías.
 
