@@ -98,7 +98,7 @@
       z-index:1;
     }
 
-    /* Contenedor fijo para destellos del cursor */
+    /* Destellos del cursor */
     #cursor-container{
       position:fixed;
       inset:0;
@@ -223,7 +223,7 @@
       background-color:#0b0b0b;
       border:1px solid var(--card-bd);
       border-radius:8px;
-      padding:40px;
+      padding:36px;
       transition:all .5s cubic-bezier(.4,0,.2,1);
       cursor:pointer;
       position:relative;
@@ -242,13 +242,12 @@
       background-color:rgba(11,11,11,0.98);
     }
 
-    .project-number{ font-size:3rem; font-weight:100; color:rgba(255,255,255,0.1); margin-bottom:20px; }
     .project-content{ position:relative; z-index:1; }
-    .project-title{ font-size:1.8rem; font-weight:400; letter-spacing:2px; margin-bottom:16px; color:#fff; font-family:var(--title-font); }
-    .project-description{ font-size:1rem; line-height:1.9; color:var(--muted-2); margin-bottom:14px; font-weight:300; }
+    .project-title{ font-size:1.8rem; font-weight:400; letter-spacing:2px; margin-bottom:20px; color:#fff; font-family:var(--title-font); }
+    .project-description{ font-size:1rem; line-height:1.9; color:var(--muted-2); margin-bottom:28px; font-weight:300; }
     .project-meta{
       font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,"Liberation Mono","Courier New",monospace;
-      font-size:.85rem; letter-spacing:2.5px; text-transform:uppercase; color:var(--meta); opacity:.9; margin-bottom:22px;
+      font-size:.85rem; letter-spacing:2.5px; text-transform:uppercase; color:var(--meta); opacity:.9; margin-bottom:28px;
     }
     .project-link{
       display:inline-block; padding:14px 35px; background:transparent; border:1px solid rgba(255,255,255,0.3); color:#fff; text-decoration:none; font-size:.85rem;
@@ -288,7 +287,7 @@
       border-bottom-color:rgba(255,255,255,0.6);
     }
 
-    /* Destello blanco personalizado */
+    /* Destello blanco */
     .cursor-trail{
       position:absolute;
       width:20px;
@@ -323,7 +322,7 @@
   </style>
 </head>
 <body>
-  <!-- Contenedor dedicado para destellos del cursor -->
+  <!-- Destellos del cursor -->
   <div id="cursor-container"></div>
 
   <!-- Fondo dinámico -->
@@ -360,7 +359,6 @@
     <section id="proyectos">
       <div class="projects-grid">
         <div class="project-card">
-          <div class="project-number">01</div>
           <div class="project-content">
             <h3 class="project-title">Proyecto 1: BIOS/UEFI</h3>
             <p class="project-description">Guía para bastionar la BIOS/UEFI de un ordenador Lenovo Ideapad Gaming 3.</p>
@@ -370,7 +368,6 @@
         </div>
 
         <div class="project-card">
-          <div class="project-number">02</div>
           <div class="project-content">
             <h3 class="project-title">Proyecto 2: Arranque Debian</h3>
             <p class="project-description">Guía para bastionar el arranque de un sistema Ubuntu Server.</p>
@@ -380,7 +377,6 @@
         </div>
 
         <div class="project-card">
-          <div class="project-number">03</div>
           <div class="project-content">
             <h3 class="project-title">Proyecto 3: Análisis de riesgos</h3>
             <p class="project-description">Guía para realizar un análisis de riesgos paso a paso.</p>
