@@ -98,7 +98,7 @@
       z-index:1;
     }
 
-    /* Destellos del cursor */
+    /* Contenedor fijo para destellos del cursor */
     #cursor-container{
       position:fixed;
       inset:0;
@@ -154,7 +154,7 @@
       opacity:1;
     }
 
-    /* Navegación minimalista sin recuadro */
+    /* Navegación sin recuadro */
     nav{
       position:fixed;
       top:40px; right:40px;
@@ -272,7 +272,15 @@
       z-index:3;
     }
     .about-content h2{ font-size:2.5rem; font-weight:300; letter-spacing:8px; text-transform:uppercase; margin-bottom:50px; color:#ccc; font-family:var(--title-font); }
-    .about-content p{ font-size:1.05rem; line-height:1.9; color:#999; font-weight:300; margin-bottom:20px; text-align:left; }
+    .about-content p{ 
+      font-size:1.05rem; 
+      line-height:1.9; 
+      color:#999; 
+      font-weight:300; 
+      margin-bottom:20px; 
+      text-align:justify;
+      text-align-last:left;
+    }
     
     /* Enlace inline en el texto */
     .about-content a{
@@ -287,7 +295,7 @@
       border-bottom-color:rgba(255,255,255,0.6);
     }
 
-    /* Destello blanco */
+    /* Destello blanco personalizado */
     .cursor-trail{
       position:absolute;
       width:20px;
@@ -335,7 +343,7 @@
   <!-- Línea guía -->
   <div class="vertical-line"></div>
 
-  <!-- Logo AG apilado vertical -->
+  <!-- Logo AG -->
   <div class="logo">
     <span class="logo-a">A</span>
     <span class="logo-g">G</span>
