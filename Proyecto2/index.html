@@ -1,73 +1,63 @@
 <!doctype html>
-
 <html>
 <head>
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-  <meta name="theme-color" content="#0b0b0b">
+  <meta name="theme-color" content="#4F7DC9">
   <meta charset="UTF-8">
   <title>Proyecto 2: Guía para bastionar el arranque de Ubuntu Server</title>
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
   <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://storage.googleapis.com/claat-public/codelab-elements.css">
+
   <style>
     :root {
-      --codelab-bg: #0b0b0b;
-      --codelab-surface: #151515;
-      --codelab-text: #cccccc;
-      --codelab-text-muted: #888888;
-      --codelab-accent: #8fb3ff;
-      --codelab-border: rgba(255,255,255,0.1);
       --title-font: Georgia, "Times New Roman", Times, serif;
     }
 
+    /* ========== TEMA CLARO (Predeterminado Google Codelabs) ========== */
     body {
-      background: var(--codelab-bg) !important;
-      color: var(--codelab-text) !important;
+      background: #ffffff !important;
+      color: #202124 !important;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     #codelab-title,
     #main-toolbar,
     google-codelab {
-      background: var(--codelab-surface) !important;
-      --primary-color: var(--codelab-accent) !important;
-      --secondary-color: var(--codelab-text-muted) !important;
+      background: #f8f9fa !important;
+      --primary-color: #1a73e8 !important;
+      --secondary-color: #5f6368 !important;
     }
 
     h1, h2, h3, h4, h5, h6 {
-      color: #ffffff !important;
+      color: #202124 !important;
       font-family: var(--title-font) !important;
       font-weight: 300 !important;
     }
 
-    /* Forzar estilos del drawer y steps */
     #drawer,
     #steps {
-      background: #000000 !important;
-      border-right: 1px solid var(--codelab-border) !important;
-    }
-
-    #drawer *,
-    #steps * {
-      background: transparent !important;
+      background: #ffffff !important;
+      border-right: 1px solid #dadce0 !important;
     }
 
     .step {
-      color: #ffffff !important;
-      background: #000000 !important;
+      color: #202124 !important;
+      background: #ffffff !important;
       border-left: 3px solid transparent !important;
       transition: all 0.3s ease !important;
     }
 
     .step.selected {
-      color: #ffffff !important;
-      background: rgba(143, 179, 255, 0.15) !important;
-      border-left-color: var(--codelab-accent) !important;
+      color: #1a73e8 !important;
+      background: rgba(26, 115, 232, 0.08) !important;
+      border-left-color: #1a73e8 !important;
     }
 
     .step:hover {
-      color: #ffffff !important;
-      background: rgba(255, 255, 255, 0.08) !important;
-      border-left-color: var(--codelab-accent) !important;
+      color: #202124 !important;
+      background: #f8f9fa !important;
+      border-left-color: #1a73e8 !important;
     }
 
     #drawer h2,
@@ -78,85 +68,83 @@
     #steps h3,
     #steps span,
     #steps div {
-      color: #ffffff !important;
-      background: transparent !important;
+      color: #202124 !important;
     }
 
     #codelab-step,
     .instructions {
-      background: var(--codelab-bg) !important;
-      color: var(--codelab-text) !important;
+      background: #ffffff !important;
+      color: #202124 !important;
     }
 
     p, li, td, th, span, label {
-      color: var(--codelab-text) !important;
+      color: #202124 !important;
     }
 
     a {
-      color: var(--codelab-accent) !important;
+      color: #1a73e8 !important;
       text-decoration: none !important;
-      border-bottom: 1px solid rgba(143,179,255,0.3) !important;
+      border-bottom: 1px solid rgba(26, 115, 232, 0.3) !important;
       transition: all 0.3s ease !important;
     }
 
     a:hover {
-      color: #ffffff !important;
-      border-bottom-color: rgba(143,179,255,0.6) !important;
+      color: #174ea6 !important;
+      border-bottom-color: rgba(26, 115, 232, 0.6) !important;
     }
 
     pre,
     code,
     .prettyprint {
-      background: #1a1a1a !important;
-      color: #e0e0e0 !important;
-      border: 1px solid var(--codelab-border) !important;
+      background: #f1f3f4 !important;
+      color: #202124 !important;
+      border: 1px solid #dadce0 !important;
       border-radius: 4px !important;
     }
 
     aside {
-      background: rgba(255,255,255,0.02) !important;
-      border-left: 4px solid var(--codelab-accent) !important;
-      color: var(--codelab-text) !important;
+      background: #e8f0fe !important;
+      border-left: 4px solid #1a73e8 !important;
+      color: #202124 !important;
       padding: 16px 20px !important;
       border-radius: 4px !important;
     }
 
     table {
-      background: var(--codelab-surface) !important;
-      border: 1px solid var(--codelab-border) !important;
+      background: #ffffff !important;
+      border: 1px solid #dadce0 !important;
     }
 
     th {
-      background: rgba(255,255,255,0.05) !important;
-      color: #ffffff !important;
-      border-bottom: 2px solid var(--codelab-border) !important;
+      background: #f8f9fa !important;
+      color: #202124 !important;
+      border-bottom: 2px solid #dadce0 !important;
     }
 
     td {
-      border: 1px solid var(--codelab-border) !important;
+      border: 1px solid #dadce0 !important;
     }
 
     tr:hover {
-      background: rgba(255,255,255,0.02) !important;
+      background: #f8f9fa !important;
     }
 
     paper-button,
     button,
     .codelab-fab {
-      background: transparent !important;
+      background: #1a73e8 !important;
       color: #ffffff !important;
-      border: 1px solid rgba(255,255,255,0.3) !important;
+      border: none !important;
       transition: all 0.3s ease !important;
     }
 
     paper-button:hover,
     button:hover {
-      background: rgba(255,255,255,0.05) !important;
-      border-color: #ffffff !important;
+      background: #174ea6 !important;
     }
 
     img {
-      border: 1px solid var(--codelab-border) !important;
+      border: 1px solid #dadce0 !important;
       border-radius: 6px !important;
       background: #ffffff !important;
       padding: 8px !important;
@@ -164,9 +152,9 @@
     }
 
     #codelab-footer {
-      background: var(--codelab-surface) !important;
-      border-top: 1px solid var(--codelab-border) !important;
-      color: var(--codelab-text-muted) !important;
+      background: #f8f9fa !important;
+      border-top: 1px solid #dadce0 !important;
+      color: #5f6368 !important;
     }
 
     ::-webkit-scrollbar {
@@ -175,41 +163,264 @@
     }
 
     ::-webkit-scrollbar-track {
-      background: var(--codelab-surface);
+      background: #f8f9fa;
     }
 
     ::-webkit-scrollbar-thumb {
-      background: rgba(255,255,255,0.2);
+      background: #dadce0;
       border-radius: 4px;
     }
 
     ::-webkit-scrollbar-thumb:hover {
+      background: #bdc1c6;
+    }
+
+    /* ========== TEMA OSCURO ========== */
+    [data-theme="dark"] {
+      --codelab-bg: #0b0b0b;
+      --codelab-surface: #151515;
+      --codelab-text: #cccccc;
+      --codelab-text-muted: #888888;
+      --codelab-accent: #8fb3ff;
+      --codelab-border: rgba(255,255,255,0.1);
+    }
+
+    [data-theme="dark"] body {
+      background: var(--codelab-bg) !important;
+      color: var(--codelab-text) !important;
+    }
+
+    [data-theme="dark"] #codelab-title,
+    [data-theme="dark"] #main-toolbar,
+    [data-theme="dark"] google-codelab {
+      background: var(--codelab-surface) !important;
+      --primary-color: var(--codelab-accent) !important;
+      --secondary-color: var(--codelab-text-muted) !important;
+    }
+
+    [data-theme="dark"] h1,
+    [data-theme="dark"] h2,
+    [data-theme="dark"] h3,
+    [data-theme="dark"] h4,
+    [data-theme="dark"] h5,
+    [data-theme="dark"] h6 {
+      color: #ffffff !important;
+    }
+
+    [data-theme="dark"] #drawer,
+    [data-theme="dark"] #steps {
+      background: #000000 !important;
+      border-right: 1px solid var(--codelab-border) !important;
+    }
+
+    [data-theme="dark"] #drawer *,
+    [data-theme="dark"] #steps * {
+      background: transparent !important;
+    }
+
+    [data-theme="dark"] .step {
+      color: #ffffff !important;
+      background: #000000 !important;
+    }
+
+    [data-theme="dark"] .step.selected {
+      color: #ffffff !important;
+      background: rgba(143, 179, 255, 0.15) !important;
+      border-left-color: var(--codelab-accent) !important;
+    }
+
+    [data-theme="dark"] .step:hover {
+      color: #ffffff !important;
+      background: rgba(255, 255, 255, 0.08) !important;
+      border-left-color: var(--codelab-accent) !important;
+    }
+
+    [data-theme="dark"] #drawer h2,
+    [data-theme="dark"] #drawer h3,
+    [data-theme="dark"] #drawer span,
+    [data-theme="dark"] #drawer div,
+    [data-theme="dark"] #steps h2,
+    [data-theme="dark"] #steps h3,
+    [data-theme="dark"] #steps span,
+    [data-theme="dark"] #steps div {
+      color: #ffffff !important;
+    }
+
+    [data-theme="dark"] #codelab-step,
+    [data-theme="dark"] .instructions {
+      background: var(--codelab-bg) !important;
+      color: var(--codelab-text) !important;
+    }
+
+    [data-theme="dark"] p,
+    [data-theme="dark"] li,
+    [data-theme="dark"] td,
+    [data-theme="dark"] th,
+    [data-theme="dark"] span,
+    [data-theme="dark"] label {
+      color: var(--codelab-text) !important;
+    }
+
+    [data-theme="dark"] a {
+      color: var(--codelab-accent) !important;
+      border-bottom: 1px solid rgba(143,179,255,0.3) !important;
+    }
+
+    [data-theme="dark"] a:hover {
+      color: #ffffff !important;
+      border-bottom-color: rgba(143,179,255,0.6) !important;
+    }
+
+    [data-theme="dark"] pre,
+    [data-theme="dark"] code,
+    [data-theme="dark"] .prettyprint {
+      background: #1a1a1a !important;
+      color: #e0e0e0 !important;
+      border: 1px solid var(--codelab-border) !important;
+    }
+
+    [data-theme="dark"] aside {
+      background: rgba(255,255,255,0.02) !important;
+      border-left: 4px solid var(--codelab-accent) !important;
+      color: var(--codelab-text) !important;
+    }
+
+    [data-theme="dark"] table {
+      background: var(--codelab-surface) !important;
+      border: 1px solid var(--codelab-border) !important;
+    }
+
+    [data-theme="dark"] th {
+      background: rgba(255,255,255,0.05) !important;
+      color: #ffffff !important;
+      border-bottom: 2px solid var(--codelab-border) !important;
+    }
+
+    [data-theme="dark"] td {
+      border: 1px solid var(--codelab-border) !important;
+    }
+
+    [data-theme="dark"] tr:hover {
+      background: rgba(255,255,255,0.02) !important;
+    }
+
+    [data-theme="dark"] paper-button,
+    [data-theme="dark"] button,
+    [data-theme="dark"] .codelab-fab {
+      background: transparent !important;
+      color: #ffffff !important;
+      border: 1px solid rgba(255,255,255,0.3) !important;
+    }
+
+    [data-theme="dark"] paper-button:hover,
+    [data-theme="dark"] button:hover {
+      background: rgba(255,255,255,0.05) !important;
+      border-color: #ffffff !important;
+    }
+
+    [data-theme="dark"] img {
+      border: 1px solid var(--codelab-border) !important;
+      background: #ffffff !important;
+    }
+
+    [data-theme="dark"] #codelab-footer {
+      background: var(--codelab-surface) !important;
+      border-top: 1px solid var(--codelab-border) !important;
+      color: var(--codelab-text-muted) !important;
+    }
+
+    [data-theme="dark"] ::-webkit-scrollbar-track {
+      background: var(--codelab-surface);
+    }
+
+    [data-theme="dark"] ::-webkit-scrollbar-thumb {
+      background: rgba(255,255,255,0.2);
+    }
+
+    [data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
       background: rgba(255,255,255,0.3);
     }
 
+    /* ========== BOTÓN TOGGLE ========== */
+    .theme-toggle-btn {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      z-index: 10000;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid #dadce0 !important;
+      background: #ffffff !important;
+      color: #202124 !important;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .theme-toggle-btn:hover {
+      transform: scale(1.1) rotate(180deg);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    /* Fondo del botón en tema OSCURO */
+    [data-theme="dark"] .theme-toggle-btn {
+      background: #0b0b0b !important;
+      border-color: rgba(255,255,255,0.2) !important;
+      color: #e8eaed !important;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    [data-theme="dark"] .theme-toggle-btn:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      border-color: rgba(255,255,255,0.4) !important;
+    }
+
+    /* Ajustar posición del tiempo restante para dejar espacio al toggle */
+    #codelab-title {
+      padding-right: 70px !important;
+    }
+
     .success {
+      color: #1e8e3e !important;
+    }
+
+    .error {
+      color: #d93025 !important;
+    }
+
+    [data-theme="dark"] .success {
       color: #66bb6a !important;
     }
-    
-    .error {
+
+    [data-theme="dark"] .error {
       color: #ff5252 !important;
     }
   </style>
 </head>
 <body>
+  <!-- Botón toggle de tema -->
+  <button id="theme-toggle" class="theme-toggle-btn" aria-label="Cambiar tema">
+    <span id="theme-icon">🌓</span>
+  </button>
+
   <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
   <google-codelab codelab-gaid="ID de Google Analytics"
                   id="identificador2"
                   title="Proyecto 2: Guía para bastionar el arranque de Ubuntu Server"
                   environment="web"
                   feedback-link="https://github.com/abelgd/abelgd.github.io/issues/1">
-    
+
     <google-codelab-step label="Introducción" duration="3">
       <p>El proceso de arranque de un sistema operativo es una fase crítica en la que se cargan los componentes esenciales del sistema.<br> Bastionar el arranque de <strong>Ubuntu Server</strong> consiste en aplicar configuraciones y medidas de seguridad que garanticen la <strong>integridad</strong>, <strong>confidencialidad</strong> y <strong>autenticidad</strong> del sistema desde el momento en que se enciende el equipo.</p>
 <p>El objetivo de esta guía es proporcionar una base técnica y estructurada para asegurar el arranque de Ubuntu, reduciendo riesgos de manipulación o acceso no autorizado durante las fases iniciales del sistema.</p>
 <h3 is-upgraded>Autor: <em>Abel García Domínguez</em></h3>
     </google-codelab-step>
-    
+
     <google-codelab-step label="Configuración y medidas de bastionado del arranque" duration="2">
       <p>En esta práctica se realizará la instalación y configuración segura de <strong>Ubuntu Server 24.04.3 LTS (minimized)</strong>, aplicando medidas de seguridad desde el proceso de instalación.<br> El bastionado comienza en el propio instalador, donde definiremos una estructura de particiones cifradas y configuraciones de arranque seguras.</p>
 <h2 is-upgraded>Requisitos previos</h2>
@@ -225,29 +436,29 @@
 <li>El adaptador de red <strong>se volverá a activar</strong> una vez completada la instalación, justo antes de la configuración del GRUB.</li>
 </ul>
     </google-codelab-step>
-    
+
     <google-codelab-step label="Instalación de Ubuntu Server 24.04.3 LTS" duration="8">
       <h2 is-upgraded>Paso 1: Iniciar la instalación</h2>
 <ol type="1">
 <li>Inicia la máquina virtual utilizando la ISO: <em>ubuntu-24.04.3-live-server-amd64.iso</em>. Selecciona la opción <em>Omitir la instalación desatendida</em></li>
 <li>En el menú inicial, selecciona la opción: <em>Try or Install Ubuntu Server</em></li>
 </ol>
-<p class="image-container"><img alt="Imagen1" src="img\\47f86acaa9f31dba.png"></p>
+<p class="image-container"><img alt="Imagen1" src="img\47f86acaa9f31dba.png"></p>
 <ol type="1" start="3">
 <li>Elige el idioma de instalación y pulsa <em>Enter</em></li>
 </ol>
-<p class="image-container"><img alt="Imagen2" src="img\\1a05b1867ad59fc3.png"></p>
+<p class="image-container"><img alt="Imagen2" src="img\1a05b1867ad59fc3.png"></p>
 <ol type="1" start="4">
 <li>Configura el diseño de teclado según corresponda.</li>
 </ol>
-<p class="image-container"><img alt="Imagen3" src="img\\ce80f12a6f6882b2.png"></p>
+<p class="image-container"><img alt="Imagen3" src="img\ce80f12a6f6882b2.png"></p>
 <ol type="1" start="5">
 <li>En la pantalla <strong>"Choose the type of installation"</strong>, selecciona: <em>Ubuntu Server (minimized)</em></li>
 </ol>
 <ul>
 <li>Esta opción instala un sistema base reducido, más seguro y sin paquetes innecesarios.</li>
 </ul>
-<p class="image-container"><img alt="Imagen4" src="img\\bb791cfbbcc2f141.png"></p>
+<p class="image-container"><img alt="Imagen4" src="img\bb791cfbbcc2f141.png"></p>
 <h2 is-upgraded>Paso 2: Configuración de red, proxy y mirror</h2>
 <p>Durante la instalación, se presentan tres apartados relacionados con la conectividad y descarga de paquetes:</p>
 <ul>
@@ -264,12 +475,12 @@
 <ol type="1">
 <li>En la pantalla <strong>"Guided storage configuration"</strong>, selecciona: <em>Custom storage layout</em></li>
 </ol>
-<p class="image-container"><img alt="Imagen5" src="img\\adf93eba505f15c5.png"></p>
+<p class="image-container"><img alt="Imagen5" src="img\adf93eba505f15c5.png"></p>
 <p>Esta opción permite definir manualmente las particiones del sistema, garantizando un mayor control sobre su estructura y posibilitando la aplicación de cifrado en los volúmenes de datos.</p>
 <ol type="1" start="2">
 <li>Aparecerá la interfaz <strong>"Storage configuration"</strong>, donde se mostrará el disco disponible. Desde esta interfaz se crearán:</li>
 </ol>
-<p class="image-container"><img alt="Imagen6" src="img\\6633e6adf6132a34.png"></p>
+<p class="image-container"><img alt="Imagen6" src="img\6633e6adf6132a34.png"></p>
 <h2 is-upgraded>Estructura de particionado recomendada</h2>
 <table>
 <tr><td colspan="1" rowspan="1"><p>Punto de montaje</p>
@@ -326,21 +537,21 @@
 <ol type="1">
 <li>Crear el usuario administrador y establecer la contraseña.</li>
 </ol>
-<p class="image-container"><img alt="Imagen7" src="img\\aabeeea4be300234.png"></p>
+<p class="image-container"><img alt="Imagen7" src="img\aabeeea4be300234.png"></p>
 <ol type="1" start="2">
 <li>Omitir <strong>Ubuntu Pro</strong> y <strong>SSH</strong> durante la instalación.</li>
 </ol>
-<p class="image-container"><img alt="Imagen8" src="img\\cf89f5bc1c60c639.png"></p>
+<p class="image-container"><img alt="Imagen8" src="img\cf89f5bc1c60c639.png"></p>
 <ol type="1" start="3">
 <li>Una vez completada, reiniciar el sistema.</li>
 </ol>
-<p class="image-container"><img alt="Imagen9" src="img\\e2cf4a3c424c7ce9.png"></p>
+<p class="image-container"><img alt="Imagen9" src="img\e2cf4a3c424c7ce9.png"></p>
 <ol type="1" start="4">
 <li>Iniciar sesión y <strong>verificar las particiones:</strong></li>
 </ol>
-<p class="image-container"><img alt="Imagen10" src="img\\f33aea0345eca1.png"></p>
+<p class="image-container"><img alt="Imagen10" src="img\f33aea0345eca1.png"></p>
     </google-codelab-step>
-    
+
     <google-codelab-step label="Configuración posterior al arranque y bastionado del sistema" duration="6">
       <p>Una vez finalizada la instalación del sistema, se procederá a aplicar medidas de seguridad adicionales sobre el arranque, el kernel y los puntos de montaje.<br> El objetivo de este apartado es <strong>reforzar la integridad del sistema</strong> frente a accesos no autorizados o manipulaciones en las fases iniciales del arranque.</p>
 <h2 is-upgraded>Paso 5: Reactivar el adaptador de red e instalar utilidades</h2>
@@ -349,14 +560,14 @@
 <p>El gestor de arranque <strong>GRUB</strong> será protegido mediante una contraseña cifrada, impidiendo el acceso no autorizado al menú de arranque o la modificación de parámetros críticos del sistema.</p>
 <h3 is-upgraded>6.1 Generar el hash PBKDF2</h3>
 <p>Ejecuta el siguiente comando para generar el hash de la contraseña del GRUB: <strong><em>sudo grub-mkpasswd-pbkdf2</em></strong></p>
-<p class="image-container"><img alt="Imagen11" src="img\\e3df0c1a444ab550.png"></p>
+<p class="image-container"><img alt="Imagen11" src="img\e3df0c1a444ab550.png"></p>
 <h3 is-upgraded>6.2 Crear una copia de seguridad y configurar el archivo /etc/grub.d/40_custom</h3>
 <ul>
 <li>Antes de modificar el archivo, <strong>realiza una copia de seguridad</strong> para poder restaurarlo en caso de error: <strong><em>sudo cp /etc/grub.d/40_custom /etc/grub.d/40_custom.bak</em></strong></li>
 <li>Abrir y editar el archivo personalizado del GRUB: <strong><em>sudo nano /etc/grub.d/40_custom</em></strong></li>
 <li>Añadir el siguiente comando: <strong><em>set superusers="grubadmin" password_pbkdf2 grubadmin grub.pbkdf2.sha512.100000.[HASH_GENERADO]</em></strong></li>
 </ul>
-<p><img alt="Imagen12" src="img\\55ac54469eb5b61f.png"></p>
+<p><img alt="Imagen12" src="img\55ac54469eb5b61f.png"></p>
 <p>El usuario <em>admin</em> se define como superusuario del GRUB y usará el hash PBKDF2 para autenticación.</p>
 <h3 is-upgraded>6.3 Actualizar GRUB y aplicar permisos</h3>
 <p>Actualizar la configuración del GRUB y restringir permisos:</p>
@@ -366,7 +577,7 @@
 <li><strong><em>sudo chown root:root /boot/grub/grub.cfg</em></strong></li>
 <li><strong><em>sudo chmod 700 /etc/grub.d/40_custom</em></strong></li>
 </ul>
-<p class="image-container"><img alt="Imagen13" src="img\\c79e4d617e1bfefc.png"></p>
+<p class="image-container"><img alt="Imagen13" src="img\c79e4d617e1bfefc.png"></p>
 <p>Estos permisos garantizan que solo <strong>root</strong> pueda leer o modificar la configuración crítica del gestor de arranque.</p>
 <h3 is-upgraded>6.4 Ocultar el menú del GRUB</h3>
 <ul>
@@ -376,7 +587,7 @@
 <p>El sistema arrancará directamente sin mostrar el menú del GRUB, evitando accesos no autorizados al gestor de arranque.</p>
 <h2 is-upgraded>Paso 7: Restringir permisos del kernel</h2>
 <p>Aplicar permisos restrictivos sobre los binarios y archivos del kernel ubicados en <strong><em>/boot</em></strong> a través de los siguientes comandos:</p>
-<p class="image-container"><img alt="Imagen14" src="img\\55922409f3212157.png"></p>
+<p class="image-container"><img alt="Imagen14" src="img\55922409f3212157.png"></p>
 <p>Con el objetivo de prevenir lecturas o modificaciones no autorizadas de los artefactos críticos del kernel, protegiendo así la integridad del sistema.</p>
 <h2 is-upgraded>Paso 8: Configuración de montajes seguros en /etc/fstab</h2>
 <p>El archivo /etc/fstab define cómo se montan las particiones del sistema. Aplicar opciones restrictivas reduce el riesgo de ejecución de código malicioso o de escaladas de privilegios.</p>
@@ -386,7 +597,7 @@
 <li>Abrir el archivo con privilegios de administrador: <strong><em>sudo nano /etc/fstab</em></strong>.</li>
 <li>Editar el archivo de la siguiente forma:</li>
 </ul>
-<p class="image-container"><img alt="Imagen15" src="img\\8fe522025d2c250.png"></p>
+<p class="image-container"><img alt="Imagen15" src="img\8fe522025d2c250.png"></p>
 <p>Opciones de seguridad:</p>
 <ul>
 <li>"<strong>nodev</strong>: evita el uso de dispositivos especiales."</li>
@@ -395,9 +606,9 @@
 <li>"<strong>ro</strong>: monta el sistema de solo lectura (aplicable a /boot)."</li>
 </ul>
 <h3 is-upgraded>8.2 Aplicar las nuevas opciones de montaje</h3>
-<p class="image-container"><img alt="Imagen16" src="img\\d627ab26d8d88007.png"></p>
+<p class="image-container"><img alt="Imagen16" src="img\d627ab26d8d88007.png"></p>
     </google-codelab-step>
-    
+
     <google-codelab-step label="Conclusión" duration="1">
       <p>Mediante las configuraciones aplicadas se ha logrado:</p>
 <ul>
@@ -408,7 +619,7 @@
 </ul>
 <p>Estas medidas fortalecen el bastionado del arranque de <strong>Ubuntu Server</strong>, garantizando un entorno más robusto frente a accesos no autorizados.</p>
     </google-codelab-step>
-    
+
   </google-codelab>
 
   <script src="https://storage.googleapis.com/claat-public/native-shim.js"></script>
@@ -418,75 +629,147 @@
   <script src="//support.google.com/inapp/api.js"></script>
 
   <script>
-    // Forzar estilos del drawer penetrando el Shadow DOM
-    function applyDrawerStyles() {
-      const codelab = document.querySelector('google-codelab');
-      if (codelab && codelab.shadowRoot) {
-        const shadowRoot = codelab.shadowRoot;
-        
-        // Crear un style tag dentro del shadow root
-        const style = document.createElement('style');
-        style.textContent = `
-          #drawer {
-            background: #000000 !important;
-          }
-          
-          #steps {
-            background: #000000 !important;
-          }
-          
-          .step {
-            color: #ffffff !important;
-            background: #000000 !important;
-          }
-          
-          .step.selected {
-            background: rgba(143, 179, 255, 0.15) !important;
-            border-left: 3px solid #8fb3ff !important;
-          }
-          
-          .step:hover {
-            background: rgba(255, 255, 255, 0.08) !important;
-          }
-          
-          #drawer h2,
-          #drawer h3,
-          #drawer span,
-          #drawer div,
-          #steps span,
-          #steps div {
-            color: #ffffff !important;
-          }
-        `;
-        
-        shadowRoot.appendChild(style);
-      }
-    }
+    // ========== SISTEMA DE TOGGLE DE TEMA ==========
+    (function() {
+      const html = document.documentElement;
+      const themeToggle = document.getElementById('theme-toggle');
+      const themeIcon = document.getElementById('theme-icon');
 
-    // Intentar aplicar estilos cuando el DOM esté listo
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', () => {
-        setTimeout(applyDrawerStyles, 100);
-        setTimeout(applyDrawerStyles, 500);
-        setTimeout(applyDrawerStyles, 1000);
+      // Cargar tema guardado (por defecto: claro)
+      const savedTheme = localStorage.getItem('codelab-theme') || 'light';
+      html.setAttribute('data-theme', savedTheme);
+      updateThemeIcon(savedTheme);
+
+      // Aplicar estilos al shadow DOM cuando esté disponible
+      applyThemeToShadowDOM(savedTheme);
+
+      // Toggle al hacer clic
+      themeToggle.addEventListener('click', function() {
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('codelab-theme', newTheme);
+        updateThemeIcon(newTheme);
+        applyThemeToShadowDOM(newTheme);
       });
-    } else {
-      setTimeout(applyDrawerStyles, 100);
-      setTimeout(applyDrawerStyles, 500);
-      setTimeout(applyDrawerStyles, 1000);
-    }
 
-    // Observar cambios en el DOM para reaplicar estilos
-    const observer = new MutationObserver(() => {
-      applyDrawerStyles();
-    });
-
-    setTimeout(() => {
-      const codelab = document.querySelector('google-codelab');
-      if (codelab) {
-        observer.observe(codelab, { childList: true, subtree: true });
+      // Actualizar icono según el tema (ICONOS DEL PORTFOLIO)
+      function updateThemeIcon(theme) {
+        themeIcon.textContent = theme === 'dark' ? '☀️' : '🌓';
       }
-    }, 500);
+
+      // Aplicar estilos al Shadow DOM del codelab
+      function applyThemeToShadowDOM(theme) {
+        const codelab = document.querySelector('google-codelab');
+        if (codelab && codelab.shadowRoot) {
+          const shadowRoot = codelab.shadowRoot;
+
+          // Buscar o crear el style tag
+          let style = shadowRoot.querySelector('#custom-theme-style');
+          if (!style) {
+            style = document.createElement('style');
+            style.id = 'custom-theme-style';
+            shadowRoot.appendChild(style);
+          }
+
+          // Aplicar estilos según el tema
+          if (theme === 'dark') {
+            style.textContent = `
+              #drawer {
+                background: #000000 !important;
+              }
+
+              #steps {
+                background: #000000 !important;
+              }
+
+              .step {
+                color: #ffffff !important;
+                background: #000000 !important;
+              }
+
+              .step.selected {
+                background: rgba(143, 179, 255, 0.15) !important;
+                border-left: 3px solid #8fb3ff !important;
+              }
+
+              .step:hover {
+                background: rgba(255, 255, 255, 0.08) !important;
+              }
+
+              #drawer h2,
+              #drawer h3,
+              #drawer span,
+              #drawer div,
+              #steps span,
+              #steps div {
+                color: #ffffff !important;
+              }
+            `;
+          } else {
+            style.textContent = `
+              #drawer {
+                background: #ffffff !important;
+              }
+
+              #steps {
+                background: #ffffff !important;
+              }
+
+              .step {
+                color: #202124 !important;
+                background: #ffffff !important;
+              }
+
+              .step.selected {
+                color: #1a73e8 !important;
+                background: rgba(26, 115, 232, 0.08) !important;
+                border-left: 3px solid #1a73e8 !important;
+              }
+
+              .step:hover {
+                background: #f8f9fa !important;
+              }
+
+              #drawer h2,
+              #drawer h3,
+              #drawer span,
+              #drawer div,
+              #steps span,
+              #steps div {
+                color: #202124 !important;
+              }
+            `;
+          }
+        }
+      }
+
+      // Intentar aplicar estilos cuando el DOM esté listo
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+          setTimeout(() => applyThemeToShadowDOM(savedTheme), 100);
+          setTimeout(() => applyThemeToShadowDOM(savedTheme), 500);
+          setTimeout(() => applyThemeToShadowDOM(savedTheme), 1000);
+        });
+      } else {
+        setTimeout(() => applyThemeToShadowDOM(savedTheme), 100);
+        setTimeout(() => applyThemeToShadowDOM(savedTheme), 500);
+        setTimeout(() => applyThemeToShadowDOM(savedTheme), 1000);
+      }
+
+      // Observar cambios en el DOM
+      const observer = new MutationObserver(() => {
+        applyThemeToShadowDOM(html.getAttribute('data-theme'));
+      });
+
+      setTimeout(() => {
+        const codelab = document.querySelector('google-codelab');
+        if (codelab) {
+          observer.observe(codelab, { childList: true, subtree: true });
+        }
+      }, 500);
+    })();
   </script>
 
 </body>
