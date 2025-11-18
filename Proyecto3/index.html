@@ -138,6 +138,24 @@
       transition: all 0.3s ease !important;
     }
 
+    /* BOTONES DE NAVEGACIÓN - TEMA CLARO */
+    a#next-step{
+      color: white !important;
+    }
+
+    a#done,
+    a#done-step,
+    a[href="#done"],
+    paper-button#done,
+    paper-button.done,
+    #controls a:last-child{
+      color: white !important;
+    }
+
+    a#previous-step{
+      color: #1a73e8 !important;
+    }
+
     paper-button:hover,
     button:hover {
       background: #174ea6 !important;
@@ -310,6 +328,24 @@
       background: transparent !important;
       color: #ffffff !important;
       border: 1px solid rgba(255,255,255,0.3) !important;
+    }
+
+    /* BOTONES DE NAVEGACIÓN - TEMA OSCURO */
+    [data-theme="dark"] a#next-step{
+      color: white !important;
+    }
+
+    [data-theme="dark"] a#done,
+    [data-theme="dark"] a#done-step,
+    [data-theme="dark"] a[href="#done"],
+    [data-theme="dark"] paper-button#done,
+    [data-theme="dark"] paper-button.done,
+    [data-theme="dark"] #controls a:last-child{
+      color: white !important;
+    }
+
+    [data-theme="dark"] a#previous-step{
+      color: #1a73e8 !important;
     }
 
     [data-theme="dark"] paper-button:hover,
