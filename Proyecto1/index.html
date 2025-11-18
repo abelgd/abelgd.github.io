@@ -14,7 +14,6 @@
       --title-font: Georgia, "Times New Roman", Times, serif;
     }
 
-    /* ========== TEMA CLARO (Predeterminado Google Codelabs) ========== */
     body {
       background: #ffffff !important;
       color: #202124 !important;
@@ -138,6 +137,26 @@
       transition: all 0.3s ease !important;
     }
 
+    /* BOTONES DE NAVEGACIÓN - TEMA CLARO */
+    /* Método que funcionó para Next */
+    a#next-step{
+      color: white !important;
+    }
+
+    /* Mismo método para Done con múltiples variantes */
+    a#done,
+    a#done-step,
+    a[href="#done"],
+    paper-button#done,
+    paper-button.done,
+    #controls a:last-child{
+      color: white !important;
+    }
+
+    a#previous-step{
+      color: #1a73e8 !important;
+    }
+
     paper-button:hover,
     button:hover {
       background: #174ea6 !important;
@@ -175,7 +194,6 @@
       background: #bdc1c6;
     }
 
-    /* ========== TEMA OSCURO ========== */
     [data-theme="dark"] {
       --codelab-bg: #0b0b0b;
       --codelab-surface: #151515;
@@ -312,6 +330,24 @@
       border: 1px solid rgba(255,255,255,0.3) !important;
     }
 
+    /* BOTONES DE NAVEGACIÓN - TEMA OSCURO */
+    [data-theme="dark"] a#next-step{
+      color: white !important;
+    }
+
+    [data-theme="dark"] a#done,
+    [data-theme="dark"] a#done-step,
+    [data-theme="dark"] a[href="#done"],
+    [data-theme="dark"] paper-button#done,
+    [data-theme="dark"] paper-button.done,
+    [data-theme="dark"] #controls a:last-child{
+      color: white !important;
+    }
+
+    [data-theme="dark"] a#previous-step{
+      color: #1a73e8 !important;
+    }
+
     [data-theme="dark"] paper-button:hover,
     [data-theme="dark"] button:hover {
       background: rgba(255,255,255,0.05) !important;
@@ -341,7 +377,7 @@
       background: rgba(255,255,255,0.3);
     }
 
-    /* ========== BOTÓN TOGGLE - CORREGIDO ========== */
+    /* BOTÓN TOGGLE CON ICONOS ORIGINALES */
     .theme-toggle-btn {
       position: fixed;
       top: 16px;
@@ -367,7 +403,6 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
 
-    /* Fondo del botón en tema OSCURO */
     [data-theme="dark"] .theme-toggle-btn {
       background: #0b0b0b !important;
       border-color: rgba(255,255,255,0.2) !important;
@@ -380,7 +415,6 @@
       border-color: rgba(255,255,255,0.4) !important;
     }
 
-    /* Ajustar posición del tiempo restante para dejar espacio al toggle */
     #codelab-title {
       padding-right: 70px !important;
     }
@@ -403,7 +437,6 @@
   </style>
 </head>
 <body>
-  <!-- Botón toggle de tema -->
   <button id="theme-toggle" class="theme-toggle-btn" aria-label="Cambiar tema">
     <span id="theme-icon">🌓</span>
   </button>
@@ -535,21 +568,17 @@
   <script src="//support.google.com/inapp/api.js"></script>
 
   <script>
-    // ========== SISTEMA DE TOGGLE DE TEMA ==========
     (function() {
       const html = document.documentElement;
       const themeToggle = document.getElementById('theme-toggle');
       const themeIcon = document.getElementById('theme-icon');
 
-      // Cargar tema guardado (por defecto: claro)
       const savedTheme = localStorage.getItem('codelab-theme') || 'light';
       html.setAttribute('data-theme', savedTheme);
       updateThemeIcon(savedTheme);
 
-      // Aplicar estilos al shadow DOM cuando esté disponible
       applyThemeToShadowDOM(savedTheme);
 
-      // Toggle al hacer clic
       themeToggle.addEventListener('click', function() {
         const currentTheme = html.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
@@ -560,18 +589,15 @@
         applyThemeToShadowDOM(newTheme);
       });
 
-      // Actualizar icono según el tema (ICONOS DEL PORTFOLIO)
       function updateThemeIcon(theme) {
         themeIcon.textContent = theme === 'dark' ? '☀️' : '🌓';
       }
 
-      // Aplicar estilos al Shadow DOM del codelab
       function applyThemeToShadowDOM(theme) {
         const codelab = document.querySelector('google-codelab');
         if (codelab && codelab.shadowRoot) {
           const shadowRoot = codelab.shadowRoot;
 
-          // Buscar o crear el style tag
           let style = shadowRoot.querySelector('#custom-theme-style');
           if (!style) {
             style = document.createElement('style');
@@ -579,79 +605,28 @@
             shadowRoot.appendChild(style);
           }
 
-          // Aplicar estilos según el tema
           if (theme === 'dark') {
             style.textContent = `
-              #drawer {
-                background: #000000 !important;
-              }
-
-              #steps {
-                background: #000000 !important;
-              }
-
-              .step {
-                color: #ffffff !important;
-                background: #000000 !important;
-              }
-
-              .step.selected {
-                background: rgba(143, 179, 255, 0.15) !important;
-                border-left: 3px solid #8fb3ff !important;
-              }
-
-              .step:hover {
-                background: rgba(255, 255, 255, 0.08) !important;
-              }
-
-              #drawer h2,
-              #drawer h3,
-              #drawer span,
-              #drawer div,
-              #steps span,
-              #steps div {
-                color: #ffffff !important;
-              }
+              #drawer { background: #000000 !important; }
+              #steps { background: #000000 !important; }
+              .step { color: #ffffff !important; background: #000000 !important; }
+              .step.selected { background: rgba(143, 179, 255, 0.15) !important; border-left: 3px solid #8fb3ff !important; }
+              .step:hover { background: rgba(255, 255, 255, 0.08) !important; }
+              #drawer h2, #drawer h3, #drawer span, #drawer div, #steps span, #steps div { color: #ffffff !important; }
             `;
           } else {
             style.textContent = `
-              #drawer {
-                background: #ffffff !important;
-              }
-
-              #steps {
-                background: #ffffff !important;
-              }
-
-              .step {
-                color: #202124 !important;
-                background: #ffffff !important;
-              }
-
-              .step.selected {
-                color: #1a73e8 !important;
-                background: rgba(26, 115, 232, 0.08) !important;
-                border-left: 3px solid #1a73e8 !important;
-              }
-
-              .step:hover {
-                background: #f8f9fa !important;
-              }
-
-              #drawer h2,
-              #drawer h3,
-              #drawer span,
-              #drawer div,
-              #steps span,
-              #steps div {
-                color: #202124 !important;
-              }
+              #drawer { background: #ffffff !important; }
+              #steps { background: #ffffff !important; }
+              .step { color: #202124 !important; background: #ffffff !important; }
+              .step.selected { color: #1a73e8 !important; background: rgba(26, 115, 232, 0.08) !important; border-left: 3px solid #1a73e8 !important; }
+              .step:hover { background: #f8f9fa !important; }
+              #drawer h2, #drawer h3, #drawer span, #drawer div, #steps span, #steps div { color: #202124 !important; }
             `;
           }
         }
       }
 
-      // Intentar aplicar estilos cuando el DOM esté listo
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {
           setTimeout(() => applyThemeToShadowDOM(savedTheme), 100);
@@ -664,7 +639,6 @@
         setTimeout(() => applyThemeToShadowDOM(savedTheme), 1000);
       }
 
-      // Observar cambios en el DOM
       const observer = new MutationObserver(() => {
         applyThemeToShadowDOM(html.getAttribute('data-theme'));
       });
