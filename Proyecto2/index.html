@@ -9,10 +9,12 @@
   <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://storage.googleapis.com/claat-public/codelab-elements.css">
 
+
   <style>
     :root {
       --title-font: Georgia, "Times New Roman", Times, serif;
     }
+
 
     /* ========== TEMA CLARO (Predeterminado Google Codelabs) ========== */
     body {
@@ -20,6 +22,7 @@
       color: #202124 !important;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
+
 
     #codelab-title,
     #main-toolbar,
@@ -29,17 +32,26 @@
       --secondary-color: #5f6368 !important;
     }
 
+
     h1, h2, h3, h4, h5, h6 {
       color: #202124 !important;
       font-family: var(--title-font) !important;
       font-weight: 300 !important;
     }
 
+    /* ESPACIADO AÑADIDO */
+    h2, h3 {
+      margin-top: 24px !important;
+      margin-bottom: 16px !important;
+    }
+
+
     #drawer,
     #steps {
       background: #ffffff !important;
       border-right: 1px solid #dadce0 !important;
     }
+
 
     .step {
       color: #202124 !important;
@@ -48,17 +60,20 @@
       transition: all 0.3s ease !important;
     }
 
+
     .step.selected {
       color: #1a73e8 !important;
       background: rgba(26, 115, 232, 0.08) !important;
       border-left-color: #1a73e8 !important;
     }
 
+
     .step:hover {
       color: #202124 !important;
       background: #f8f9fa !important;
       border-left-color: #1a73e8 !important;
     }
+
 
     #drawer h2,
     #drawer h3,
@@ -71,15 +86,30 @@
       color: #202124 !important;
     }
 
+
     #codelab-step,
     .instructions {
       background: #ffffff !important;
       color: #202124 !important;
     }
 
-    p, li, td, th, span, label {
+    /* TEXTO JUSTIFICADO Y ESPACIADO AÑADIDO */
+    p {
+      color: #202124 !important;
+      text-align: justify !important;
+      line-height: 1.7 !important;
+      margin-bottom: 16px !important;
+    }
+
+    li {
+      color: #202124 !important;
+      margin-bottom: 8px !important;
+    }
+
+    td, th, span, label {
       color: #202124 !important;
     }
+
 
     a {
       color: #1a73e8 !important;
@@ -88,10 +118,12 @@
       transition: all 0.3s ease !important;
     }
 
+
     a:hover {
       color: #174ea6 !important;
       border-bottom-color: rgba(26, 115, 232, 0.6) !important;
     }
+
 
     pre,
     code,
@@ -102,18 +134,25 @@
       border-radius: 4px !important;
     }
 
+
     aside {
       background: #e8f0fe !important;
       border-left: 4px solid #1a73e8 !important;
       color: #202124 !important;
       padding: 16px 20px !important;
       border-radius: 4px !important;
+      margin-top: 20px !important;
+      margin-bottom: 20px !important;
     }
+
 
     table {
       background: #ffffff !important;
       border: 1px solid #dadce0 !important;
+      margin-top: 20px !important;
+      margin-bottom: 20px !important;
     }
+
 
     th {
       background: #f8f9fa !important;
@@ -121,13 +160,32 @@
       border-bottom: 2px solid #dadce0 !important;
     }
 
+
     td {
       border: 1px solid #dadce0 !important;
     }
 
+
     tr:hover {
       background: #f8f9fa !important;
     }
+
+    /* ESPACIADO PARA IMÁGENES AÑADIDO */
+    img {
+      border: 1px solid #dadce0 !important;
+      border-radius: 6px !important;
+      background: #ffffff !important;
+      padding: 8px !important;
+      max-width: 100% !important;
+      margin-top: 20px !important;
+      margin-bottom: 20px !important;
+    }
+
+    /* ESPACIADO PARA LISTAS AÑADIDO */
+    ol, ul {
+      margin-bottom: 20px !important;
+    }
+
 
     paper-button,
     button,
@@ -138,10 +196,12 @@
       transition: all 0.3s ease !important;
     }
 
+
     /* BOTONES DE NAVEGACIÓN - TEMA CLARO */
     a#next-step{
       color: white !important;
     }
+
 
     a#done,
     a#done-step,
@@ -152,22 +212,17 @@
       color: white !important;
     }
 
+
     a#previous-step{
       color: #1a73e8 !important;
     }
+
 
     paper-button:hover,
     button:hover {
       background: #174ea6 !important;
     }
 
-    img {
-      border: 1px solid #dadce0 !important;
-      border-radius: 6px !important;
-      background: #ffffff !important;
-      padding: 8px !important;
-      max-width: 100% !important;
-    }
 
     #codelab-footer {
       background: #f8f9fa !important;
@@ -175,23 +230,28 @@
       color: #5f6368 !important;
     }
 
+
     ::-webkit-scrollbar {
       width: 8px;
       height: 8px;
     }
 
+
     ::-webkit-scrollbar-track {
       background: #f8f9fa;
     }
+
 
     ::-webkit-scrollbar-thumb {
       background: #dadce0;
       border-radius: 4px;
     }
 
+
     ::-webkit-scrollbar-thumb:hover {
       background: #bdc1c6;
     }
+
 
     /* ========== TEMA OSCURO ========== */
     [data-theme="dark"] {
@@ -203,10 +263,12 @@
       --codelab-border: rgba(255,255,255,0.1);
     }
 
+
     [data-theme="dark"] body {
       background: var(--codelab-bg) !important;
       color: var(--codelab-text) !important;
     }
+
 
     [data-theme="dark"] #codelab-title,
     [data-theme="dark"] #main-toolbar,
@@ -215,6 +277,7 @@
       --primary-color: var(--codelab-accent) !important;
       --secondary-color: var(--codelab-text-muted) !important;
     }
+
 
     [data-theme="dark"] h1,
     [data-theme="dark"] h2,
@@ -225,21 +288,25 @@
       color: #ffffff !important;
     }
 
+
     [data-theme="dark"] #drawer,
     [data-theme="dark"] #steps {
       background: #000000 !important;
       border-right: 1px solid var(--codelab-border) !important;
     }
 
+
     [data-theme="dark"] #drawer *,
     [data-theme="dark"] #steps * {
       background: transparent !important;
     }
 
+
     [data-theme="dark"] .step {
       color: #ffffff !important;
       background: #000000 !important;
     }
+
 
     [data-theme="dark"] .step.selected {
       color: #ffffff !important;
@@ -247,11 +314,13 @@
       border-left-color: var(--codelab-accent) !important;
     }
 
+
     [data-theme="dark"] .step:hover {
       color: #ffffff !important;
       background: rgba(255, 255, 255, 0.08) !important;
       border-left-color: var(--codelab-accent) !important;
     }
+
 
     [data-theme="dark"] #drawer h2,
     [data-theme="dark"] #drawer h3,
@@ -264,14 +333,26 @@
       color: #ffffff !important;
     }
 
+
     [data-theme="dark"] #codelab-step,
     [data-theme="dark"] .instructions {
       background: var(--codelab-bg) !important;
       color: var(--codelab-text) !important;
     }
 
-    [data-theme="dark"] p,
-    [data-theme="dark"] li,
+    /* TEXTO JUSTIFICADO TEMA OSCURO AÑADIDO */
+    [data-theme="dark"] p {
+      color: var(--codelab-text) !important;
+      text-align: justify !important;
+      line-height: 1.7 !important;
+      margin-bottom: 16px !important;
+    }
+
+    [data-theme="dark"] li {
+      color: var(--codelab-text) !important;
+      margin-bottom: 8px !important;
+    }
+
     [data-theme="dark"] td,
     [data-theme="dark"] th,
     [data-theme="dark"] span,
@@ -279,15 +360,18 @@
       color: var(--codelab-text) !important;
     }
 
+
     [data-theme="dark"] a {
       color: var(--codelab-accent) !important;
       border-bottom: 1px solid rgba(143,179,255,0.3) !important;
     }
 
+
     [data-theme="dark"] a:hover {
       color: #ffffff !important;
       border-bottom-color: rgba(143,179,255,0.6) !important;
     }
+
 
     [data-theme="dark"] pre,
     [data-theme="dark"] code,
@@ -297,16 +381,19 @@
       border: 1px solid var(--codelab-border) !important;
     }
 
+
     [data-theme="dark"] aside {
       background: rgba(255,255,255,0.02) !important;
       border-left: 4px solid var(--codelab-accent) !important;
       color: var(--codelab-text) !important;
     }
 
+
     [data-theme="dark"] table {
       background: var(--codelab-surface) !important;
       border: 1px solid var(--codelab-border) !important;
     }
+
 
     [data-theme="dark"] th {
       background: rgba(255,255,255,0.05) !important;
@@ -314,13 +401,16 @@
       border-bottom: 2px solid var(--codelab-border) !important;
     }
 
+
     [data-theme="dark"] td {
       border: 1px solid var(--codelab-border) !important;
     }
 
+
     [data-theme="dark"] tr:hover {
       background: rgba(255,255,255,0.02) !important;
     }
+
 
     [data-theme="dark"] paper-button,
     [data-theme="dark"] button,
@@ -330,10 +420,12 @@
       border: 1px solid rgba(255,255,255,0.3) !important;
     }
 
+
     /* BOTONES DE NAVEGACIÓN - TEMA OSCURO */
     [data-theme="dark"] a#next-step{
       color: white !important;
     }
+
 
     [data-theme="dark"] a#done,
     [data-theme="dark"] a#done-step,
@@ -344,9 +436,11 @@
       color: white !important;
     }
 
+
     [data-theme="dark"] a#previous-step{
       color: #1a73e8 !important;
     }
+
 
     [data-theme="dark"] paper-button:hover,
     [data-theme="dark"] button:hover {
@@ -354,10 +448,12 @@
       border-color: #ffffff !important;
     }
 
+
     [data-theme="dark"] img {
       border: 1px solid var(--codelab-border) !important;
       background: #ffffff !important;
     }
+
 
     [data-theme="dark"] #codelab-footer {
       background: var(--codelab-surface) !important;
@@ -365,17 +461,21 @@
       color: var(--codelab-text-muted) !important;
     }
 
+
     [data-theme="dark"] ::-webkit-scrollbar-track {
       background: var(--codelab-surface);
     }
+
 
     [data-theme="dark"] ::-webkit-scrollbar-thumb {
       background: rgba(255,255,255,0.2);
     }
 
+
     [data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
       background: rgba(255,255,255,0.3);
     }
+
 
     /* ========== BOTÓN TOGGLE ========== */
     .theme-toggle-btn {
@@ -398,10 +498,12 @@
       transition: all 0.3s ease;
     }
 
+
     .theme-toggle-btn:hover {
       transform: scale(1.1) rotate(180deg);
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
+
 
     /* Fondo del botón en tema OSCURO */
     [data-theme="dark"] .theme-toggle-btn {
@@ -411,27 +513,33 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.3);
     }
 
+
     [data-theme="dark"] .theme-toggle-btn:hover {
       box-shadow: 0 4px 12px rgba(0,0,0,0.5);
       border-color: rgba(255,255,255,0.4) !important;
     }
+
 
     /* Ajustar posición del tiempo restante para dejar espacio al toggle */
     #codelab-title {
       padding-right: 70px !important;
     }
 
+
     .success {
       color: #1e8e3e !important;
     }
+
 
     .error {
       color: #d93025 !important;
     }
 
+
     [data-theme="dark"] .success {
       color: #66bb6a !important;
     }
+
 
     [data-theme="dark"] .error {
       color: #ff5252 !important;
@@ -444,6 +552,7 @@
     <span id="theme-icon">🌓</span>
   </button>
 
+
   <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
   <google-codelab codelab-gaid="ID de Google Analytics"
                   id="identificador2"
@@ -451,11 +560,13 @@
                   environment="web"
                   feedback-link="https://github.com/abelgd/abelgd.github.io/issues/1">
 
+
     <google-codelab-step label="Introducción" duration="3">
       <p>El proceso de arranque de un sistema operativo es una fase crítica en la que se cargan los componentes esenciales del sistema.<br> Bastionar el arranque de <strong>Ubuntu Server</strong> consiste en aplicar configuraciones y medidas de seguridad que garanticen la <strong>integridad</strong>, <strong>confidencialidad</strong> y <strong>autenticidad</strong> del sistema desde el momento en que se enciende el equipo.</p>
 <p>El objetivo de esta guía es proporcionar una base técnica y estructurada para asegurar el arranque de Ubuntu, reduciendo riesgos de manipulación o acceso no autorizado durante las fases iniciales del sistema.</p>
 <h3 is-upgraded>Autor: <em>Abel García Domínguez</em></h3>
     </google-codelab-step>
+
 
     <google-codelab-step label="Configuración y medidas de bastionado del arranque" duration="2">
       <p>En esta práctica se realizará la instalación y configuración segura de <strong>Ubuntu Server 24.04.3 LTS (minimized)</strong>, aplicando medidas de seguridad desde el proceso de instalación.<br> El bastionado comienza en el propio instalador, donde definiremos una estructura de particiones cifradas y configuraciones de arranque seguras.</p>
@@ -472,6 +583,7 @@
 <li>El adaptador de red <strong>se volverá a activar</strong> una vez completada la instalación, justo antes de la configuración del GRUB.</li>
 </ul>
     </google-codelab-step>
+
 
     <google-codelab-step label="Instalación de Ubuntu Server 24.04.3 LTS" duration="8">
       <h2 is-upgraded>Paso 1: Iniciar la instalación</h2>
@@ -588,6 +700,7 @@
 <p class="image-container"><img alt="Imagen10" src="img\f33aea0345eca1.png"></p>
     </google-codelab-step>
 
+
     <google-codelab-step label="Configuración posterior al arranque y bastionado del sistema" duration="6">
       <p>Una vez finalizada la instalación del sistema, se procederá a aplicar medidas de seguridad adicionales sobre el arranque, el kernel y los puntos de montaje.<br> El objetivo de este apartado es <strong>reforzar la integridad del sistema</strong> frente a accesos no autorizados o manipulaciones en las fases iniciales del arranque.</p>
 <h2 is-upgraded>Paso 5: Reactivar el adaptador de red e instalar utilidades</h2>
@@ -645,6 +758,7 @@
 <p class="image-container"><img alt="Imagen16" src="img\d627ab26d8d88007.png"></p>
     </google-codelab-step>
 
+
     <google-codelab-step label="Conclusión" duration="1">
       <p>Mediante las configuraciones aplicadas se ha logrado:</p>
 <ul>
@@ -656,13 +770,16 @@
 <p>Estas medidas fortalecen el bastionado del arranque de <strong>Ubuntu Server</strong>, garantizando un entorno más robusto frente a accesos no autorizados.</p>
     </google-codelab-step>
 
+
   </google-codelab>
+
 
   <script src="https://storage.googleapis.com/claat-public/native-shim.js"></script>
   <script src="https://storage.googleapis.com/claat-public/custom-elements.min.js"></script>
   <script src="https://storage.googleapis.com/claat-public/prettify.js"></script>
   <script src="https://storage.googleapis.com/claat-public/codelab-elements.js"></script>
   <script src="//support.google.com/inapp/api.js"></script>
+
 
   <script>
     // ========== SISTEMA DE TOGGLE DE TEMA ==========
@@ -671,18 +788,22 @@
       const themeToggle = document.getElementById('theme-toggle');
       const themeIcon = document.getElementById('theme-icon');
 
+
       // Cargar tema guardado (por defecto: claro)
       const savedTheme = localStorage.getItem('codelab-theme') || 'light';
       html.setAttribute('data-theme', savedTheme);
       updateThemeIcon(savedTheme);
 
+
       // Aplicar estilos al shadow DOM cuando esté disponible
       applyThemeToShadowDOM(savedTheme);
+
 
       // Toggle al hacer clic
       themeToggle.addEventListener('click', function() {
         const currentTheme = html.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
 
         html.setAttribute('data-theme', newTheme);
         localStorage.setItem('codelab-theme', newTheme);
@@ -690,16 +811,19 @@
         applyThemeToShadowDOM(newTheme);
       });
 
+
       // Actualizar icono según el tema (ICONOS DEL PORTFOLIO)
       function updateThemeIcon(theme) {
         themeIcon.textContent = theme === 'dark' ? '☀️' : '🌓';
       }
+
 
       // Aplicar estilos al Shadow DOM del codelab
       function applyThemeToShadowDOM(theme) {
         const codelab = document.querySelector('google-codelab');
         if (codelab && codelab.shadowRoot) {
           const shadowRoot = codelab.shadowRoot;
+
 
           // Buscar o crear el style tag
           let style = shadowRoot.querySelector('#custom-theme-style');
@@ -709,6 +833,7 @@
             shadowRoot.appendChild(style);
           }
 
+
           // Aplicar estilos según el tema
           if (theme === 'dark') {
             style.textContent = `
@@ -716,23 +841,28 @@
                 background: #000000 !important;
               }
 
+
               #steps {
                 background: #000000 !important;
               }
+
 
               .step {
                 color: #ffffff !important;
                 background: #000000 !important;
               }
 
+
               .step.selected {
                 background: rgba(143, 179, 255, 0.15) !important;
                 border-left: 3px solid #8fb3ff !important;
               }
 
+
               .step:hover {
                 background: rgba(255, 255, 255, 0.08) !important;
               }
+
 
               #drawer h2,
               #drawer h3,
@@ -749,14 +879,17 @@
                 background: #ffffff !important;
               }
 
+
               #steps {
                 background: #ffffff !important;
               }
+
 
               .step {
                 color: #202124 !important;
                 background: #ffffff !important;
               }
+
 
               .step.selected {
                 color: #1a73e8 !important;
@@ -764,9 +897,11 @@
                 border-left: 3px solid #1a73e8 !important;
               }
 
+
               .step:hover {
                 background: #f8f9fa !important;
               }
+
 
               #drawer h2,
               #drawer h3,
@@ -781,6 +916,7 @@
         }
       }
 
+
       // Intentar aplicar estilos cuando el DOM esté listo
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {
@@ -794,10 +930,12 @@
         setTimeout(() => applyThemeToShadowDOM(savedTheme), 1000);
       }
 
+
       // Observar cambios en el DOM
       const observer = new MutationObserver(() => {
         applyThemeToShadowDOM(html.getAttribute('data-theme'));
       });
+
 
       setTimeout(() => {
         const codelab = document.querySelector('google-codelab');
@@ -807,6 +945,7 @@
       }, 500);
     })();
   </script>
+
 
 </body>
 </html>
