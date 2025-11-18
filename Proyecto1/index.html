@@ -2,72 +2,62 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-  <meta name="theme-color" content="#0b0b0b">
+  <meta name="theme-color" content="#4F7DC9">
   <meta charset="UTF-8">
   <title>Proyecto 1: Guía para bastionar la BIOS/UEFI</title>
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
   <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://storage.googleapis.com/claat-public/codelab-elements.css">
-  
+
   <style>
     :root {
-      --codelab-bg: #0b0b0b;
-      --codelab-surface: #151515;
-      --codelab-text: #cccccc;
-      --codelab-text-muted: #888888;
-      --codelab-accent: #8fb3ff;
-      --codelab-border: rgba(255,255,255,0.1);
       --title-font: Georgia, "Times New Roman", Times, serif;
     }
 
+    /* ========== TEMA CLARO (Predeterminado Google Codelabs) ========== */
     body {
-      background: var(--codelab-bg) !important;
-      color: var(--codelab-text) !important;
+      background: #ffffff !important;
+      color: #202124 !important;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     #codelab-title,
     #main-toolbar,
     google-codelab {
-      background: var(--codelab-surface) !important;
-      --primary-color: var(--codelab-accent) !important;
-      --secondary-color: var(--codelab-text-muted) !important;
+      background: #f8f9fa !important;
+      --primary-color: #1a73e8 !important;
+      --secondary-color: #5f6368 !important;
     }
 
     h1, h2, h3, h4, h5, h6 {
-      color: #ffffff !important;
+      color: #202124 !important;
       font-family: var(--title-font) !important;
       font-weight: 300 !important;
     }
 
-    /* Forzar estilos del drawer y steps */
     #drawer,
     #steps {
-      background: #000000 !important;
-      border-right: 1px solid var(--codelab-border) !important;
-    }
-
-    #drawer *,
-    #steps * {
-      background: transparent !important;
+      background: #ffffff !important;
+      border-right: 1px solid #dadce0 !important;
     }
 
     .step {
-      color: #ffffff !important;
-      background: #000000 !important;
+      color: #202124 !important;
+      background: #ffffff !important;
       border-left: 3px solid transparent !important;
       transition: all 0.3s ease !important;
     }
 
     .step.selected {
-      color: #ffffff !important;
-      background: rgba(143, 179, 255, 0.15) !important;
-      border-left-color: var(--codelab-accent) !important;
+      color: #1a73e8 !important;
+      background: rgba(26, 115, 232, 0.08) !important;
+      border-left-color: #1a73e8 !important;
     }
 
     .step:hover {
-      color: #ffffff !important;
-      background: rgba(255, 255, 255, 0.08) !important;
-      border-left-color: var(--codelab-accent) !important;
+      color: #202124 !important;
+      background: #f8f9fa !important;
+      border-left-color: #1a73e8 !important;
     }
 
     #drawer h2,
@@ -78,85 +68,83 @@
     #steps h3,
     #steps span,
     #steps div {
-      color: #ffffff !important;
-      background: transparent !important;
+      color: #202124 !important;
     }
 
     #codelab-step,
     .instructions {
-      background: var(--codelab-bg) !important;
-      color: var(--codelab-text) !important;
+      background: #ffffff !important;
+      color: #202124 !important;
     }
 
     p, li, td, th, span, label {
-      color: var(--codelab-text) !important;
+      color: #202124 !important;
     }
 
     a {
-      color: var(--codelab-accent) !important;
+      color: #1a73e8 !important;
       text-decoration: none !important;
-      border-bottom: 1px solid rgba(143,179,255,0.3) !important;
+      border-bottom: 1px solid rgba(26, 115, 232, 0.3) !important;
       transition: all 0.3s ease !important;
     }
 
     a:hover {
-      color: #ffffff !important;
-      border-bottom-color: rgba(143,179,255,0.6) !important;
+      color: #174ea6 !important;
+      border-bottom-color: rgba(26, 115, 232, 0.6) !important;
     }
 
     pre,
     code,
     .prettyprint {
-      background: #1a1a1a !important;
-      color: #e0e0e0 !important;
-      border: 1px solid var(--codelab-border) !important;
+      background: #f1f3f4 !important;
+      color: #202124 !important;
+      border: 1px solid #dadce0 !important;
       border-radius: 4px !important;
     }
 
     aside {
-      background: rgba(255,255,255,0.02) !important;
-      border-left: 4px solid var(--codelab-accent) !important;
-      color: var(--codelab-text) !important;
+      background: #e8f0fe !important;
+      border-left: 4px solid #1a73e8 !important;
+      color: #202124 !important;
       padding: 16px 20px !important;
       border-radius: 4px !important;
     }
 
     table {
-      background: var(--codelab-surface) !important;
-      border: 1px solid var(--codelab-border) !important;
+      background: #ffffff !important;
+      border: 1px solid #dadce0 !important;
     }
 
     th {
-      background: rgba(255,255,255,0.05) !important;
-      color: #ffffff !important;
-      border-bottom: 2px solid var(--codelab-border) !important;
+      background: #f8f9fa !important;
+      color: #202124 !important;
+      border-bottom: 2px solid #dadce0 !important;
     }
 
     td {
-      border: 1px solid var(--codelab-border) !important;
+      border: 1px solid #dadce0 !important;
     }
 
     tr:hover {
-      background: rgba(255,255,255,0.02) !important;
+      background: #f8f9fa !important;
     }
 
     paper-button,
     button,
     .codelab-fab {
-      background: transparent !important;
+      background: #1a73e8 !important;
       color: #ffffff !important;
-      border: 1px solid rgba(255,255,255,0.3) !important;
+      border: none !important;
       transition: all 0.3s ease !important;
     }
 
     paper-button:hover,
     button:hover {
-      background: rgba(255,255,255,0.05) !important;
-      border-color: #ffffff !important;
+      background: #174ea6 !important;
     }
 
     img {
-      border: 1px solid var(--codelab-border) !important;
+      border: 1px solid #dadce0 !important;
       border-radius: 6px !important;
       background: #ffffff !important;
       padding: 8px !important;
@@ -164,9 +152,9 @@
     }
 
     #codelab-footer {
-      background: var(--codelab-surface) !important;
-      border-top: 1px solid var(--codelab-border) !important;
-      color: var(--codelab-text-muted) !important;
+      background: #f8f9fa !important;
+      border-top: 1px solid #dadce0 !important;
+      color: #5f6368 !important;
     }
 
     ::-webkit-scrollbar {
@@ -175,46 +163,269 @@
     }
 
     ::-webkit-scrollbar-track {
-      background: var(--codelab-surface);
+      background: #f8f9fa;
     }
 
     ::-webkit-scrollbar-thumb {
-      background: rgba(255,255,255,0.2);
+      background: #dadce0;
       border-radius: 4px;
     }
 
     ::-webkit-scrollbar-thumb:hover {
+      background: #bdc1c6;
+    }
+
+    /* ========== TEMA OSCURO ========== */
+    [data-theme="dark"] {
+      --codelab-bg: #0b0b0b;
+      --codelab-surface: #151515;
+      --codelab-text: #cccccc;
+      --codelab-text-muted: #888888;
+      --codelab-accent: #8fb3ff;
+      --codelab-border: rgba(255,255,255,0.1);
+    }
+
+    [data-theme="dark"] body {
+      background: var(--codelab-bg) !important;
+      color: var(--codelab-text) !important;
+    }
+
+    [data-theme="dark"] #codelab-title,
+    [data-theme="dark"] #main-toolbar,
+    [data-theme="dark"] google-codelab {
+      background: var(--codelab-surface) !important;
+      --primary-color: var(--codelab-accent) !important;
+      --secondary-color: var(--codelab-text-muted) !important;
+    }
+
+    [data-theme="dark"] h1,
+    [data-theme="dark"] h2,
+    [data-theme="dark"] h3,
+    [data-theme="dark"] h4,
+    [data-theme="dark"] h5,
+    [data-theme="dark"] h6 {
+      color: #ffffff !important;
+    }
+
+    [data-theme="dark"] #drawer,
+    [data-theme="dark"] #steps {
+      background: #000000 !important;
+      border-right: 1px solid var(--codelab-border) !important;
+    }
+
+    [data-theme="dark"] #drawer *,
+    [data-theme="dark"] #steps * {
+      background: transparent !important;
+    }
+
+    [data-theme="dark"] .step {
+      color: #ffffff !important;
+      background: #000000 !important;
+    }
+
+    [data-theme="dark"] .step.selected {
+      color: #ffffff !important;
+      background: rgba(143, 179, 255, 0.15) !important;
+      border-left-color: var(--codelab-accent) !important;
+    }
+
+    [data-theme="dark"] .step:hover {
+      color: #ffffff !important;
+      background: rgba(255, 255, 255, 0.08) !important;
+      border-left-color: var(--codelab-accent) !important;
+    }
+
+    [data-theme="dark"] #drawer h2,
+    [data-theme="dark"] #drawer h3,
+    [data-theme="dark"] #drawer span,
+    [data-theme="dark"] #drawer div,
+    [data-theme="dark"] #steps h2,
+    [data-theme="dark"] #steps h3,
+    [data-theme="dark"] #steps span,
+    [data-theme="dark"] #steps div {
+      color: #ffffff !important;
+    }
+
+    [data-theme="dark"] #codelab-step,
+    [data-theme="dark"] .instructions {
+      background: var(--codelab-bg) !important;
+      color: var(--codelab-text) !important;
+    }
+
+    [data-theme="dark"] p,
+    [data-theme="dark"] li,
+    [data-theme="dark"] td,
+    [data-theme="dark"] th,
+    [data-theme="dark"] span,
+    [data-theme="dark"] label {
+      color: var(--codelab-text) !important;
+    }
+
+    [data-theme="dark"] a {
+      color: var(--codelab-accent) !important;
+      border-bottom: 1px solid rgba(143,179,255,0.3) !important;
+    }
+
+    [data-theme="dark"] a:hover {
+      color: #ffffff !important;
+      border-bottom-color: rgba(143,179,255,0.6) !important;
+    }
+
+    [data-theme="dark"] pre,
+    [data-theme="dark"] code,
+    [data-theme="dark"] .prettyprint {
+      background: #1a1a1a !important;
+      color: #e0e0e0 !important;
+      border: 1px solid var(--codelab-border) !important;
+    }
+
+    [data-theme="dark"] aside {
+      background: rgba(255,255,255,0.02) !important;
+      border-left: 4px solid var(--codelab-accent) !important;
+      color: var(--codelab-text) !important;
+    }
+
+    [data-theme="dark"] table {
+      background: var(--codelab-surface) !important;
+      border: 1px solid var(--codelab-border) !important;
+    }
+
+    [data-theme="dark"] th {
+      background: rgba(255,255,255,0.05) !important;
+      color: #ffffff !important;
+      border-bottom: 2px solid var(--codelab-border) !important;
+    }
+
+    [data-theme="dark"] td {
+      border: 1px solid var(--codelab-border) !important;
+    }
+
+    [data-theme="dark"] tr:hover {
+      background: rgba(255,255,255,0.02) !important;
+    }
+
+    [data-theme="dark"] paper-button,
+    [data-theme="dark"] button,
+    [data-theme="dark"] .codelab-fab {
+      background: transparent !important;
+      color: #ffffff !important;
+      border: 1px solid rgba(255,255,255,0.3) !important;
+    }
+
+    [data-theme="dark"] paper-button:hover,
+    [data-theme="dark"] button:hover {
+      background: rgba(255,255,255,0.05) !important;
+      border-color: #ffffff !important;
+    }
+
+    [data-theme="dark"] img {
+      border: 1px solid var(--codelab-border) !important;
+      background: #ffffff !important;
+    }
+
+    [data-theme="dark"] #codelab-footer {
+      background: var(--codelab-surface) !important;
+      border-top: 1px solid var(--codelab-border) !important;
+      color: var(--codelab-text-muted) !important;
+    }
+
+    [data-theme="dark"] ::-webkit-scrollbar-track {
+      background: var(--codelab-surface);
+    }
+
+    [data-theme="dark"] ::-webkit-scrollbar-thumb {
+      background: rgba(255,255,255,0.2);
+    }
+
+    [data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
       background: rgba(255,255,255,0.3);
     }
 
+    /* ========== BOTÓN TOGGLE - CORREGIDO ========== */
+    .theme-toggle-btn {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      z-index: 10000;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid #dadce0 !important;
+      background: #ffffff !important;
+      color: #202124 !important;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .theme-toggle-btn:hover {
+      transform: scale(1.1) rotate(180deg);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    /* Fondo del botón en tema OSCURO */
+    [data-theme="dark"] .theme-toggle-btn {
+      background: #0b0b0b !important;
+      border-color: rgba(255,255,255,0.2) !important;
+      color: #e8eaed !important;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    [data-theme="dark"] .theme-toggle-btn:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      border-color: rgba(255,255,255,0.4) !important;
+    }
+
+    /* Ajustar posición del tiempo restante para dejar espacio al toggle */
+    #codelab-title {
+      padding-right: 70px !important;
+    }
+
     .success {
+      color: #1e8e3e !important;
+    }
+
+    .error {
+      color: #d93025 !important;
+    }
+
+    [data-theme="dark"] .success {
       color: #66bb6a !important;
     }
-    
-    .error {
+
+    [data-theme="dark"] .error {
       color: #ff5252 !important;
     }
   </style>
 </head>
 <body>
+  <!-- Botón toggle de tema -->
+  <button id="theme-toggle" class="theme-toggle-btn" aria-label="Cambiar tema">
+    <span id="theme-icon">🌓</span>
+  </button>
+
   <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
   <google-codelab codelab-gaid="ID de Google Analytics"
                   id="identificador-unico-del-codelab"
                   title="Proyecto 1: Guía para bastionar la BIOS/UEFI"
                   environment="web"
                   feedback-link="https://github.com/abelgd/abelgd.github.io/issues/1">
-    
+
       <google-codelab-step label="Modelo de ordenador" duration="2">
         <p><strong>Lenovo Ideapad Gaming 3 15ACH6 (82K2)</strong></p>
 <h3 is-upgraded>Autor: <em>Abel García Domínguez</em></h3>
       </google-codelab-step>
-    
+
       <google-codelab-step label="Introducción" duration="3">
         <p>La <strong>BIOS</strong> (Basic Input/Output System) y la <strong>UEFI</strong> (Unified Extensible Firmware Interface) son los sistemas de firmware que inicializan el hardware del equipo y gestionan el arranque del sistema operativo. La <strong>UEFI</strong> es la evolución de la BIOS tradicional y ofrece un entorno más seguro, compatible con discos de gran capacidad y con funciones como el arranque seguro (Secure Boot).</p>
 <p>Bastionar la <strong>BIOS/UEFI</strong> consiste en configurar correctamente sus parámetros de seguridad para proteger el equipo frente a accesos no autorizados o manipulaciones durante el arranque.</p>
 <p>De esta forma, se refuerza la integridad del sistema y se reduce el riesgo de ataques que puedan comprometer el ordenador antes de iniciar el sistema operativo.</p>
       </google-codelab-step>
-    
+
       <google-codelab-step label="Menú Security" duration="5">
         <p>En este menú se configuran todas las contraseñas y permisos de seguridad de la BIOS/UEFI.</p>
 <h2 is-upgraded>Pasos:</h2>
@@ -224,25 +435,25 @@
 <li>Selecciona "Set Administrator Password" y crea una contraseña segura.</li>
 <li>Guarda los cambios y confirma.</li>
 </ul>
-<img alt="Imagen 1" src="img\\790e87cfa117c86f.png"></li>
+<img alt="Imagen 1" src="img\790e87cfa117c86f.png"></li>
 <li><strong>Contraseña de usuario de la BIOS</strong><ul>
 <li>Dentro del mismo menú Security → User Password.</li>
 <li>Configura una contraseña diferente a la de administrador.</li>
 <li>Introduce la nueva contraseña y confírmala cuando el sistema lo solicite.</li>
 <li>Esta contraseña será requerida para entrar al BIOS sin privilegios de administrador.</li>
 </ul>
-<img alt="Imagen 2" src="img\\4a1985fd1fb2ba79.png"></li>
+<img alt="Imagen 2" src="img\4a1985fd1fb2ba79.png"></li>
 <li><strong>Contraseña de arranque del dispositivo (Power-On / HDD)</strong><ul>
 <li>Todavía en Security, localiza Set Hard Disk Passwords.</li>
 <li>Introduce y confirma la contraseña de arranque cuando el sistema lo indique.</li>
 <li>Esta contraseña se solicita al encender el equipo y protege el arranque del disco.</li>
 </ul>
-<img alt="Imagen 3" src="img\\1b3f1b8a85bcc272.png"></li>
+<img alt="Imagen 3" src="img\1b3f1b8a85bcc272.png"></li>
 </ol>
 <p><strong>Nota:</strong></p>
 <p>Tanto en el paso 2 como en el paso 3, no se incluyen capturas del proceso de introducción y confirmación de contraseñas, ya que el simulador de la BIOS de Lenovo utilizado para la elaboración de esta guía no permite acceder a la interfaz donde se establecen las contraseñas de usuario o de arranque.<br> En un entorno físico real, al seleccionar estas opciones, el sistema solicitará introducir y confirmar las contraseñas de manera secuencial antes de guardarlas.</p>
       </google-codelab-step>
-    
+
       <google-codelab-step label="Menú Boot" duration="4">
         <p>Este menú controla <strong>desde qué dispositivos puede arrancar el ordenador</strong> y en qué orden, así como la seguridad del arranque.</p>
 <h2 is-upgraded>Pasos:</h2>
@@ -278,7 +489,7 @@
 <li><strong>EFI</strong><ul>
 <li>Confirma que el arranque se realiza en modo <strong>EFI</strong> para Secure Boot y discos GPT.</li>
 </ul>
-<img alt="Imagen 4" src="img\\c881c4c03d6615ae.png"></li>
+<img alt="Imagen 4" src="img\c881c4c03d6615ae.png"></li>
 <li><strong>Secure Boot</strong><ul>
 <li>Localiza la opción <strong>Secure Boot</strong> (pestaña <em>Security</em>).</li>
 <li>Asegúrate de que esté configurada como <strong>Enabled</strong>.</li>
@@ -288,7 +499,7 @@
 </ol>
 <p><strong>Nota de seguridad:</strong> Al desactivar Fast Boot, USB Boot o PXE Boot, algunas opciones relacionadas pueden desaparecer del menú. Esto es <strong>normal</strong> y forma parte de la configuración más segura del arranque.</p>
       </google-codelab-step>
-    
+
       <google-codelab-step label="Menú Exit" duration="1">
         <p>En este menú se confirman y aplican todos los cambios realizados en la BIOS/UEFI.</p>
 <h2 is-upgraded>Pasos:</h2>
@@ -308,13 +519,13 @@
 <li>Solo el disco interno aparece como dispositivo de arranque.</li>
 <li>Secure Boot está activo.</li>
 </ul>
-<img alt="Imagen 5" src="img\\51e9fb7a5437bf2a.png"></li>
+<img alt="Imagen 5" src="img\51e9fb7a5437bf2a.png"></li>
 </ul>
 </li>
 </ol>
 <p><strong>Resultado esperado:<br></strong> El sistema arranca de forma segura, solicitando las contraseñas configuradas y sin permitir el arranque desde dispositivos no autorizados. Por lo tanto, el equipo queda protegido frente a accesos no autorizados al firmware, garantizando un arranque seguro y controlado por el usuario.</p>
       </google-codelab-step>
-    
+
   </google-codelab>
 
   <script src="https://storage.googleapis.com/claat-public/native-shim.js"></script>
@@ -324,75 +535,147 @@
   <script src="//support.google.com/inapp/api.js"></script>
 
   <script>
-    // Forzar estilos del drawer penetrando el Shadow DOM
-    function applyDrawerStyles() {
-      const codelab = document.querySelector('google-codelab');
-      if (codelab && codelab.shadowRoot) {
-        const shadowRoot = codelab.shadowRoot;
-        
-        // Crear un style tag dentro del shadow root
-        const style = document.createElement('style');
-        style.textContent = `
-          #drawer {
-            background: #000000 !important;
-          }
-          
-          #steps {
-            background: #000000 !important;
-          }
-          
-          .step {
-            color: #ffffff !important;
-            background: #000000 !important;
-          }
-          
-          .step.selected {
-            background: rgba(143, 179, 255, 0.15) !important;
-            border-left: 3px solid #8fb3ff !important;
-          }
-          
-          .step:hover {
-            background: rgba(255, 255, 255, 0.08) !important;
-          }
-          
-          #drawer h2,
-          #drawer h3,
-          #drawer span,
-          #drawer div,
-          #steps span,
-          #steps div {
-            color: #ffffff !important;
-          }
-        `;
-        
-        shadowRoot.appendChild(style);
-      }
-    }
+    // ========== SISTEMA DE TOGGLE DE TEMA ==========
+    (function() {
+      const html = document.documentElement;
+      const themeToggle = document.getElementById('theme-toggle');
+      const themeIcon = document.getElementById('theme-icon');
 
-    // Intentar aplicar estilos cuando el DOM esté listo
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', () => {
-        setTimeout(applyDrawerStyles, 100);
-        setTimeout(applyDrawerStyles, 500);
-        setTimeout(applyDrawerStyles, 1000);
+      // Cargar tema guardado (por defecto: claro)
+      const savedTheme = localStorage.getItem('codelab-theme') || 'light';
+      html.setAttribute('data-theme', savedTheme);
+      updateThemeIcon(savedTheme);
+
+      // Aplicar estilos al shadow DOM cuando esté disponible
+      applyThemeToShadowDOM(savedTheme);
+
+      // Toggle al hacer clic
+      themeToggle.addEventListener('click', function() {
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('codelab-theme', newTheme);
+        updateThemeIcon(newTheme);
+        applyThemeToShadowDOM(newTheme);
       });
-    } else {
-      setTimeout(applyDrawerStyles, 100);
-      setTimeout(applyDrawerStyles, 500);
-      setTimeout(applyDrawerStyles, 1000);
-    }
 
-    // Observar cambios en el DOM para reaplicar estilos
-    const observer = new MutationObserver(() => {
-      applyDrawerStyles();
-    });
-
-    setTimeout(() => {
-      const codelab = document.querySelector('google-codelab');
-      if (codelab) {
-        observer.observe(codelab, { childList: true, subtree: true });
+      // Actualizar icono según el tema (ICONOS DEL PORTFOLIO)
+      function updateThemeIcon(theme) {
+        themeIcon.textContent = theme === 'dark' ? '☀️' : '🌓';
       }
-    }, 500);
+
+      // Aplicar estilos al Shadow DOM del codelab
+      function applyThemeToShadowDOM(theme) {
+        const codelab = document.querySelector('google-codelab');
+        if (codelab && codelab.shadowRoot) {
+          const shadowRoot = codelab.shadowRoot;
+
+          // Buscar o crear el style tag
+          let style = shadowRoot.querySelector('#custom-theme-style');
+          if (!style) {
+            style = document.createElement('style');
+            style.id = 'custom-theme-style';
+            shadowRoot.appendChild(style);
+          }
+
+          // Aplicar estilos según el tema
+          if (theme === 'dark') {
+            style.textContent = `
+              #drawer {
+                background: #000000 !important;
+              }
+
+              #steps {
+                background: #000000 !important;
+              }
+
+              .step {
+                color: #ffffff !important;
+                background: #000000 !important;
+              }
+
+              .step.selected {
+                background: rgba(143, 179, 255, 0.15) !important;
+                border-left: 3px solid #8fb3ff !important;
+              }
+
+              .step:hover {
+                background: rgba(255, 255, 255, 0.08) !important;
+              }
+
+              #drawer h2,
+              #drawer h3,
+              #drawer span,
+              #drawer div,
+              #steps span,
+              #steps div {
+                color: #ffffff !important;
+              }
+            `;
+          } else {
+            style.textContent = `
+              #drawer {
+                background: #ffffff !important;
+              }
+
+              #steps {
+                background: #ffffff !important;
+              }
+
+              .step {
+                color: #202124 !important;
+                background: #ffffff !important;
+              }
+
+              .step.selected {
+                color: #1a73e8 !important;
+                background: rgba(26, 115, 232, 0.08) !important;
+                border-left: 3px solid #1a73e8 !important;
+              }
+
+              .step:hover {
+                background: #f8f9fa !important;
+              }
+
+              #drawer h2,
+              #drawer h3,
+              #drawer span,
+              #drawer div,
+              #steps span,
+              #steps div {
+                color: #202124 !important;
+              }
+            `;
+          }
+        }
+      }
+
+      // Intentar aplicar estilos cuando el DOM esté listo
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+          setTimeout(() => applyThemeToShadowDOM(savedTheme), 100);
+          setTimeout(() => applyThemeToShadowDOM(savedTheme), 500);
+          setTimeout(() => applyThemeToShadowDOM(savedTheme), 1000);
+        });
+      } else {
+        setTimeout(() => applyThemeToShadowDOM(savedTheme), 100);
+        setTimeout(() => applyThemeToShadowDOM(savedTheme), 500);
+        setTimeout(() => applyThemeToShadowDOM(savedTheme), 1000);
+      }
+
+      // Observar cambios en el DOM
+      const observer = new MutationObserver(() => {
+        applyThemeToShadowDOM(html.getAttribute('data-theme'));
+      });
+
+      setTimeout(() => {
+        const codelab = document.querySelector('google-codelab');
+        if (codelab) {
+          observer.observe(codelab, { childList: true, subtree: true });
+        }
+      }, 500);
+    })();
   </script>
 
 </body>
