@@ -35,6 +35,12 @@
       font-weight: 300 !important;
     }
 
+    /* ESPACIADO AÑADIDO */
+    h2, h3 {
+      margin-top: 24px !important;
+      margin-bottom: 16px !important;
+    }
+
     #drawer,
     #steps {
       background: #ffffff !important;
@@ -77,7 +83,20 @@
       color: #202124 !important;
     }
 
-    p, li, td, th, span, label {
+    /* TEXTO JUSTIFICADO Y ESPACIADO AÑADIDO */
+    p {
+      color: #202124 !important;
+      text-align: justify !important;
+      line-height: 1.7 !important;
+      margin-bottom: 16px !important;
+    }
+
+    li {
+      color: #202124 !important;
+      margin-bottom: 8px !important;
+    }
+
+    td, th, span, label {
       color: #202124 !important;
     }
 
@@ -108,21 +127,28 @@
       color: #202124 !important;
       padding: 16px 20px !important;
       border-radius: 4px !important;
+      margin-top: 20px !important;
+      margin-bottom: 20px !important;
     }
 
+    /* ESPACIADO TABLAS CON PADDING INTERNO AÑADIDO */
     table {
       background: #ffffff !important;
       border: 1px solid #dadce0 !important;
+      margin-top: 20px !important;
+      margin-bottom: 20px !important;
     }
 
     th {
       background: #f8f9fa !important;
       color: #202124 !important;
       border-bottom: 2px solid #dadce0 !important;
+      padding: 12px !important;
     }
 
     td {
       border: 1px solid #dadce0 !important;
+      padding: 12px !important;
     }
 
     tr:hover {
@@ -161,12 +187,20 @@
       background: #174ea6 !important;
     }
 
+    /* ESPACIADO PARA IMÁGENES AÑADIDO */
     img {
       border: 1px solid #dadce0 !important;
       border-radius: 6px !important;
       background: #ffffff !important;
       padding: 8px !important;
       max-width: 100% !important;
+      margin-top: 20px !important;
+      margin-bottom: 20px !important;
+    }
+
+    /* ESPACIADO PARA LISTAS AÑADIDO */
+    ol, ul {
+      margin-bottom: 20px !important;
     }
 
     #codelab-footer {
@@ -270,8 +304,19 @@
       color: var(--codelab-text) !important;
     }
 
-    [data-theme="dark"] p,
-    [data-theme="dark"] li,
+    /* TEXTO JUSTIFICADO TEMA OSCURO AÑADIDO */
+    [data-theme="dark"] p {
+      color: var(--codelab-text) !important;
+      text-align: justify !important;
+      line-height: 1.7 !important;
+      margin-bottom: 16px !important;
+    }
+
+    [data-theme="dark"] li {
+      color: var(--codelab-text) !important;
+      margin-bottom: 8px !important;
+    }
+
     [data-theme="dark"] td,
     [data-theme="dark"] th,
     [data-theme="dark"] span,
@@ -451,7 +496,7 @@
                   environment="web"
                   feedback-link="https://github.com/abelgd/abelgd.github.io/issues/1">
 
-      <google-codelab-step label="Introducción" duration="3">
+    <google-codelab-step label="Introducción" duration="3">
         <p>El presente documento tiene como objetivo servir como <strong>guía técnica y práctica</strong> para la realización de un <strong>análisis de riesgos</strong>.</p>
 <p>El análisis de riesgos es un proceso esencial para garantizar la <strong>continuidad operativa</strong>, la <strong>fiabilidad</strong> y la <strong>resiliencia</strong> de cualquier organización. Su propósito no es eliminar las amenazas por completo —algo imposible—, sino <strong>identificarlas, evaluarlas y gestionarlas</strong> para que el impacto sobre el negocio sea <strong>asumible y controlado</strong>.</p>
 <p>Esta guía se estructura en pasos claros que permiten comprender cada fase del proceso, y se complementa con un <strong>ejemplo práctico aplicado a la empresa AGGuard</strong>, que servirá como referencia para ilustrar los conceptos tratados en cada punto.</p>
