@@ -1,0 +1,26 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2025-11-19T09:39:53+01:00",
+  "id": "identificador4",
+  "duration": 0,
+  "title": "Proyecto 4: Campaña de formación y concienciación en ciberseguridad",
+  "summary": "Resumen del CodeLab",
+  "source": "codelab4.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "codelab",
+    "markdown"
+  ],
+  "tags": [
+    "web"
+  ],
+  "feedback": "https://github.com/abelgd/abelgd.github.io/issues/1",
+  "ga": "ID de Google Analytics",
+  "url": "identificador4"
+}

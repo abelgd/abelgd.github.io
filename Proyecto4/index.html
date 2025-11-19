@@ -1,0 +1,937 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Proyecto 4: Campaña de formación y concienciación en ciberseguridad</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/claat-public/codelab-elements.css">
+
+  <style>
+    :root {
+      --title-font: Georgia, "Times New Roman", Times, serif;
+    }
+
+    body {
+      background: #ffffff !important;
+      color: #202124 !important;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    #codelab-title,
+    #main-toolbar,
+    google-codelab {
+      background: #f8f9fa !important;
+      --primary-color: #1a73e8 !important;
+      --secondary-color: #5f6368 !important;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      color: #202124 !important;
+      font-family: var(--title-font) !important;
+      font-weight: 300 !important;
+    }
+
+    /* ESPACIADO AÑADIDO */
+    h2, h3 {
+      margin-top: 24px !important;
+      margin-bottom: 16px !important;
+    }
+
+    #drawer,
+    #steps {
+      background: #ffffff !important;
+      border-right: 1px solid #dadce0 !important;
+    }
+
+    .step {
+      color: #202124 !important;
+      background: #ffffff !important;
+      border-left: 3px solid transparent !important;
+      transition: all 0.3s ease !important;
+    }
+
+    .step.selected {
+      color: #1a73e8 !important;
+      background: rgba(26, 115, 232, 0.08) !important;
+      border-left-color: #1a73e8 !important;
+    }
+
+    .step:hover {
+      color: #202124 !important;
+      background: #f8f9fa !important;
+      border-left-color: #1a73e8 !important;
+    }
+
+    #drawer h2,
+    #drawer h3,
+    #drawer span,
+    #drawer div,
+    #steps h2,
+    #steps h3,
+    #steps span,
+    #steps div {
+      color: #202124 !important;
+    }
+
+    #codelab-step,
+    .instructions {
+      background: #ffffff !important;
+      color: #202124 !important;
+    }
+
+    /* TEXTO JUSTIFICADO Y ESPACIADO AÑADIDO */
+    p {
+      color: #202124 !important;
+      text-align: justify !important;
+      line-height: 1.7 !important;
+      margin-bottom: 16px !important;
+    }
+
+    li {
+      color: #202124 !important;
+      margin-bottom: 8px !important;
+    }
+
+    td, th, span, label {
+      color: #202124 !important;
+    }
+
+    a {
+      color: #1a73e8 !important;
+      text-decoration: none !important;
+      border-bottom: 1px solid rgba(26, 115, 232, 0.3) !important;
+      transition: all 0.3s ease !important;
+    }
+
+    a:hover {
+      color: #174ea6 !important;
+      border-bottom-color: rgba(26, 115, 232, 0.6) !important;
+    }
+
+    pre,
+    code,
+    .prettyprint {
+      background: #f1f3f4 !important;
+      color: #202124 !important;
+      border: 1px solid #dadce0 !important;
+      border-radius: 4px !important;
+    }
+
+    aside {
+      background: #e8f0fe !important;
+      border-left: 4px solid #1a73e8 !important;
+      color: #202124 !important;
+      padding: 16px 20px !important;
+      border-radius: 4px !important;
+      margin-top: 20px !important;
+      margin-bottom: 20px !important;
+    }
+
+    table {
+      background: #ffffff !important;
+      border: 1px solid #dadce0 !important;
+      margin-top: 20px !important;
+      margin-bottom: 20px !important;
+    }
+
+    th {
+      background: #f8f9fa !important;
+      color: #202124 !important;
+      border-bottom: 2px solid #dadce0 !important;
+    }
+
+    td {
+      border: 1px solid #dadce0 !important;
+    }
+
+    tr:hover {
+      background: #f8f9fa !important;
+    }
+
+    /* ESPACIADO PARA IMÁGENES AÑADIDO */
+    img {
+      border: 1px solid #dadce0 !important;
+      border-radius: 6px !important;
+      background: #ffffff !important;
+      padding: 8px !important;
+      max-width: 100% !important;
+      margin-top: 20px !important;
+      margin-bottom: 20px !important;
+    }
+
+    /* ESPACIADO PARA LISTAS AÑADIDO */
+    ol, ul {
+      margin-bottom: 20px !important;
+    }
+
+    paper-button,
+    button,
+    .codelab-fab {
+      background: #1a73e8 !important;
+      color: #ffffff !important;
+      border: none !important;
+      transition: all 0.3s ease !important;
+    }
+
+    /* BOTONES DE NAVEGACIÓN - TEMA CLARO */
+    /* Método que funcionó para Next */
+    a#next-step{
+      color: white !important;
+    }
+
+    /* Mismo método para Done con múltiples variantes */
+    a#done,
+    a#done-step,
+    a[href="#done"],
+    paper-button#done,
+    paper-button.done,
+    #controls a:last-child{
+      color: white !important;
+    }
+
+    a#previous-step{
+      color: #1a73e8 !important;
+    }
+
+    paper-button:hover,
+    button:hover {
+      background: #174ea6 !important;
+    }
+
+    #codelab-footer {
+      background: #f8f9fa !important;
+      border-top: 1px solid #dadce0 !important;
+      color: #5f6368 !important;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f8f9fa;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #dadce0;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #bdc1c6;
+    }
+
+    [data-theme="dark"] {
+      --codelab-bg: #0b0b0b;
+      --codelab-surface: #151515;
+      --codelab-text: #cccccc;
+      --codelab-text-muted: #888888;
+      --codelab-accent: #8fb3ff;
+      --codelab-border: rgba(255,255,255,0.1);
+    }
+
+    [data-theme="dark"] body {
+      background: var(--codelab-bg) !important;
+      color: var(--codelab-text) !important;
+    }
+
+    [data-theme="dark"] #codelab-title,
+    [data-theme="dark"] #main-toolbar,
+    [data-theme="dark"] google-codelab {
+      background: var(--codelab-surface) !important;
+      --primary-color: var(--codelab-accent) !important;
+      --secondary-color: var(--codelab-text-muted) !important;
+    }
+
+    [data-theme="dark"] h1,
+    [data-theme="dark"] h2,
+    [data-theme="dark"] h3,
+    [data-theme="dark"] h4,
+    [data-theme="dark"] h5,
+    [data-theme="dark"] h6 {
+      color: #ffffff !important;
+    }
+
+    [data-theme="dark"] #drawer,
+    [data-theme="dark"] #steps {
+      background: #000000 !important;
+      border-right: 1px solid var(--codelab-border) !important;
+    }
+
+    [data-theme="dark"] #drawer *,
+    [data-theme="dark"] #steps * {
+      background: transparent !important;
+    }
+
+    [data-theme="dark"] .step {
+      color: #ffffff !important;
+      background: #000000 !important;
+    }
+
+    [data-theme="dark"] .step.selected {
+      color: #ffffff !important;
+      background: rgba(143, 179, 255, 0.15) !important;
+      border-left-color: var(--codelab-accent) !important;
+    }
+
+    [data-theme="dark"] .step:hover {
+      color: #ffffff !important;
+      background: rgba(255, 255, 255, 0.08) !important;
+      border-left-color: var(--codelab-accent) !important;
+    }
+
+    [data-theme="dark"] #drawer h2,
+    [data-theme="dark"] #drawer h3,
+    [data-theme="dark"] #drawer span,
+    [data-theme="dark"] #drawer div,
+    [data-theme="dark"] #steps h2,
+    [data-theme="dark"] #steps h3,
+    [data-theme="dark"] #steps span,
+    [data-theme="dark"] #steps div {
+      color: #ffffff !important;
+    }
+
+    [data-theme="dark"] #codelab-step,
+    [data-theme="dark"] .instructions {
+      background: var(--codelab-bg) !important;
+      color: var(--codelab-text) !important;
+    }
+
+    /* TEXTO JUSTIFICADO TEMA OSCURO AÑADIDO */
+    [data-theme="dark"] p {
+      color: var(--codelab-text) !important;
+      text-align: justify !important;
+      line-height: 1.7 !important;
+      margin-bottom: 16px !important;
+    }
+
+    [data-theme="dark"] li {
+      color: var(--codelab-text) !important;
+      margin-bottom: 8px !important;
+    }
+
+    [data-theme="dark"] td,
+    [data-theme="dark"] th,
+    [data-theme="dark"] span,
+    [data-theme="dark"] label {
+      color: var(--codelab-text) !important;
+    }
+
+    [data-theme="dark"] a {
+      color: var(--codelab-accent) !important;
+      border-bottom: 1px solid rgba(143,179,255,0.3) !important;
+    }
+
+    [data-theme="dark"] a:hover {
+      color: #ffffff !important;
+      border-bottom-color: rgba(143,179,255,0.6) !important;
+    }
+
+    [data-theme="dark"] pre,
+    [data-theme="dark"] code,
+    [data-theme="dark"] .prettyprint {
+      background: #1a1a1a !important;
+      color: #e0e0e0 !important;
+      border: 1px solid var(--codelab-border) !important;
+    }
+
+    [data-theme="dark"] aside {
+      background: rgba(255,255,255,0.02) !important;
+      border-left: 4px solid var(--codelab-accent) !important;
+      color: var(--codelab-text) !important;
+    }
+
+    [data-theme="dark"] table {
+      background: var(--codelab-surface) !important;
+      border: 1px solid var(--codelab-border) !important;
+    }
+
+    [data-theme="dark"] th {
+      background: rgba(255,255,255,0.05) !important;
+      color: #ffffff !important;
+      border-bottom: 2px solid var(--codelab-border) !important;
+    }
+
+    [data-theme="dark"] td {
+      border: 1px solid var(--codelab-border) !important;
+    }
+
+    [data-theme="dark"] tr:hover {
+      background: rgba(255,255,255,0.02) !important;
+    }
+
+    [data-theme="dark"] paper-button,
+    [data-theme="dark"] button,
+    [data-theme="dark"] .codelab-fab {
+      background: transparent !important;
+      color: #ffffff !important;
+      border: 1px solid rgba(255,255,255,0.3) !important;
+    }
+
+    /* BOTONES DE NAVEGACIÓN - TEMA OSCURO */
+    [data-theme="dark"] a#next-step{
+      color: white !important;
+    }
+
+    [data-theme="dark"] a#done,
+    [data-theme="dark"] a#done-step,
+    [data-theme="dark"] a[href="#done"],
+    [data-theme="dark"] paper-button#done,
+    [data-theme="dark"] paper-button.done,
+    [data-theme="dark"] #controls a:last-child{
+      color: white !important;
+    }
+
+    [data-theme="dark"] a#previous-step{
+      color: #1a73e8 !important;
+    }
+
+    [data-theme="dark"] paper-button:hover,
+    [data-theme="dark"] button:hover {
+      background: rgba(255,255,255,0.05) !important;
+      border-color: #ffffff !important;
+    }
+
+    [data-theme="dark"] img {
+      border: 1px solid var(--codelab-border) !important;
+      background: #ffffff !important;
+    }
+
+    [data-theme="dark"] #codelab-footer {
+      background: var(--codelab-surface) !important;
+      border-top: 1px solid var(--codelab-border) !important;
+      color: var(--codelab-text-muted) !important;
+    }
+
+    [data-theme="dark"] ::-webkit-scrollbar-track {
+      background: var(--codelab-surface);
+    }
+
+    [data-theme="dark"] ::-webkit-scrollbar-thumb {
+      background: rgba(255,255,255,0.2);
+    }
+
+    [data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+      background: rgba(255,255,255,0.3);
+    }
+
+    /* BOTÓN TOGGLE CON ICONOS ORIGINALES */
+    .theme-toggle-btn {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      z-index: 10000;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid #dadce0 !important;
+      background: #ffffff !important;
+      color: #202124 !important;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .theme-toggle-btn:hover {
+      transform: scale(1.1) rotate(180deg);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    [data-theme="dark"] .theme-toggle-btn {
+      background: #0b0b0b !important;
+      border-color: rgba(255,255,255,0.2) !important;
+      color: #e8eaed !important;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    [data-theme="dark"] .theme-toggle-btn:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      border-color: rgba(255,255,255,0.4) !important;
+    }
+
+    #codelab-title {
+      padding-right: 70px !important;
+    }
+
+    .success {
+      color: #1e8e3e !important;
+    }
+
+    .error {
+      color: #d93025 !important;
+    }
+
+    [data-theme="dark"] .success {
+      color: #66bb6a !important;
+    }
+
+    [data-theme="dark"] .error {
+      color: #ff5252 !important;
+    }
+  </style>
+</head>
+<body>
+  <button id="theme-toggle" class="theme-toggle-btn" aria-label="Cambiar tema">
+    <span id="theme-icon">🌓</span>
+  </button>
+
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="proyecto4-formacion-concienciacion"
+                  title="Proyecto 4: Campaña de formación y concienciación en ciberseguridad"
+                  environment="web"
+                  feedback-link="https://github.com/abelgd/abelgd.github.io/issues/1">
+
+      <google-codelab-step label="Introducción" duration="3">
+        <p>El presente documento tiene como objetivo servir como <strong>guía técnica y práctica</strong> para diseñar e implantar un <strong>Plan de Formación y Concienciación en Ciberseguridad (PFC)</strong> dentro de una organización.</p>
+        <p>La guía está orientada tanto a perfiles técnicos como a personal no especializado que quiera entender cómo formar a los empleados para que se conviertan en una verdadera primera línea de defensa.</p>
+        <p>La formación y concienciación buscan que los empleados identifiquen amenazas (phishing, ingeniería social, malware), apliquen buenas prácticas y conozcan los procedimientos de respuesta ante incidentes.</p>
+        <p>No se pretende eliminar todas las amenazas —algo imposible—, sino reducir el riesgo asociado al <strong>factor humano</strong>, que sigue siendo el vector principal de la mayoría de los incidentes.</p>
+        <p>Este documento se estructura en módulos que cubren desde los fundamentos del plan hasta su evaluación continua, incluyendo contenidos esenciales, ética, políticas y buenas conductas, con <strong>ejemplos prácticos aplicados a una empresa llamada AGGuard</strong>.</p>
+        <p>El plan se apoya también en la tríada <strong>CIA</strong> aplicada al comportamiento del empleado: confidencialidad, integridad y disponibilidad de la información en su día a día.</p>
+        <aside class="special">
+          <p><strong>En ciberseguridad, la tecnología por sí sola no es suficiente: la conducta del empleado decide si una amenaza se convierte o no en un incidente real.</strong></p>
+          <p><strong>Nota:</strong> En esta guía se utilizará <strong>AGGuard</strong>, una empresa especializada en seguridad de redes, como ejemplo práctico para ilustrar cada módulo del plan de formación y concienciación.</p>
+        </aside>
+        <h3 is-upgraded>Autor: <em>Abel García Domínguez</em></h3>
+      </google-codelab-step>
+
+      <google-codelab-step label="Fundamentos del plan de formación" duration="8">
+        <p>El Plan de Formación y Concienciación (PFC) tiene como misión principal crear una <strong>fuerza laboral consciente y preparada</strong>, capaz de actuar de forma segura en su puesto de trabajo.</p>
+        <p>La ciberseguridad deja de ser solo un asunto de TI y pasa a ser una responsabilidad compartida por toda la organización.</p>
+        
+        <h2 is-upgraded>Importancia de la concienciación</h2>
+        <p>La mayoría de los ataques explotan errores humanos: clics en enlaces maliciosos, uso de contraseñas débiles, descargas inseguras o uso de redes Wi‑Fi públicas sin protección.</p>
+        <p>Un programa de concienciación eficaz explica al empleado <strong>por qué</strong> es importante su conducta y <strong>cómo</strong> puede reducir el riesgo con acciones sencillas en su día a día.</p>
+        
+        <h2 is-upgraded>Objetivos del plan</h2>
+        <p>Los objetivos del PFC deben ser claros y medibles para guiar su diseño, ejecución y evaluación posterior.</p>
+        <ul>
+          <li><strong>Proteger los datos corporativos:</strong> Reducir la exposición de información sensible y evitar fugas o accesos no autorizados.</li>
+          <li><strong>Promover prácticas seguras:</strong> Implantar hábitos cotidianos como contraseñas robustas, uso de MFA, bloqueo de pantalla y notificación temprana de incidentes.</li>
+          <li><strong>Crear cultura de ciberseguridad:</strong> Lograr que el personal entienda que sus acciones individuales pueden evitar o facilitar un ciberataque.</li>
+        </ul>
+        
+        <h2 is-upgraded>Inclusividad y continuidad</h2>
+        <p>El plan debe ser <strong>inclusivo</strong>, abarcando a todo el personal (administrativo, técnico, gerencia, remoto) con contenidos y lenguaje ajustados a cada perfil.</p>
+        <p>También debe ser <strong>continuo</strong>, con recordatorios, refuerzos periódicos y actualización de contenidos ante nuevas amenazas o cambios tecnológicos.</p>
+        
+        <h2 is-upgraded>Ejemplo práctico: Definición del propósito del PFC en AGGuard</h2>
+        <p><strong>Contexto:</strong> AGGuard, empresa de seguridad de redes, desea implantar un PFC para reducir incidentes provocados por errores de sus propios empleados y mejorar la confianza de los clientes.</p>
+        
+        <table>
+          <thead>
+            <tr>
+              <th>Paso</th>
+              <th>Acción a implementar (cronológico)</th>
+              <th>Concepto aplicado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Redactar un documento de una página explicando la misión del PFC orientado a todo el personal.</td>
+              <td>Justificación del plan.</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Incluir en el documento el mensaje: "Este plan capacitará a nuestros empleados para identificar correos de phishing, proteger sus credenciales y usar de forma segura los sistemas de AGGuard, reduciendo incidentes y fugas de información."</td>
+              <td>Misión y objetivos del plan.</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Presentar el documento a la dirección para obtener apoyo explícito y difundirlo por correo interno y reuniones de equipo.</td>
+              <td>Creación de cultura de seguridad.</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <p>Al final de la página, AGGuard incluye una <strong>píldora de mensaje</strong> para empleados:</p>
+        <aside class="special">
+          <p>"Tu comportamiento diario es clave para que la información siga siendo confidencial, íntegra y disponible. Descubre qué espera AGGuard de ti en materia de seguridad en la Política de Seguridad de la Información: [Enlace interno]."</p>
+        </aside>
+      </google-codelab-step>
+
+      <google-codelab-step label="Diagnóstico y diseño del plan" duration="10">
+        <p>Antes de definir contenidos y actividades, es imprescindible conocer el <strong>nivel de madurez y conocimiento</strong> de los empleados para que la formación no sea ni demasiado básica ni excesivamente avanzada.</p>
+        <p>El diseño del plan debe ser <strong>práctico, comprensible y adaptable</strong> a la realidad de la organización.</p>
+        
+        <h2 is-upgraded>Evaluación de necesidades y nivel inicial</h2>
+        <p>La evaluación inicial puede incluir cuestionarios, entrevistas, revisión de incidentes pasados y campañas simuladas (por ejemplo, phishing controlado).</p>
+        <p>Los resultados permiten detectar áreas críticas (por ejemplo, bajo conocimiento en phishing o en políticas internas) y priorizar contenidos y grupos de riesgo.</p>
+        
+        <h2 is-upgraded>Segmentación por roles</h2>
+        <p>No todos los empleados manejan los mismos sistemas ni el mismo nivel de información, por lo que los contenidos deben adaptarse a cada perfil.</p>
+        <p>Sin embargo, <strong>todos los roles deben recibir formación en los mismos temas básicos</strong> (phishing, contraseñas, ingeniería social, notificación de incidentes), variando el <strong>nivel de profundidad y los ejemplos</strong> según el contexto de cada puesto.</p>
+        
+        <table>
+          <thead>
+            <tr>
+              <th>Rol / grupo</th>
+              <th>Enfoque de la formación</th>
+              <th>Ejemplos de contenido</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Personal administrativo</td>
+              <td>Nivel básico y práctico, enfocado en el día a día.</td>
+              <td>Reconocer phishing en correos cotidianos, crear contraseñas robustas con gestores, política de mesa limpia, manejo seguro de documentos.</td>
+            </tr>
+            <tr>
+              <td>Personal técnico (TI)</td>
+              <td>Mismo contenido básico pero con <strong>mayor profundidad técnica</strong> y ejemplos más sofisticados.</td>
+              <td>Phishing dirigido (spear phishing, whaling), ataques a cuentas con privilegios, MFA en sistemas críticos, ingeniería social avanzada, impacto de contraseñas débiles en cuentas administrativas.</td>
+            </tr>
+            <tr>
+              <td>Gerentes / mandos</td>
+              <td>Nivel intermedio con énfasis en responsabilidad y toma de decisiones.</td>
+              <td>Reconocer ataques dirigidos a la dirección (CEO fraud), autorización segura de operaciones sensibles, coordinación en incidentes.</td>
+            </tr>
+            <tr>
+              <td>Empleados remotos</td>
+              <td>Adaptación de contenidos básicos al contexto de movilidad.</td>
+              <td>Phishing en dispositivos móviles, uso seguro de VPN, riesgos de redes Wi‑Fi públicas, protección de datos fuera de la oficina.</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h2 is-upgraded>Ejemplo práctico: Evaluación y segmentación en AGGuard</h2>
+        
+        <table>
+          <thead>
+            <tr>
+              <th>Paso</th>
+              <th>Acción a implementar (cronológico)</th>
+              <th>Concepto aplicado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Lanzar una prueba online con 15 preguntas sobre contraseñas, phishing y notificación de incidentes a todo el personal.</td>
+              <td>Medición del nivel inicial.</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Analizar los resultados: se detecta que el 65 % del personal administrativo reutiliza contraseñas y no sabe identificar URLs maliciosas. Además, el 40 % del equipo técnico no identificó un correo de spear phishing dirigido.</td>
+              <td>Identificación de áreas de debilidad.</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Crear dos grupos prioritarios: "Administrativos AGGuard" recibirá talleres básicos de phishing y gestores de contraseñas; "Equipo Técnico AGGuard" recibirá los mismos contenidos pero con ejercicios avanzados de phishing dirigido, análisis de cabeceras de correo y gestión segura de cuentas privilegiadas.</td>
+              <td>Adaptación por rol con mismos temas, distinta profundidad.</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <aside class="special">
+          <p>"La mayoría de los incidentes comienzan en el puesto de trabajo del usuario. Conocer tu nivel actual nos ayuda a ofrecerte la formación que necesitas para protegerte a ti y a AGGuard. Revisa aquí tu plan formativo personalizado: [Enlace interno]."</p>
+        </aside>
+      </google-codelab-step>
+
+      <google-codelab-step label="Contenidos esenciales y materiales" duration="12">
+        <p>Los contenidos del PFC deben ser <strong>relevantes, prácticos y accesibles</strong>, empezando por conceptos básicos para todo el personal y profundizando según el rol.</p>
+        <p>Es clave combinar teoría breve con ejercicios, simulaciones y ejemplos reales para favorecer la retención.</p>
+        
+        <h2 is-upgraded>Temas básicos obligatorios para todos</h2>
+        <ul>
+          <li><strong>Contraseñas y MFA:</strong> Creación de contraseñas robustas, uso seguro de gestores de contraseñas y activación de autenticación multifactor.</li>
+          <li><strong>Phishing y correo electrónico:</strong> Identificación de correos sospechosos, enlaces y adjuntos maliciosos, verificación de remitentes y dominios.</li>
+          <li><strong>Ingeniería social:</strong> Reconocimiento de llamadas, mensajes o visitas que buscan manipular al empleado para obtener información o accesos.</li>
+          <li><strong>Actualizaciones de software:</strong> Importancia de instalar parches y evitar software no autorizado o desactualizado.</li>
+          <li><strong>Notificación de incidentes:</strong> Procedimiento simple y claro para reportar correos sospechosos, anomalías o pérdidas de dispositivos.</li>
+          <li><strong>Política de "mesa limpia" y dispositivos:</strong> Custodia física de documentos, portátiles, móviles corporativos y soportes extraíbles.</li>
+        </ul>
+        
+        <h2 is-upgraded>Metodologías y materiales</h2>
+        <p>Para maximizar el impacto, se recomienda usar formatos variados y breves, adaptados al ritmo de trabajo.</p>
+        <ul>
+          <li><strong>Material visual rápido:</strong> Pósteres digitales, banners internos y mensajes cortos tipo "tips de la semana".</li>
+          <li><strong>Simulaciones prácticas:</strong> Campañas de phishing simulado y otros ejercicios controlados que permitan medir el comportamiento real.</li>
+          <li><strong>Formación online (e‑learning):</strong> Módulos de 10–20 minutos, interactivos y autocontenidos, reforzados con pequeños cuestionarios.</li>
+          <li><strong>Recursos externos fiables:</strong> Uso de materiales de INCIBE, ENISA u otros organismos para complementar la campaña.</li>
+        </ul>
+        
+        <h2 is-upgraded>Ejemplo práctico: Contenidos y materiales en AGGuard</h2>
+        
+        <table>
+          <thead>
+            <tr>
+              <th>Paso</th>
+              <th>Acción a implementar (cronológico)</th>
+              <th>Concepto aplicado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Diseñar un taller interactivo para todo el personal sobre creación de contraseñas robustas y activación de MFA en los sistemas de AGGuard. Para el equipo técnico, incluir ejercicios adicionales sobre gestión de contraseñas en cuentas de administración y riesgos del uso de credenciales compartidas.</td>
+              <td>Uso de contraseñas y MFA (básico + profundización técnica).</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Publicar un cartel digital en la intranet sobre la política de "mesa limpia" y enviar cada viernes un tip de seguridad a todo el personal. Para técnicos, añadir ejemplos específicos sobre custodia de llaves SSH, tokens de acceso y dispositivos con acceso administrativo.</td>
+              <td>Refuerzo continuo de políticas adaptado por rol.</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Organizar un taller mensual de phishing para todos: el personal administrativo practica con correos típicos de facturas falsas; el equipo técnico analiza ataques de spear phishing simulando compromiso de proveedores tecnológicos y solicitudes falsas de cambios urgentes en sistemas.</td>
+              <td>Mismo tema (phishing), distinta profundidad y contexto.</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <aside class="special">
+          <p>"Tus contraseñas, tus clics y tus hábitos diarios determinan gran parte de la seguridad de AGGuard. Consulta aquí los contenidos básicos obligatorios que debes completar este trimestre: [Enlace a campus de formación]."</p>
+        </aside>
+      </google-codelab-step>
+
+      <google-codelab-step label="Ejecución, evaluación y mejora continua" duration="12">
+        <p>Un PFC efectivo se concibe como un <strong>ciclo continuo</strong>, no como una formación puntual, combinando planificación, ejecución, medición y revisión.</p>
+        <p>Esto permite ajustar contenidos, métodos y canales según la evolución de las amenazas y de la propia organización.</p>
+        
+        <h2 is-upgraded>Cronograma y despliegue del plan</h2>
+        <p>El cronograma debe detallar <strong>qué se hace, cuándo, para quién y con qué recursos</strong>, incluyendo formación inicial, refrescos y acciones específicas.</p>
+        <ul>
+          <li><strong>Formación inicial:</strong> Para nuevos empleados durante su proceso de onboarding.</li>
+          <li><strong>Refrescos periódicos:</strong> Sesiones trimestrales o semestrales con simulaciones y actualización de amenazas.</li>
+          <li><strong>Acciones especiales:</strong> Formación extra ante la implantación de nuevas herramientas o tras incidentes significativos.</li>
+        </ul>
+        
+        <h2 is-upgraded>Métricas e indicadores (KPI)</h2>
+        <p>La evaluación del impacto del PFC se apoya en métricas que midan tanto el conocimiento como el comportamiento.</p>
+        <ul>
+          <li>Tasa de participación en cursos y actividades.</li>
+          <li>Porcentaje de clics en campañas de phishing simulado.</li>
+          <li>Número de reportes de correos sospechosos o incidentes por parte de usuarios.</li>
+          <li>Resultados de cuestionarios antes y después de la formación.</li>
+        </ul>
+        
+        <h2 is-upgraded>Ciclo de mejora continua</h2>
+        <p>En función de los resultados, se deben establecer <strong>umbrales de éxito</strong> (por ejemplo, menos del 10 % de clics en phishing simulado) y definir acciones correctivas cuando no se alcanzan.</p>
+        <p>Este enfoque permite priorizar refuerzos formativos para los grupos más vulnerables y actualizar contenidos y políticas según sea necesario.</p>
+        
+        <h2 is-upgraded>Ejemplo práctico: Ciclo de mejora en AGGuard</h2>
+        
+        <table>
+          <thead>
+            <tr>
+              <th>Paso</th>
+              <th>Acción a implementar (cronológico)</th>
+              <th>Concepto aplicado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>En febrero, impartir un taller de 2 horas sobre reconocimiento de phishing para todo el personal.</td>
+              <td>Formación regular.</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>En marzo, lanzar una campaña de phishing simulado y medir la tasa de clics; el resultado muestra un 15 % de clics.</td>
+              <td>Métricas y simulación.</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Analizar los datos y detectar que el departamento de RR.HH. tiene el peor resultado al abrir adjuntos de falsas nóminas.</td>
+              <td>Identificación de brechas.</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>En abril, impartir una formación específica a RR.HH. centrada en verificación de remitentes, dominios y adjuntos.</td>
+              <td>Acción correctiva y refuerzo.</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <aside class="special">
+          <p>"Medir es la única forma de mejorar. Tus resultados en simulaciones y formaciones ayudan a AGGuard a adaptar el plan y proteger mejor la información de todos. Consulta aquí tus KPIs personales de concienciación: [Enlace a panel de usuario]."</p>
+        </aside>
+      </google-codelab-step>
+
+      <google-codelab-step label="Ética, políticas y buenas prácticas" duration="10">
+        <p>La formación en ciberseguridad no solo trata de herramientas, sino también de <strong>ética, responsabilidad y cumplimiento de políticas de seguridad de la información</strong>.</p>
+        <p>Este módulo conecta los principios de la triada CIA con la conducta diaria del empleado y las normas internas de la organización.</p>
+        
+        <h2 is-upgraded>Cultura ética y responsabilidad individual</h2>
+        <p>Cada empleado es responsable de proteger la <strong>confidencialidad</strong>, <strong>integridad</strong> y <strong>disponibilidad</strong> de la información que maneja.</p>
+        <p>Actuar con ética implica no compartir credenciales, no eludir controles por comodidad y reportar cualquier situación sospechosa.</p>
+        
+        <h2 is-upgraded>Políticas de seguridad y "píldoras" al empleado</h2>
+        <p>Las políticas de seguridad (por ejemplo: control de accesos, políticas de seguridad de la información, uso aceptable, etc.) definen el marco normativo que deben seguir todos los usuarios.</p>
+        <p>El PFC debe traducir estas políticas en mensajes claros y breves, apoyados en pequeñas <strong>píldoras informativas</strong> que enlacen al documento completo.</p>
+        
+        <p>Ejemplo de mensaje breve reutilizable en AGGuard:</p>
+        <aside class="special">
+          <p>"Queremos que la información con la que trabajas sea íntegra, confidencial y no sufra filtraciones ni manipulaciones. Esto se consigue aplicando las normas definidas en nuestra Política de Seguridad de la Información. Consulta aquí cómo debes proteger datos, equipos y accesos: [Enlace a la política]."</p>
+        </aside>
+        
+        <h2 is-upgraded>Buenas conductas físicas y digitales</h2>
+        <p>Se deben destacar unas pocas reglas sencillas, pero de alto impacto, que reduzcan el riesgo en el puesto de trabajo del usuario.</p>
+        <ul>
+          <li><strong>Restricciones de acceso:</strong> Usar solo las cuentas asignadas y no compartir credenciales; aplicar el principio de mínimo privilegio.</li>
+          <li><strong>Seguridad física:</strong> No dejar portátiles ni documentos sensibles desatendidos; aplicar política de mesa limpia al final de la jornada.</li>
+          <li><strong>Seguridad digital y actualizaciones:</strong> Mantener sistemas actualizados, evitar software no autorizado y usar solo herramientas aprobadas.</li>
+          <li><strong>Bloquear la pantalla:</strong> Bloquear el equipo siempre al levantarse, aunque sea "un minuto", para evitar usos indebidos.</li>
+          <li><strong>Evitar redes públicas inseguras:</strong> No acceder a sistemas corporativos desde Wi‑Fi abiertas sin VPN corporativa.</li>
+        </ul>
+        
+        <h2 is-upgraded>Ejemplo práctico: Ética, políticas y buenas prácticas en AGGuard</h2>
+        
+        <table>
+          <thead>
+            <tr>
+              <th>Paso</th>
+              <th>Acción a implementar (cronológico)</th>
+              <th>Concepto aplicado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Redactar un mensaje ético sencillo explicando por qué es importante proteger la confidencialidad, integridad y disponibilidad de los datos de clientes y empleados.</td>
+              <td>Cultura ética y CIA.</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Crear una sección "Política en un vistazo" con 5 puntos clave (contraseñas, correo, dispositivos, datos personales, notificación de incidentes) y enlazar al documento completo de política.</td>
+              <td>Conexión con políticas formales.</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Diseñar una checklist de buenas prácticas (bloquear pantalla, no usar USB desconocidos, evitar Wi‑Fi públicas, actualizar software) que cada empleado revise y marque.</td>
+              <td>Buenas conductas físicas y digitales.</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Añadir al final de cada módulo del PFC una píldora que recuerde estos principios y enlace a la política o guía correspondiente.</td>
+              <td>Refuerzo continuo y recordatorio.</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <aside class="special">
+          <p>"Tu puesto de trabajo es la primera línea de defensa. Aplicando estas buenas prácticas ayudas a garantizar que la información no se pierda, no se filtre y no sea manipulada. Consulta aquí las normas completas y firma tu compromiso de cumplimiento: [Enlace a política / formulario]."</p>
+        </aside>
+      </google-codelab-step>
+
+      <google-codelab-step label="Conclusión" duration="3">
+        <p>A lo largo de esta guía se han descrito los pasos clave para diseñar e implantar un <strong>Plan de Formación y Concienciación en Ciberseguridad</strong> orientado a empleados de distintos perfiles.</p>
+        <p>El enfoque propuesto combina diagnóstico inicial, contenidos adaptados, ejecución planificada, medición de resultados y mejora continua, junto con un módulo específico de ética, políticas y buenas prácticas.</p>
+        
+        <ul>
+          <li>El objetivo principal es transformar al empleado de eslabón débil a <strong>actor clave de la defensa</strong>, integrándolo en la estrategia de seguridad de la organización.</li>
+          <li>Una inversión sostenida en concienciación reduce incidentes, mejora la resiliencia operativa y refuerza la confianza de clientes y socios.</li>
+          <li>Integrar mensajes claros, ejemplos prácticos y políticas accesibles facilita que incluso usuarios no técnicos comprendan su papel en la protección de la información.</li>
+        </ul>
+        
+        <aside class="warning">
+          <p><strong>En definitiva, una organización segura no es la que nunca sufre intentos de ataque, sino la que forma y prepara a su personal para detectar, responder y aprender de cada incidente.</strong></p>
+        </aside>
+      </google-codelab-step>
+
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/claat-public/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/prettify.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+  <script>
+    (function() {
+      const html = document.documentElement;
+      const themeToggle = document.getElementById('theme-toggle');
+      const themeIcon = document.getElementById('theme-icon');
+
+      const savedTheme = localStorage.getItem('codelab-theme') || 'light';
+      html.setAttribute('data-theme', savedTheme);
+      updateThemeIcon(savedTheme);
+
+      applyThemeToShadowDOM(savedTheme);
+
+      themeToggle.addEventListener('click', function() {
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('codelab-theme', newTheme);
+        updateThemeIcon(newTheme);
+        applyThemeToShadowDOM(newTheme);
+      });
+
+      function updateThemeIcon(theme) {
+        themeIcon.textContent = theme === 'dark' ? '☀️' : '🌓';
+      }
+
+      function applyThemeToShadowDOM(theme) {
+        const codelab = document.querySelector('google-codelab');
+        if (codelab && codelab.shadowRoot) {
+          const shadowRoot = codelab.shadowRoot;
+
+          let style = shadowRoot.querySelector('#custom-theme-style');
+          if (!style) {
+            style = document.createElement('style');
+            style.id = 'custom-theme-style';
+            shadowRoot.appendChild(style);
+          }
+
+          if (theme === 'dark') {
+            style.textContent = `
+              #drawer { background: #000000 !important; }
+              #steps { background: #000000 !important; }
+              .step { color: #ffffff !important; background: #000000 !important; }
+              .step.selected { background: rgba(143, 179, 255, 0.15) !important; border-left: 3px solid #8fb3ff !important; }
+              .step:hover { background: rgba(255, 255, 255, 0.08) !important; }
+              #drawer h2, #drawer h3, #drawer span, #drawer div, #steps span, #steps div { color: #ffffff !important; }
+            `;
+          } else {
+            style.textContent = `
+              #drawer { background: #ffffff !important; }
+              #steps { background: #ffffff !important; }
+              .step { color: #202124 !important; background: #ffffff !important; }
+              .step.selected { color: #1a73e8 !important; background: rgba(26, 115, 232, 0.08) !important; border-left: 3px solid #1a73e8 !important; }
+              .step:hover { background: #f8f9fa !important; }
+              #drawer h2, #drawer h3, #drawer span, #drawer div, #steps span, #steps div { color: #202124 !important; }
+            `;
+          }
+        }
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+          setTimeout(() => applyThemeToShadowDOM(savedTheme), 100);
+          setTimeout(() => applyThemeToShadowDOM(savedTheme), 500);
+          setTimeout(() => applyThemeToShadowDOM(savedTheme), 1000);
+        });
+      } else {
+        setTimeout(() => applyThemeToShadowDOM(savedTheme), 100);
+        setTimeout(() => applyThemeToShadowDOM(savedTheme), 500);
+        setTimeout(() => applyThemeToShadowDOM(savedTheme), 1000);
+      }
+
+      const observer = new MutationObserver(() => {
+        applyThemeToShadowDOM(html.getAttribute('data-theme'));
+      });
+
+      setTimeout(() => {
+        const codelab = document.querySelector('google-codelab');
+        if (codelab) {
+          observer.observe(codelab, { childList: true, subtree: true });
+        }
+      }, 500);
+    })();
+  </script>
+
+</body>
+</html>
