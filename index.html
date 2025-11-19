@@ -827,12 +827,13 @@
     </div>
   </footer>
 
+  <!-- SCRIPT DE SINCRONIZACIÓN CON PROYECTOS -->
   <script>
-    // Sistema de temas
+    // Sistema de temas sincronizado con proyectos
     const html = document.documentElement;
 
-    // Cargar tema guardado
-    const savedTheme = localStorage.getItem('theme') || 'dark';
+    // IMPORTANTE: Usar la misma clave que los proyectos para sincronización
+    const savedTheme = localStorage.getItem('codelab-theme') || 'dark';
     html.setAttribute('data-theme', savedTheme);
 
     function toggleTheme() {
@@ -840,7 +841,8 @@
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
       html.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
+      // Guardar con la misma clave que los proyectos
+      localStorage.setItem('codelab-theme', newTheme);
     }
 
     // Destellos del cursor
