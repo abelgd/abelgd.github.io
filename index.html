@@ -184,7 +184,7 @@
       opacity:0.5;
     }
 
-    /* Toggle tema - VERSIÓN SVG MINIMALISTA */
+    /* Toggle tema - VERSIÓN SVG */
     .theme-toggle-icon{
       background:transparent;
       border:1px solid var(--card-bd);
@@ -306,7 +306,7 @@
       user-select:none;
     }
 
-    /* Grid centrado para 3 proyectos */
+    /* Grid centrado */
     .projects-grid{
       display:grid;
       grid-template-columns:repeat(3, 1fr);
@@ -832,7 +832,7 @@
     // Sistema de temas sincronizado con proyectos
     const html = document.documentElement;
 
-    // IMPORTANTE: Usar la misma clave que los proyectos para sincronización
+    // Uso de la misma clave que los proyectos para sincronización
     const savedTheme = localStorage.getItem('codelab-theme') || 'dark';
     html.setAttribute('data-theme', savedTheme);
 

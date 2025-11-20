@@ -35,7 +35,7 @@
       font-weight: 300 !important;
     }
 
-    /* ESPACIADO AÑADIDO */
+    /* ESPACIADO */
     h2, h3 {
       margin-top: 24px !important;
       margin-bottom: 16px !important;
@@ -83,7 +83,7 @@
       color: #202124 !important;
     }
 
-    /* TEXTO JUSTIFICADO Y ESPACIADO AÑADIDO */
+    /* TEXTO JUSTIFICADO Y ESPACIADO */
     p {
       color: #202124 !important;
       text-align: justify !important;
@@ -131,7 +131,7 @@
       margin-bottom: 20px !important;
     }
 
-    /* ESPACIADO TABLAS CON PADDING INTERNO AÑADIDO */
+    /* ESPACIADO TABLAS CON PADDING INTERNO */
     table {
       background: #ffffff !important;
       border: 1px solid #dadce0 !important;
@@ -187,7 +187,7 @@
       background: #174ea6 !important;
     }
 
-    /* ESPACIADO PARA IMÁGENES AÑADIDO */
+    /* ESPACIADO PARA IMÁGENES */
     img {
       border: 1px solid #dadce0 !important;
       border-radius: 6px !important;
@@ -198,7 +198,7 @@
       margin-bottom: 20px !important;
     }
 
-    /* ESPACIADO PARA LISTAS AÑADIDO */
+    /* ESPACIADO PARA LISTAS */
     ol, ul {
       margin-bottom: 20px !important;
     }
@@ -304,7 +304,7 @@
       color: var(--codelab-text) !important;
     }
 
-    /* TEXTO JUSTIFICADO TEMA OSCURO AÑADIDO */
+    /* TEXTO JUSTIFICADO TEMA OSCURO */
     [data-theme="dark"] p {
       color: var(--codelab-text) !important;
       text-align: justify !important;
@@ -422,7 +422,7 @@
       background: rgba(255,255,255,0.3);
     }
 
-    /* ========== BOTÓN TOGGLE CON ICONOS SVG MINIMALISTAS ========== */
+    /* ========== BOTÓN TOGGLE CON ICONOS SVG ========== */
     .theme-toggle-btn {
       position: fixed;
       top: 16px;
@@ -471,11 +471,17 @@
       left: 0;
       width: 100%;
       height: 100%;
-      fill: #202124;
-      stroke: #202124;
       stroke-width: 1.5;
       stroke-linecap: round;
       transition: all 0.4s ease;
+    }
+
+    .theme-icon-svg circle {
+      fill: #202124 !important;
+    }
+
+    .theme-icon-svg line {
+      stroke: #202124 !important;
     }
 
     /* Icono Luna (tema oscuro activo) */
@@ -501,9 +507,16 @@
       transform: rotate(180deg) scale(0);
     }
 
-    [data-theme="dark"] .theme-icon-svg {
-      fill: #ffffff;
-      stroke: #ffffff;
+    [data-theme="dark"] .theme-icon-svg circle {
+      fill: #ffffff !important;
+    }
+
+    [data-theme="dark"] .theme-icon-svg line {
+      stroke: #ffffff !important;
+    }
+
+    [data-theme="dark"] .theme-icon-svg path {
+      fill: #ffffff !important;
     }
 
     /* Ajustar posición del tiempo restante para dejar espacio al toggle */
@@ -1185,7 +1198,7 @@
         }
       }
 
-      // Intentar aplicar estilos cuando el DOM esté listo
+      // Aplicar estilos cuando el DOM esté listo
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {
           setTimeout(() => applyThemeToShadowDOM(savedTheme), 100);

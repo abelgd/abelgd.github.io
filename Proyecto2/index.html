@@ -44,7 +44,7 @@
     }
 
 
-    /* ESPACIADO AÑADIDO */
+    /* ESPACIADO */
     h2, h3 {
       margin-top: 24px !important;
       margin-bottom: 16px !important;
@@ -105,7 +105,7 @@
     }
 
 
-    /* TEXTO JUSTIFICADO Y ESPACIADO AÑADIDO */
+    /* TEXTO JUSTIFICADO Y ESPACIADO */
     p {
       color: #202124 !important;
       text-align: justify !important;
@@ -193,7 +193,7 @@
     }
 
 
-    /* ESPACIADO PARA IMÁGENES AÑADIDO */
+    /* ESPACIADO PARA IMÁGENES */
     img {
       border: 1px solid #dadce0 !important;
       border-radius: 6px !important;
@@ -205,7 +205,7 @@
     }
 
 
-    /* ESPACIADO PARA LISTAS AÑADIDO */
+    /* ESPACIADO PARA LISTAS */
     ol, ul {
       margin-bottom: 20px !important;
     }
@@ -386,7 +386,7 @@
     }
 
 
-    /* TEXTO JUSTIFICADO TEMA OSCURO AÑADIDO */
+    /* TEXTO JUSTIFICADO TEMA OSCURO */
     [data-theme="dark"] p {
       color: var(--codelab-text) !important;
       text-align: justify !important;
@@ -544,7 +544,7 @@
 
 
 
-    /* ========== BOTÓN TOGGLE CON ICONOS SVG MINIMALISTAS ========== */
+    /* ========== BOTÓN TOGGLE CON ICONOS SVG ========== */
     .theme-toggle-btn {
       position: fixed;
       top: 16px;
@@ -650,7 +650,7 @@
 
 
 
-    /* Ajustar posición del tiempo restante para dejar espacio al toggle */
+    /* Ajuste posición del tiempo restante para dejar espacio al toggle */
     #codelab-title {
       padding-right: 70px !important;
     }
@@ -1050,7 +1050,7 @@
         }
       }
 
-      // Intentar aplicar estilos cuando el DOM esté listo
+      // Aplicar estilos cuando el DOM esté listo
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {
           setTimeout(() => applyThemeToShadowDOM(savedTheme), 100);
