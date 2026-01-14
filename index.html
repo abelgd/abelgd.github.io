@@ -408,25 +408,36 @@ transition:left .3s ease;
 .project-link:hover::before{left:0}
 .project-link:hover{border-color:var(--fg);transform:translateX(5px)}
 
-/* Sección Talleres */
+/* Sección Talleres - MISMO ESTILO QUE PROYECTOS */
 #talleres{padding:100px 0;min-height:80vh}
+
+/* Grid de talleres idéntico al de proyectos */
 .workshops-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));
+grid-template-columns:repeat(3, 1fr);
 gap:30px;
-max-width:1100px;
-margin:0 auto;
+margin-bottom:60px;
+max-width:1200px;
+margin-left:auto;
+margin-right:auto;
 }
+
+/* Tarjeta de taller con mismo estilo que proyecto */
 .workshop-card{
 background:var(--card-bg);
 backdrop-filter:blur(10px);
 background-color:var(--bg);
 border:1px solid var(--card-bd);
 border-radius:8px;
-padding:30px;
-transition:all .4s ease;
+padding:24px;
+transition:all .5s cubic-bezier(.4,0,.2,1);
+cursor:pointer;
 position:relative;
 overflow:hidden;
+z-index:3;
+display:flex;
+flex-direction:column;
+min-height:280px;
 }
 .workshop-card::before{
 content:'';
@@ -440,35 +451,110 @@ transition:left .6s ease;
 }
 .workshop-card:hover::before{left:100%}
 .workshop-card:hover{
-transform:translateY(-5px);
+transform:translateY(-8px) scale(1.02);
 border-color:var(--card-bd-hover);
-box-shadow:0 10px 30px var(--card-bd-hover);
+box-shadow:0 15px 40px var(--card-bd-hover);
 }
-.workshop-title{
-font-size:1.1rem;
-font-weight:400;
-color:var(--fg);
-margin-bottom:20px;
-line-height:1.6;
-font-family:var(--title-font);
-letter-spacing:0.5px;
-}
-.workshop-details{
+
+.workshop-content{
+position:relative;
+z-index:1;
 display:flex;
 flex-direction:column;
-gap:8px;
+height:100%;
 }
-.workshop-location,
-.workshop-date{
-font-size:.8rem;
+
+/* Títulos alineados con altura fija */
+.workshop-title{
+font-size:1.4rem;
+font-weight:400;
 letter-spacing:1.5px;
-color:var(--muted);
-font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,"Liberation Mono","Courier New",monospace;
-text-transform:uppercase;
+margin-bottom:16px;
+color:var(--fg);
+font-family:var(--title-font);
+min-height:56px;
+display:flex;
+align-items:flex-start;
 }
-.workshop-location{
+
+/* Descripciones alineadas con altura fija */
+.workshop-description{
+font-size:0.9rem;
+line-height:1.7;
+color:var(--muted-2);
+margin-bottom:auto;
+font-weight:300;
+flex-grow:1;
+min-height:105px;
+}
+
+/* Ubicaciones separadas visualmente */
+.workshop-locations{
+margin-top:20px;
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+.workshop-location-item{
+display:flex;
+flex-direction:column;
+gap:4px;
+font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+font-size:.7rem;
+letter-spacing:1.5px;
+text-transform:uppercase;
+padding-left:12px;
+border-left:2px solid var(--meta);
+}
+
+.workshop-location-item .location-name{
 color:var(--meta);
 opacity:.95;
+font-weight:500;
+}
+
+.workshop-location-item .location-date{
+color:var(--muted);
+opacity:.85;
+}
+
+/* Icono GitHub minimalista en esquina inferior derecha */
+.workshop-github-icon{
+position:absolute;
+bottom:20px;
+right:20px;
+width:28px;
+height:28px;
+display:flex;
+align-items:center;
+justify-content:center;
+color:var(--muted);
+opacity:0.6;
+transition:all .3s ease;
+z-index:10;
+}
+
+.workshop-github-icon svg{
+width:100%;
+height:100%;
+fill:currentColor;
+}
+
+.workshop-github-icon:hover{
+opacity:1;
+color:var(--fg);
+transform:scale(1.15);
+}
+
+.workshop-meta{
+font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+font-size:.75rem;
+letter-spacing:2px;
+text-transform:uppercase;
+color:var(--meta);
+opacity:.9;
+margin-top:20px;
 }
 
 #sobre-mi{padding:100px 0;min-height:100vh;display:flex;align-items:center;justify-content:center}
@@ -729,6 +815,10 @@ transform:translateY(0);
 grid-template-columns:repeat(2, 1fr);
 gap:30px;
 }
+.workshops-grid{
+grid-template-columns:repeat(2, 1fr);
+gap:30px;
+}
 }
 
 @media (max-width:768px){
@@ -743,11 +833,11 @@ nav a{font-size:.7rem;letter-spacing:2px}
 .theme-icon-wrapper{width:16px;height:16px}
 .nav-separator{display:none}
 .projects-grid{grid-template-columns:1fr;gap:30px}
-.workshops-grid{grid-template-columns:1fr;gap:25px}
+.workshops-grid{grid-template-columns:1fr;gap:30px}
 .container{padding:0 20px}
 .section-title{font-size:1.8rem;letter-spacing:4px}
 .project-card{padding:24px}
-.workshop-card{padding:25px}
+.workshop-card{padding:24px}
 .about-content{padding:40px 30px}
 .contact-box{padding:40px 25px}
 footer{flex-direction:column;gap:20px;text-align:center}
@@ -809,7 +899,7 @@ footer{flex-direction:column;gap:20px;text-align:center}
 
 <section id="hero">
 <h1>PORTFOLIO</h1>
-<div class="hero-subtitle">Proyectos</div>
+<div class="hero-subtitle">Personal</div>
 <p class="name">Abel García Domínguez</p>
 </section>
 
@@ -858,26 +948,33 @@ footer{flex-direction:column;gap:20px;text-align:center}
 <h2 class="section-title">Talleres</h2>
 <div class="workshops-grid">
 <div class="workshop-card">
-<h3 class="workshop-title">No sin mi permiso - Evitando el scraping indiscriminado en la era de la IA</h3>
-<div class="workshop-details">
-<span class="workshop-location">IES Fidiana, Córdoba</span>
-<span class="workshop-date">22 Enero 2026</span>
+<!-- Icono GitHub en esquina inferior derecha -->
+<a href="https://github.com/abelgd/Taller-IA-scrapping" target="_blank" rel="noopener noreferrer" class="workshop-github-icon" aria-label="Ver repositorio en GitHub">
+<svg viewBox="0 0 16 16">
+<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+</svg>
+</a>
+<div class="workshop-content">
+<h3 class="workshop-title">No sin mi permiso</h3>
+<p class="workshop-description">Taller sobre prevención del scraping indiscriminado y protección de datos en la era de la inteligencia artificial.</p>
+<div class="workshop-locations">
+<div class="workshop-location-item">
+<span class="location-name">IES Fidiana, Córdoba</span>
+<span class="location-date">22 Enero 2026</span>
+</div>
+<div class="workshop-location-item">
+<span class="location-name">IES Sotero Hernández, Sevilla</span>
+<span class="location-date">6 Febrero 2026</span>
+</div>
+</div>
 </div>
 </div>
 
 <div class="workshop-card">
-<h3 class="workshop-title">No sin mi permiso - Evitando el scraping indiscriminado en la era de la IA</h3>
-<div class="workshop-details">
-<span class="workshop-location">IES Sotero Hernández, Sevilla</span>
-<span class="workshop-date">6 Febrero 2026</span>
-</div>
-</div>
-
-<div class="workshop-card">
-<h3 class="workshop-title">Plan de formación y concienciación en ciberseguridad para alumnos de ESO y familias</h3>
-<div class="workshop-details">
-<span class="workshop-location">IES Rafael Alberti, Cádiz</span>
-<span class="workshop-date">Próximamente</span>
+<div class="workshop-content">
+<h3 class="workshop-title">Plan de formación en ciberseguridad</h3>
+<p class="workshop-description">Programa de concienciación en ciberseguridad dirigido a alumnos de la ESO y familias de todo el centro.</p>
+<p class="workshop-meta">IES Rafael Alberti, Cádiz • Próximamente</p>
 </div>
 </div>
 </div>
