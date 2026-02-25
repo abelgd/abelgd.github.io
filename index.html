@@ -47,8 +47,6 @@ min-height:100vh;
 overflow-x:hidden;
 transition:background 0.3s ease, color 0.3s ease;
 }
-
-/* Fondo 3 vías */
 .lines{
 position:fixed;
 inset:0;
@@ -68,7 +66,6 @@ transition:background 0.3s ease, box-shadow 0.3s ease;
 .line:nth-child(1){left:18%}
 .line:nth-child(2){left:50%}
 .line:nth-child(3){left:82%}
-
 .line::after{
 content:'';
 position:absolute;
@@ -87,14 +84,12 @@ will-change:top;
 .line:nth-child(1)::after{animation-duration:3.5s;animation-delay:0s}
 .line:nth-child(2)::after{animation-duration:4.2s;animation-delay:-1.4s}
 .line:nth-child(3)::after{animation-duration:5s;animation-delay:-2.8s}
-
 @keyframes fallSingle{
 0%{top:-8%;opacity:0}
 5%{opacity:0.9}
 95%{opacity:0.9}
 100%{top:108%;opacity:0}
 }
-
 .vertical-line{
 position:fixed;
 left:50%;
@@ -106,14 +101,12 @@ transform:translateX(-50%);
 z-index:1;
 transition:background 0.3s ease;
 }
-
 #cursor-container{
 position:fixed;
 inset:0;
 z-index:10000;
 pointer-events:none;
 }
-
 .logo{
 position:fixed;
 top:38px;
@@ -138,8 +131,6 @@ opacity:0.8;
 .logo-g{position:relative;top:0;z-index:1;opacity:0.85;letter-spacing:0}
 .logo:hover{opacity:1;text-shadow:0 2px 10px rgba(0,0,0,0.5),0 4px 20px rgba(0,0,0,0.3),0 0 16px rgba(255,255,255,0.2)}
 .logo:hover .logo-g{opacity:1}
-
-/* Navegación con separador antes del toggle */
 nav{
 position:fixed;
 top:40px;right:40px;
@@ -148,7 +139,6 @@ display:flex;
 gap:32px;
 align-items:center;
 }
-
 nav a{
 color:var(--fg);
 opacity:0.7;
@@ -175,16 +165,12 @@ transition:width .3s ease;
 }
 nav a:hover{opacity:1}
 nav a:hover::after{width:100%}
-
-/* Separador visual antes del toggle */
 .nav-separator{
 width:1px;
 height:24px;
 background:var(--card-bd);
 opacity:0.5;
 }
-
-/* Toggle tema - VERSIÓN SVG */
 .theme-toggle-icon{
 background:transparent;
 border:1px solid var(--card-bd);
@@ -203,14 +189,11 @@ position:relative;
 border-color:var(--card-bd-hover);
 transform:scale(1.1);
 }
-
-/* Contenedor de iconos SVG */
 .theme-icon-wrapper{
 position:relative;
 width:18px;
 height:18px;
 }
-
 .theme-icon-svg{
 position:absolute;
 top:0;
@@ -223,35 +206,26 @@ stroke-width:1.5;
 stroke-linecap:round;
 transition:all .4s ease;
 }
-
-/* Icono Luna (tema oscuro activo) */
 .moon-icon{
 opacity:1;
 transform:rotate(0deg) scale(1);
 }
-
-/* Icono Sol (tema claro activo) */
 .sun-icon{
 opacity:0;
 transform:rotate(180deg) scale(0);
 }
-
-/* Cuando está en tema claro */
 [data-theme="light"] .moon-icon{
 opacity:0;
 transform:rotate(-180deg) scale(0);
 }
-
 [data-theme="light"] .sun-icon{
 opacity:1;
 transform:rotate(0deg) scale(1);
 }
-
 .container{
 position:relative;z-index:2;
 max-width:var(--maxw);margin:0 auto;padding:0 40px;
 }
-
 #hero{
 min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
 text-align:center;animation:fadeInDown 1s ease-out;position:relative;z-index:2;
@@ -291,7 +265,6 @@ font-weight:300;
 pointer-events:none;
 user-select:none;
 }
-
 #proyectos{padding:100px 0;min-height:100vh}
 .section-title{
 text-align:center;
@@ -305,8 +278,6 @@ font-family:var(--title-font);
 pointer-events:none;
 user-select:none;
 }
-
-/* Grid centrado */
 .projects-grid{
 display:grid;
 grid-template-columns:repeat(3, 1fr);
@@ -316,7 +287,6 @@ max-width:1200px;
 margin-left:auto;
 margin-right:auto;
 }
-
 .project-card{
 background:var(--card-bg);
 backdrop-filter:blur(10px);
@@ -343,7 +313,6 @@ transform:translateY(-8px) scale(1.02);
 border-color:var(--card-bd-hover);
 box-shadow:0 15px 40px var(--card-bd-hover);
 }
-
 .project-content{
 position:relative;
 z-index:1;
@@ -407,11 +376,7 @@ transition:left .3s ease;
 }
 .project-link:hover::before{left:0}
 .project-link:hover{border-color:var(--fg);transform:translateX(5px)}
-
-/* Sección Talleres - MISMO ESTILO QUE PROYECTOS */
 #talleres{padding:100px 0;min-height:80vh}
-
-/* Grid de talleres idéntico al de proyectos */
 .workshops-grid{
 display:grid;
 grid-template-columns:repeat(3, 1fr);
@@ -421,8 +386,6 @@ max-width:1200px;
 margin-left:auto;
 margin-right:auto;
 }
-
-/* Tarjeta de taller con mismo estilo que proyecto */
 .workshop-card{
 background:var(--card-bg);
 backdrop-filter:blur(10px);
@@ -455,7 +418,6 @@ transform:translateY(-8px) scale(1.02);
 border-color:var(--card-bd-hover);
 box-shadow:0 15px 40px var(--card-bd-hover);
 }
-
 .workshop-content{
 position:relative;
 z-index:1;
@@ -463,8 +425,6 @@ display:flex;
 flex-direction:column;
 height:100%;
 }
-
-/* Títulos alineados con altura fija */
 .workshop-title{
 font-size:1.4rem;
 font-weight:400;
@@ -476,8 +436,6 @@ min-height:56px;
 display:flex;
 align-items:flex-start;
 }
-
-/* Descripciones alineadas con altura fija */
 .workshop-description{
 font-size:0.9rem;
 line-height:1.7;
@@ -487,15 +445,12 @@ font-weight:300;
 flex-grow:1;
 min-height:105px;
 }
-
-/* Ubicaciones separadas visualmente */
 .workshop-locations{
 margin-top:20px;
 display:flex;
 flex-direction:column;
 gap:12px;
 }
-
 .workshop-location-item{
 display:flex;
 flex-direction:column;
@@ -507,19 +462,15 @@ text-transform:uppercase;
 padding-left:12px;
 border-left:2px solid var(--meta);
 }
-
 .workshop-location-item .location-name{
 color:var(--meta);
 opacity:.95;
 font-weight:500;
 }
-
 .workshop-location-item .location-date{
 color:var(--muted);
 opacity:.85;
 }
-
-/* Icono GitHub minimalista en esquina inferior derecha */
 .workshop-github-icon{
 position:absolute;
 bottom:20px;
@@ -534,19 +485,16 @@ opacity:0.6;
 transition:all .3s ease;
 z-index:10;
 }
-
 .workshop-github-icon svg{
 width:100%;
 height:100%;
 fill:currentColor;
 }
-
 .workshop-github-icon:hover{
 opacity:1;
 color:var(--fg);
 transform:scale(1.15);
 }
-
 .workshop-meta{
 font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,"Liberation Mono","Courier New",monospace;
 font-size:.75rem;
@@ -556,7 +504,6 @@ color:var(--meta);
 opacity:.9;
 margin-top:20px;
 }
-
 #sobre-mi{padding:100px 0;min-height:100vh;display:flex;align-items:center;justify-content:center}
 .about-content{
 max-width:800px;
@@ -600,8 +547,6 @@ cursor:pointer;
 opacity:1;
 border-bottom-color:var(--fg);
 }
-
-/* Sección Contacto */
 #contacto{padding:100px 0;min-height:70vh}
 .contact-wrapper{
 max-width:500px;
@@ -677,8 +622,6 @@ border-color:var(--fg);
 transform:translateY(-3px);
 box-shadow:0 5px 15px var(--card-bd);
 }
-
-/* TryHackMe icon especial con texto */
 .tryhackme-icon-wrapper{
 position:relative;
 display:flex;
@@ -700,8 +643,6 @@ text-transform:uppercase;
 opacity:0.95;
 margin-top:-1px;
 }
-
-/* Footer */
 footer{
 background:var(--bg);
 border-top:1px solid var(--card-bd);
@@ -747,8 +688,6 @@ border-color:var(--fg);
 transform:translateY(-3px);
 box-shadow:0 5px 15px var(--card-bd);
 }
-
-/* Botón scroll to top */
 #scrollToTop{
 position:fixed;
 bottom:30px;
@@ -779,7 +718,6 @@ fill:var(--fg);
 #scrollToTop.show{
 display:flex;
 }
-
 .cursor-trail{
 position:absolute;
 width:20px;
@@ -791,14 +729,12 @@ transform:translate(-50%,-50%);
 filter:blur(8px);
 animation:fadeOut .8s ease-out forwards;
 }
-
 @keyframes fadeOut{
 to{
 opacity:0;
 transform:translate(-50%,-50%) scale(2);
 }
 }
-
 @keyframes fadeInDown{
 from{
 opacity:0;
@@ -809,7 +745,6 @@ opacity:1;
 transform:translateY(0);
 }
 }
-
 @media (max-width:1200px){
 .projects-grid{
 grid-template-columns:repeat(2, 1fr);
@@ -820,7 +755,6 @@ grid-template-columns:repeat(2, 1fr);
 gap:30px;
 }
 }
-
 @media (max-width:768px){
 #cursor-container{display:none}
 .logo{top:20px;left:20px;font-size:1.6rem}
@@ -847,7 +781,6 @@ footer{flex-direction:column;gap:20px;text-align:center}
 </style>
 </head>
 <body>
-<!-- Botón scroll to top -->
 <button id="scrollToTop" aria-label="Ir arriba">
 <svg viewBox="0 0 24 24">
 <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
@@ -877,11 +810,9 @@ footer{flex-direction:column;gap:20px;text-align:center}
 <div class="nav-separator"></div>
 <button class="theme-toggle-icon" onclick="toggleTheme()" aria-label="Cambiar tema">
 <div class="theme-icon-wrapper">
-<!-- Icono Luna (tema oscuro) -->
 <svg class="theme-icon-svg moon-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
 <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
 </svg>
-<!-- Icono Sol (tema claro) -->
 <svg class="theme-icon-svg sun-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
 <circle cx="12" cy="12" r="3.5"/>
 <line x1="12" y1="1" x2="12" y2="4"/>
@@ -936,8 +867,8 @@ footer{flex-direction:column;gap:20px;text-align:center}
 <div class="project-card">
 <div class="project-content">
 <h3 class="project-title">Proyecto 4: Campaña de ingeniería social</h3>
-<p class="project-description">Proyecto en fase de desarrollo.</p>
-<p class="project-meta">En desarrollo</p>
+<p class="project-description">Guía para realizar una campaña de formación y concienciación en ciberseguridad.</p>
+<p class="project-meta">Realizado: 2025</p>
 <a href="https://abelgd.github.io/Proyecto4/#0" class="project-link">Ver Proyecto</a>
 </div>
 </div>
@@ -948,7 +879,6 @@ footer{flex-direction:column;gap:20px;text-align:center}
 <h2 class="section-title">Talleres</h2>
 <div class="workshops-grid">
 <div class="workshop-card">
-<!-- Icono GitHub en esquina inferior derecha -->
 <a href="https://github.com/abelgd/Taller-IA-scrapping" target="_blank" rel="noopener noreferrer" class="workshop-github-icon" aria-label="Ver repositorio en GitHub">
 <svg viewBox="0 0 16 16">
 <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
@@ -974,7 +904,12 @@ footer{flex-direction:column;gap:20px;text-align:center}
 <div class="workshop-content">
 <h3 class="workshop-title">Plan de formación en ciberseguridad</h3>
 <p class="workshop-description">Programa de concienciación en ciberseguridad dirigido a alumnos de la ESO y familias de todo el centro.</p>
-<p class="workshop-meta">IES Rafael Alberti, Cádiz • Próximamente</p>
+<div class="workshop-locations">
+<div class="workshop-location-item">
+<span class="location-name">IES Rafael Alberti, Cádiz</span>
+<span class="location-date">23 Febrero 2026 · 25 Febrero 2026</span>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1045,25 +980,18 @@ Mi orientación profesional se centra en el aprendizaje continuo y la adaptació
 </div>
 </footer>
 
-<!-- SCRIPT DE SINCRONIZACIÓN CON PROYECTOS -->
 <script>
-// Sistema de temas sincronizado con proyectos
 const html = document.documentElement;
-
-// Uso de la misma clave que los proyectos para sincronización
 const savedTheme = localStorage.getItem('codelab-theme') || 'dark';
 html.setAttribute('data-theme', savedTheme);
 
 function toggleTheme() {
 const currentTheme = html.getAttribute('data-theme');
 const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
 html.setAttribute('data-theme', newTheme);
-// Guardar con la misma clave que los proyectos
 localStorage.setItem('codelab-theme', newTheme);
 }
 
-// Destellos del cursor
 const cursorContainer = document.getElementById('cursor-container');
 let lastTime = 0;
 const throttleDelay = 30;
@@ -1081,7 +1009,6 @@ lastTime = currentTime;
 }
 }, { passive: true });
 
-// Botón scroll to top
 const scrollToTopBtn = document.getElementById('scrollToTop');
 
 window.addEventListener('scroll', () => {
