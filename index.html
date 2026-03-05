@@ -142,8 +142,6 @@ h1{font-family:var(--title-font);font-size:5rem;font-weight:400;letter-spacing:1
   position:relative;
 }
 
-
-
 /* Slider viewport */
 .writeups-slider-outer{
   position:relative;
@@ -215,6 +213,10 @@ h1{font-family:var(--title-font);font-size:5rem;font-weight:400;letter-spacing:1
 /* Placeholder cell */
 .wu-row.placeholder{opacity:.3;pointer-events:none}
 .wu-row.placeholder .wu-name{color:var(--muted)}
+
+/* OS icon */
+.wu-os-row{display:flex;align-items:center;gap:6px;font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted-2);opacity:.85}
+.wu-os-row svg{width:11px;height:11px;fill:var(--muted-2);flex-shrink:0}
 
 /* Navegación slider */
 .writeups-nav{
@@ -292,8 +294,6 @@ footer{background:var(--bg);border-top:1px solid var(--card-bd);padding:30px 40p
 .cursor-trail{position:absolute;width:20px;height:20px;border-radius:50%;background:radial-gradient(circle,var(--fg) 0%,rgba(255,255,255,0.2) 40%,transparent 70%);pointer-events:none;transform:translate(-50%,-50%);filter:blur(8px);animation:fadeOut .8s ease-out forwards}
 @keyframes fadeOut{to{opacity:0;transform:translate(-50%,-50%) scale(2)}}
 @keyframes fadeInDown{from{opacity:0;transform:translateY(-30px)}to{opacity:1;transform:translateY(0)}}
-
-
 
 @media(max-width:1200px){
   .projects-grid{grid-template-columns:repeat(2,1fr)}
@@ -612,32 +612,49 @@ scrollToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavio
    WRITE-UPS SLIDER
    ════════════════════════════════════════ */
 
+// SVG logos para sistemas operativos
+const OS_ICONS = {
+  windows: `<div class="wu-os-row">
+    <svg viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 12.4 35.7 7.6v34.6H0zm40.3-5.5L88 0v42.2H40.3zM0 45.8h35.7v34.6L0 75.6zm40.3.4H88V88L40.3 81.1z"/>
+    </svg>
+    Windows
+  </div>`,
+  linux: `<div class="wu-os-row">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26C17.81 13.47 19 11.38 19 9c0-3.87-3.13-7-7-7zm-1 14v-1h2v1h-2zm3-3H10v-1.5c-1.19-.69-2-1.97-2-3.5 0-2.21 1.79-4 4-4s4 1.79 4 4c0 1.53-.81 2.81-2 3.5V13z"/>
+    </svg>
+    Linux
+  </div>`,
+};
+
 // ── Datos de write-ups ──
-// Para añadir más máquinas: copia un objeto al array.
 // difficulty: 'easy' | 'medium' | 'hard'
+// os: 'windows' | 'linux' | '' (opcional)
 // link: URL al write-up, o '' si está pendiente
 const writeups = [
   // ── Página 1 ──
   {
     name: 'Blue',
     difficulty: 'easy',
+    os: 'windows',
     platform: 'TryHackMe',
     year: '2026',
     description: 'Breve descripción de las vulnerabilidades explotadas y técnicas utilizadas.',
     link: 'https://github.com/abelgd/Hacking_etico/tree/main/Writeups_AGD/M1_blue/README.md'
   },
-  { name: 'Próximamente', difficulty: 'easy', platform: '—', year: '2026', description: 'Write-up pendiente de publicación.', link: '' },
-  { name: 'Próximamente', difficulty: 'easy', platform: '—', year: '2026', description: 'Write-up pendiente de publicación.', link: '' },
-  { name: 'Próximamente', difficulty: 'easy', platform: '—', year: '2026', description: 'Write-up pendiente de publicación.', link: '' },
-  { name: 'Próximamente', difficulty: 'easy', platform: '—', year: '2026', description: 'Write-up pendiente de publicación.', link: '' },
-  { name: 'Próximamente', difficulty: 'easy', platform: '—', year: '2026', description: 'Write-up pendiente de publicación.', link: '' },
+  { name: 'Próximamente', difficulty: 'easy', os: '', platform: '—', year: '2026', description: 'Write-up pendiente de publicación.', link: '' },
+  { name: 'Próximamente', difficulty: 'easy', os: '', platform: '—', year: '2026', description: 'Write-up pendiente de publicación.', link: '' },
+  { name: 'Próximamente', difficulty: 'easy', os: '', platform: '—', year: '2026', description: 'Write-up pendiente de publicación.', link: '' },
+  { name: 'Próximamente', difficulty: 'easy', os: '', platform: '—', year: '2026', description: 'Write-up pendiente de publicación.', link: '' },
+  { name: 'Próximamente', difficulty: 'easy', os: '', platform: '—', year: '2026', description: 'Write-up pendiente de publicación.', link: '' },
   // ── Página 2 (ejemplo) ──
-  { name: 'Próximamente',     difficulty: 'easy',   platform: '-', year: '2026', description: 'Breve descripción de las vulnerabilidades explotadas y técnicas utilizadas.', link: '' },
-  { name: 'Próximamente',   difficulty: 'medium', platform: '-', year: '2026', description: 'Breve descripción de las vulnerabilidades explotadas y técnicas utilizadas.', link: '' },
-  { name: 'Próximamente', difficulty: 'easy',  platform: '-', year: '2026', description: 'Breve descripción de las vulnerabilidades explotadas y técnicas utilizadas.', link: '' },
-  { name: 'Próximamente', difficulty: 'easy',  platform: '-', year: '2026', description: 'Breve descripción de las vulnerabilidades explotadas y técnicas utilizadas.', link: '' },
-  { name: 'Próximamente', difficulty: 'easy',   platform: '-', year: '2026', description: 'Breve descripción de las vulnerabilidades explotadas y técnicas utilizadas.', link: '' },
-  { name: 'Próximamente',        difficulty: 'easy',   platform: '-', year: '2026', description: 'Breve descripción de las vulnerabilidades explotadas y técnicas utilizadas.', link: '' },
+  { name: 'Próximamente', difficulty: 'easy',   os: '', platform: '-', year: '2026', description: 'Breve descripción de las vulnerabilidades explotadas y técnicas utilizadas.', link: '' },
+  { name: 'Próximamente', difficulty: 'medium', os: '', platform: '-', year: '2026', description: 'Breve descripción de las vulnerabilidades explotadas y técnicas utilizadas.', link: '' },
+  { name: 'Próximamente', difficulty: 'easy',   os: '', platform: '-', year: '2026', description: 'Breve descripción de las vulnerabilidades explotadas y técnicas utilizadas.', link: '' },
+  { name: 'Próximamente', difficulty: 'easy',   os: '', platform: '-', year: '2026', description: 'Breve descripción de las vulnerabilidades explotadas y técnicas utilizadas.', link: '' },
+  { name: 'Próximamente', difficulty: 'easy',   os: '', platform: '-', year: '2026', description: 'Breve descripción de las vulnerabilidades explotadas y técnicas utilizadas.', link: '' },
+  { name: 'Próximamente', difficulty: 'easy',   os: '', platform: '-', year: '2026', description: 'Breve descripción de las vulnerabilidades explotadas y técnicas utilizadas.', link: '' },
 ];
 
 const PER_SLIDE = 6; // 3 columnas × 2 filas
@@ -674,11 +691,13 @@ function buildSlider() {
       } else {
         const isPlaceholder = !w.link;
         cell.className = 'wu-row' + (isPlaceholder ? ' placeholder' : '');
+        const osIcon = w.os && OS_ICONS[w.os] ? OS_ICONS[w.os] : '';
         cell.innerHTML = `
           <div class="wu-top">
             <span class="wu-name">${w.name}</span>
             <span class="wu-badge ${w.difficulty}">${w.difficulty}</span>
           </div>
+          ${osIcon}
           <div class="wu-platform">${w.platform}${w.year ? ' · ' + w.year : ''}</div>
           <div class="wu-desc">${w.description}</div>
           ${w.link ? `<a href="${w.link}" class="wu-link" target="_blank" rel="noopener noreferrer"><span>Ver Write-Up</span></a>` : ''}
