@@ -6,7 +6,7 @@ Este repositorio publica a través de Github Pages, mi portfolio técnico con pr
 ## Qué encontrarás
 
 - Proyectos técnicos orientados a Linux/Windows, redes, ciberseguridad y análisis de riesgos, con foco didáctico y aplicable.
-- Guías en formato Codelab con pasos claros, prerrequisitos y validaciones para su verificación.
+- Guías en formato Codelab y repositorios de Github con pasos claros, prerrequisitos y validaciones para su verificación.
 - Documentación con ejemplos, comandos y buenas prácticas para entornos reales y formativos.
 - Material diseñado para reproducir configuraciones y escenarios de forma segura y controlada.
 
@@ -19,6 +19,7 @@ Este repositorio publica a través de Github Pages, mi portfolio técnico con pr
 ## Tecnologías y formato
 
 - Publicación con GitHub Pages y estructura web estática.
+- Repositorios realizados por abelgd en Github.
 - Contenidos en HTML/CSS y Codelab para guías interactivas paso a paso.
 - Uso de Markdown para notas, resúmenes y documentación auxiliar del repositorio.
 
