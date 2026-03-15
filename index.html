@@ -86,15 +86,7 @@ h1{font-family:var(--title-font);font-size:5rem;font-weight:400;letter-spacing:1
 /* ── PROYECTOS ── */
 #proyectos{padding:80px 0}
 .section-title{text-align:center;font-size:2.5rem;font-weight:300;letter-spacing:8px;text-transform:uppercase;margin-bottom:50px;color:var(--muted-2);font-family:var(--title-font);pointer-events:none;user-select:none}
-.projects-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:16px;
-  margin-bottom:40px;
-  max-width:1200px;
-  margin-left:auto;
-  margin-right:auto;
-}
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px;max-width:1200px;margin-left:auto;margin-right:auto}
 .projects-grid .project-card:nth-child(4){grid-column:1;margin-left:auto;margin-right:0;width:100%}
 .projects-grid .project-card:nth-child(5){grid-column:2;width:100%}
 .project-card{background:var(--card-bg);backdrop-filter:blur(10px);background-color:var(--bg);border:1px solid var(--card-bd);border-radius:8px;padding:16px 18px;transition:all .5s cubic-bezier(.4,0,.2,1);cursor:pointer;position:relative;overflow:hidden;z-index:3;display:flex;flex-direction:column;min-height:0}
@@ -135,123 +127,83 @@ h1{font-family:var(--title-font);font-size:5rem;font-weight:400;letter-spacing:1
 
 /* ── WRITE-UPS: SLIDER ── */
 #writeups{padding:80px 0}
-
-.writeups-wrapper{
-  max-width:1200px;
-  margin:0 auto;
-  position:relative;
-}
-
-/* Slider viewport */
-.writeups-slider-outer{
-  position:relative;
-  overflow:hidden;
-  border:1px solid var(--card-bd);
-  border-radius:8px;
-  background:var(--card-bg);
-  background-color:var(--bg);
-}
-
-.writeups-slider-track{
-  display:flex;
-  transition:transform .45s cubic-bezier(.4,0,.2,1);
-  will-change:transform;
-}
-
-.writeups-slide{
-  min-width:100%;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:1px;
-  background:var(--card-bd);
-}
-
-/* Cada fila de máquina */
-.wu-row{
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  padding:16px 18px;
-  background:var(--bg);
-  transition:background .25s ease;
-  position:relative;
-  gap:8px;
-}
+.writeups-wrapper{max-width:1200px;margin:0 auto;position:relative}
+.writeups-slider-outer{position:relative;overflow:hidden;border:1px solid var(--card-bd);border-radius:8px;background:var(--card-bg);background-color:var(--bg)}
+.writeups-slider-track{display:flex;transition:transform .45s cubic-bezier(.4,0,.2,1);will-change:transform}
+.writeups-slide{min-width:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--card-bd)}
+.wu-row{display:flex;flex-direction:column;justify-content:space-between;padding:16px 18px;background:var(--bg);transition:background .25s ease;position:relative;gap:8px}
 .wu-row:hover{background:var(--card-bg)}
-
 .wu-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
 .wu-name{font-family:var(--title-font);font-size:.95rem;font-weight:400;color:var(--fg);letter-spacing:.5px}
 .wu-badge{display:inline-block;font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;font-size:.55rem;letter-spacing:2px;text-transform:uppercase;padding:2px 7px;border-radius:2px;border:1px solid;white-space:nowrap;flex-shrink:0}
 .wu-badge.easy{color:#4caf7d;border-color:#4caf7d44}
 .wu-badge.medium{color:#f0a500;border-color:#f0a50044}
 .wu-badge.hard{color:#e05252;border-color:#e0525244}
-
 .wu-platform{font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--meta);opacity:.8}
 .wu-desc{font-size:.75rem;line-height:1.5;color:var(--muted-2);font-weight:300}
-
-.wu-link{
-  display:inline-flex;align-items:center;gap:5px;
-  padding:5px 12px;
-  background:transparent;
-  border:1px solid var(--card-bd-hover);
-  color:var(--fg);
-  text-decoration:none;
-  font-size:.6rem;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  transition:all .25s ease;
-  border-radius:2px;
-  align-self:flex-start;
-  position:relative;
-  overflow:hidden;
-}
+.wu-link{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;background:transparent;border:1px solid var(--card-bd-hover);color:var(--fg);text-decoration:none;font-size:.6rem;letter-spacing:2px;text-transform:uppercase;transition:all .25s ease;border-radius:2px;align-self:flex-start;position:relative;overflow:hidden}
 .wu-link::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--card-bg);transition:left .25s ease}
 .wu-link:hover::before{left:0}
 .wu-link:hover{border-color:var(--fg);transform:translateX(3px)}
 .wu-link span{position:relative;z-index:1}
-
-/* Placeholder cell */
 .wu-row.placeholder{opacity:.3;pointer-events:none}
 .wu-row.placeholder .wu-name{color:var(--muted)}
-
-/* OS icon */
 .wu-os-row{display:flex;align-items:center;gap:6px;font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted-2);opacity:.85}
 .wu-os-row svg{width:11px;height:11px;fill:var(--muted-2);flex-shrink:0}
 
-/* Navegación slider */
+/* ── Navegación slider minimalista ── */
 .writeups-nav{
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:20px;
-  margin-top:22px;
+  gap:16px;
+  margin-top:16px;
 }
 .slider-arrow{
   background:transparent;
-  border:1px solid var(--card-bd);
-  color:var(--fg);
-  width:36px;height:36px;
-  border-radius:50%;
+  border:none;
+  color:var(--muted);
+  width:24px;height:24px;
+  border-radius:0;
   display:flex;align-items:center;justify-content:center;
   cursor:pointer;
   transition:all .25s ease;
-  opacity:.7;
+  opacity:.5;
+  flex-shrink:0;
+  padding:0;
 }
-.slider-arrow:hover{border-color:var(--card-bd-hover);opacity:1;transform:scale(1.1)}
-.slider-arrow:disabled{opacity:.2;cursor:default;pointer-events:none}
-.slider-arrow svg{width:18px;height:18px;fill:var(--fg)}
-
-.slider-dots{display:flex;gap:8px;align-items:center}
-.slider-dot{width:6px;height:6px;border-radius:50%;background:var(--card-bd-hover);cursor:pointer;transition:all .25s ease;border:none;padding:0}
-.slider-dot.active{background:var(--fg);transform:scale(1.3)}
-
+.slider-arrow:hover{opacity:1;color:var(--fg)}
+.slider-arrow:disabled{opacity:.15;cursor:default;pointer-events:none}
+.slider-arrow svg{width:14px;height:14px;fill:currentColor}
+.slider-progress{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.slider-track-bar{
+  width:60px;
+  height:1px;
+  background:var(--card-bd);
+  position:relative;
+  overflow:hidden;
+}
+.slider-track-fill{
+  position:absolute;
+  top:0;left:0;
+  height:100%;
+  background:var(--muted);
+  opacity:0.6;
+  transition:width .45s cubic-bezier(.4,0,.2,1);
+}
 .slider-counter{
   font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
-  font-size:.65rem;
+  font-size:.55rem;
   letter-spacing:2px;
   color:var(--muted);
-  min-width:60px;
-  text-align:center;
+  opacity:0.6;
+  min-width:34px;
+  text-align:right;
+  user-select:none;
 }
 
 /* ── SOBRE MÍ ── */
@@ -324,6 +276,7 @@ footer{background:var(--bg);border-top:1px solid var(--card-bd);padding:30px 40p
   footer{flex-direction:column;gap:20px;text-align:center}
   .footer-socials{margin-right:0}
   #scrollToTop{bottom:20px;right:20px;width:45px;height:45px}
+  .slider-track-bar{width:50px}
 }
 </style>
 </head>
@@ -497,20 +450,21 @@ footer{background:var(--bg);border-top:1px solid var(--card-bd);padding:30px 40p
 
     <div class="writeups-wrapper">
 
-      <!-- Slider -->
       <div class="writeups-slider-outer" id="wuSliderOuter">
-        <div class="writeups-slider-track" id="wuTrack">
-          <!-- Las slides se generan por JS -->
-        </div>
+        <div class="writeups-slider-track" id="wuTrack"></div>
       </div>
 
-      <!-- Nav -->
+      <!-- Nav minimalista: flecha · barra de progreso · contador · flecha -->
       <div class="writeups-nav">
         <button class="slider-arrow" id="wuPrev" aria-label="Anterior">
           <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
         </button>
-        <div class="slider-dots" id="wuDots"></div>
-        <span class="slider-counter" id="wuCounter"></span>
+        <div class="slider-progress">
+          <div class="slider-track-bar">
+            <div class="slider-track-fill" id="wuFill"></div>
+          </div>
+          <span class="slider-counter" id="wuCounter"></span>
+        </div>
         <button class="slider-arrow" id="wuNext" aria-label="Siguiente">
           <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
         </button>
@@ -612,7 +566,6 @@ scrollToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavio
    WRITE-UPS SLIDER
    ════════════════════════════════════════ */
 
-// SVG logos para sistemas operativos
 const OS_ICONS = {
   windows: `<div class="wu-os-row">
     <svg viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg">
@@ -628,127 +581,48 @@ const OS_ICONS = {
   </div>`,
 };
 
-// ── Datos de write-ups ──
-// difficulty: 'easy' | 'medium' | 'hard'
-// os: 'windows' | 'linux' | '' (opcional)
-// link: URL al write-up, o '' si está pendiente
 const writeups = [
   // ── Página 1 ──
-  {
-    name: 'Blue',
-    difficulty: 'easy',
-    os: 'windows',
-    platform: 'TryHackMe',
-    year: '2026',
-    description: 'MS17-010 EternalBlue (SMBv1)',
-    link: 'https://github.com/abelgd/Hacking_etico/tree/main/Writeups_AGD/M1_blue/README.md'
-  },
-  { 
-    name: 'Ice', 
-    difficulty: 'easy', 
-    os: 'windows', 
-    platform: 'TryHackMe', 
-    year: '2026', 
-    description: 'CVE-2004-0781 Icecast overflow', 
-    link: 'https://github.com/abelgd/Hacking_etico/blob/main/Writeups_AGD/M2_Ice/README.md' 
-  },
-  { 
-    name: 'Blaster', 
-    difficulty: 'easy', 
-    os: 'windows', 
-    platform: 'TryHackMe', 
-    year: '2026', 
-    description: 'Write-up pendiente de publicación.',
-    link: 'https://github.com/abelgd/Hacking_etico/tree/main/Writeups_AGD/M3_Blaster/README.md' 
-  },
-  { 
-    name: 'Library', 
-    difficulty: 'easy', 
-    os: 'windows', 
-    platform: 'TryHackMe', 
-    year: '2026', 
-    description: 'DIR robots.txt + Hydra SSH', 
-    link: 'https://github.com/abelgd/Hacking_etico/tree/main/Writeups_AGD/M4_library/README.md' 
-  },
-  { 
-    name: 'Retro', 
-    difficulty: 'hard', 
-    os: 'windows', 
-    platform: 'TryHackMe', 
-    year: '2026', 
-    description: 'Write-up pendiente de publicación.', 
-    link: 'https://github.com/abelgd/Hacking_etico/tree/main/Writeups_AGD/M5_Retro/README.md' 
-  },
-  { 
-    name: 'TechSupp0rt:1',
-    difficulty: 'easy',
-    os: 'windows', 
-    platform: 'TryHackMe', 
-    year: '2026', 
-    description: 'Write-up pendiente de publicación.', 
-    link: 'https://github.com/abelgd/Hacking_etico/blob/main/Writeups_AGD/M6_TechSupport/README.md' 
-  },
-  // ── Página 2 (ejemplo) ──
-  { 
-    name: 'Relevant', 
-    difficulty: 'medium', 
-    os: 'windows',
-    platform: 'TryHackMe',
-    year: '2026',
-    description: 'Breve descripción de las vulnerabilidades explotadas y técnicas utilizadas.', 
-    link: 'https://github.com/abelgd/Hacking_etico/blob/main/Writeups_AGD/M7_Relevant/README.md' 
-  },
-  { 
-    name: 'Anthem',
-    difficulty: 'easy',
-    os: 'windows', 
-    platform: 'TryHackMe', 
-    year: '2026', 
-    description: 'Breve descripción de las vulnerabilidades explotadas y técnicas utilizadas.',
-    link: 'https://github.com/abelgd/Hacking_etico/blob/main/Writeups_AGD/M8_Anthem/README.md' 
-  },
-  { 
-   name: 'Basic Pentesting', 
-   difficulty: 'easy', 
-   os: 'linux', 
-   platform: 'TryHackMe', 
-   year: '2026', 
-   description: 'Breve descripción de las vulnerabilidades explotadas y técnicas utilizadas.', 
-   link: 'https://github.com/abelgd/Hacking_etico/blob/main/Writeups_AGD/M9_BasicPentesting/README.md' 
-  },
-  { 
-    name: 'Kenobi', 
-    difficulty: 'easy', 
-    os: 'linux', 
-    platform: 'TryHackMe', 
-    year: '2026',
-    description: 'Breve descripción de las vulnerabilidades explotadas y técnicas utilizadas.', 
-    link: 'https://github.com/abelgd/Hacking_etico/blob/main/Writeups_AGD/M10_Kenobi/README.md' 
-  },
-  {
-    name: 'Agent Sudo', 
-    difficulty: 'easy',  
-    os: 'linux', 
-    platform: 'TryHackMe',
-    year: '2026',
-    description: 'Breve descripción de las vulnerabilidades explotadas y técnicas utilizadas.', 
-    link: 'https://github.com/abelgd/Hacking_etico/blob/main/Writeups_AGD/M11_AgentSudo/README.md' 
-  },
-  {
-    name: 'Easy Peasy', 
-    difficulty: 'easy',  
-    os: 'linux', 
-    platform: 'TryHackMe', 
-    year: '2026',
-    description: 'Breve descripción de las vulnerabilidades explotadas y técnicas utilizadas.',
-    link: 'https://github.com/abelgd/Hacking_etico/blob/main/Writeups_AGD/M12_EasyPeasy/README.md' 
-  },
+  { name: 'Blue', difficulty: 'easy', os: 'windows', platform: 'TryHackMe', year: '2026', description: 'MS17-010 EternalBlue (SMBv1)', link: 'https://github.com/abelgd/Hacking_etico/tree/main/Writeups_AGD/M1_blue/README.md' },
+  { name: 'Ice', difficulty: 'easy', os: 'windows', platform: 'TryHackMe', year: '2026', description: 'CVE-2004-0781 Icecast overflow', link: 'https://github.com/abelgd/Hacking_etico/blob/main/Writeups_AGD/M2_Ice/README.md' },
+  { name: 'Blaster', difficulty: 'easy', os: 'windows', platform: 'TryHackMe', year: '2026', description: 'Write-up pendiente de publicación.', link: 'https://github.com/abelgd/Hacking_etico/tree/main/Writeups_AGD/M3_Blaster/README.md' },
+  { name: 'Library', difficulty: 'easy', os: 'windows', platform: 'TryHackMe', year: '2026', description: 'DIR robots.txt + Hydra SSH', link: 'https://github.com/abelgd/Hacking_etico/tree/main/Writeups_AGD/M4_library/README.md' },
+  { name: 'Retro', difficulty: 'hard', os: 'windows', platform: 'TryHackMe', year: '2026', description: 'Write-up pendiente de publicación.', link: 'https://github.com/abelgd/Hacking_etico/tree/main/Writeups_AGD/M5_Retro/README.md' },
+  { name: 'TechSupp0rt:1', difficulty: 'easy', os: 'windows', platform: 'TryHackMe', year: '2026', description: 'Write-up pendiente de publicación.', link: 'https://github.com/abelgd/Hacking_etico/blob/main/Writeups_AGD/M6_TechSupport/README.md' },
+  // ── Página 2 ──
+  { name: 'Relevant', difficulty: 'medium', os: 'windows', platform: 'TryHackMe', year: '2026', description: 'Breve descripción de las vulnerabilidades explotadas y técnicas utilizadas.', link: 'https://github.com/abelgd/Hacking_etico/blob/main/Writeups_AGD/M7_Relevant/README.md' },
+  { name: 'Anthem', difficulty: 'easy', os: 'windows', platform: 'TryHackMe', year: '2026', description: 'Breve descripción de las vulnerabilidades explotadas y técnicas utilizadas.', link: 'https://github.com/abelgd/Hacking_etico/blob/main/Writeups_AGD/M8_Anthem/README.md' },
+  { name: 'Basic Pentesting', difficulty: 'easy', os: 'linux', platform: 'TryHackMe', year: '2026', description: 'Breve descripción de las vulnerabilidades explotadas y técnicas utilizadas.', link: 'https://github.com/abelgd/Hacking_etico/blob/main/Writeups_AGD/M9_BasicPentesting/README.md' },
+  { name: 'Kenobi', difficulty: 'easy', os: 'linux', platform: 'TryHackMe', year: '2026', description: 'Breve descripción de las vulnerabilidades explotadas y técnicas utilizadas.', link: 'https://github.com/abelgd/Hacking_etico/blob/main/Writeups_AGD/M10_Kenobi/README.md' },
+  { name: 'Easy Peasy', difficulty: 'easy', os: 'linux', platform: 'TryHackMe', year: '2026', description: 'Breve descripción de las vulnerabilidades explotadas y técnicas utilizadas.', link: 'https://github.com/abelgd/Hacking_etico/blob/main/Writeups_AGD/M12_EasyPeasy/README.md' },
+  { name: 'Agent Sudo', difficulty: 'easy', os: 'linux', platform: 'TryHackMe', year: '2026', description: 'Breve descripción de las vulnerabilidades explotadas y técnicas utilizadas.', link: 'https://github.com/abelgd/Hacking_etico/blob/main/Writeups_AGD/M11_AgentSudo/README.md' },
+  // ── Página 3 ──
+  { name: 'Próximamente', difficulty: 'easy', os: '', platform: 'TryHackMe', year: '2026', description: 'Próximamente.', link: '' },
+  { name: 'Próximamente', difficulty: 'easy', os: '', platform: 'TryHackMe', year: '2026', description: 'Próximamente.', link: '' },
+  { name: 'Próximamente', difficulty: 'easy', os: '', platform: 'TryHackMe', year: '2026', description: 'Próximamente.', link: '' },
+  { name: 'Próximamente', difficulty: 'easy', os: '', platform: 'TryHackMe', year: '2026', description: 'Próximamente.', link: '' },
+  { name: 'Próximamente', difficulty: 'easy', os: '', platform: 'TryHackMe', year: '2026', description: 'Próximamente.', link: '' },
+  { name: 'Próximamente', difficulty: 'easy', os: '', platform: 'TryHackMe', year: '2026', description: 'Próximamente.', link: '' },
+  // ── Página 4 ──
+  { name: 'Próximamente', difficulty: 'easy', os: '', platform: 'TryHackMe', year: '2026', description: 'Próximamente.', link: '' },
+  { name: 'Próximamente', difficulty: 'easy', os: '', platform: 'TryHackMe', year: '2026', description: 'Próximamente.', link: '' },
+  { name: 'Próximamente', difficulty: 'easy', os: '', platform: 'TryHackMe', year: '2026', description: 'Próximamente.', link: '' },
+  { name: 'Próximamente', difficulty: 'easy', os: '', platform: 'TryHackMe', year: '2026', description: 'Próximamente.', link: '' },
+  { name: 'Próximamente', difficulty: 'easy', os: '', platform: 'TryHackMe', year: '2026', description: 'Próximamente.', link: '' },
+  { name: 'Próximamente', difficulty: 'easy', os: '', platform: 'TryHackMe', year: '2026', description: 'Próximamente.', link: '' },
+  // ── Página 5 ──
+  { name: 'Próximamente', difficulty: 'easy', os: '', platform: 'TryHackMe', year: '2026', description: 'Próximamente.', link: '' },
+  { name: 'Próximamente', difficulty: 'easy', os: '', platform: 'TryHackMe', year: '2026', description: 'Próximamente.', link: '' },
+  { name: 'Próximamente', difficulty: 'easy', os: '', platform: 'TryHackMe', year: '2026', description: 'Próximamente.', link: '' },
+  { name: 'Próximamente', difficulty: 'easy', os: '', platform: 'TryHackMe', year: '2026', description: 'Próximamente.', link: '' },
+  { name: 'Próximamente', difficulty: 'easy', os: '', platform: 'TryHackMe', year: '2026', description: 'Próximamente.', link: '' },
+  { name: 'Próximamente', difficulty: 'easy', os: '', platform: 'TryHackMe', year: '2026', description: 'Próximamente.', link: '' },
 ];
 
-const PER_SLIDE = 6; // 3 columnas × 2 filas
+const PER_SLIDE = 6;
 
 const track     = document.getElementById('wuTrack');
-const dotsEl    = document.getElementById('wuDots');
+const fillEl    = document.getElementById('wuFill');
 const counterEl = document.getElementById('wuCounter');
 const prevBtn   = document.getElementById('wuPrev');
 const nextBtn   = document.getElementById('wuNext');
@@ -760,9 +634,7 @@ function buildSlider() {
   const padded = [...writeups];
   const remainder = padded.length % PER_SLIDE;
   if (remainder !== 0) {
-    for (let i = 0; i < PER_SLIDE - remainder; i++) {
-      padded.push({ _empty: true });
-    }
+    for (let i = 0; i < PER_SLIDE - remainder; i++) padded.push({ _empty: true });
   }
   totalSlides = Math.max(1, Math.ceil(padded.length / PER_SLIDE));
 
@@ -796,23 +668,19 @@ function buildSlider() {
     track.appendChild(slide);
   }
 
-  dotsEl.innerHTML = '';
-  for (let i = 0; i < totalSlides; i++) {
-    const dot = document.createElement('button');
-    dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
-    dot.setAttribute('aria-label', `Página ${i + 1}`);
-    dot.addEventListener('click', () => goTo(i));
-    dotsEl.appendChild(dot);
-  }
-
   currentSlide = 0;
   render();
 }
 
 function render() {
   track.style.transform = `translateX(-${currentSlide * 100}%)`;
-  dotsEl.querySelectorAll('.slider-dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
-  counterEl.textContent = `${currentSlide + 1} / ${totalSlides}`;
+  // Barra: avanza de 0% (slide 0) a 100% (última slide)
+  const pct = totalSlides > 1 ? (currentSlide / (totalSlides - 1)) * 100 : 100;
+  fillEl.style.width = pct + '%';
+  // Contador con ceros: 01 / 05
+  const cur = String(currentSlide + 1).padStart(2, '0');
+  const tot = String(totalSlides).padStart(2, '0');
+  counterEl.textContent = `${cur} / ${tot}`;
   prevBtn.disabled = currentSlide === 0;
   nextBtn.disabled = currentSlide === totalSlides - 1;
 }
