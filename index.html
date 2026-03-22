@@ -208,12 +208,21 @@ h1{font-family:var(--title-font);font-size:5rem;font-weight:400;letter-spacing:1
 
 /* ── SOBRE MÍ ── */
 #sobre-mi{padding:80px 0;display:flex;align-items:center;justify-content:center}
-.about-content{max-width:680px;padding:36px 44px;background-color:var(--bg);backdrop-filter:blur(10px);border:1px solid var(--card-bd);border-radius:8px;position:relative;z-index:3}
+.about-content{max-width:900px;padding:36px 44px;background-color:var(--bg);backdrop-filter:blur(10px);border:1px solid var(--card-bd);border-radius:8px;position:relative;z-index:3}
 .about-content h2{font-size:2rem;font-weight:300;letter-spacing:8px;text-transform:uppercase;margin-bottom:28px;color:var(--muted-2);font-family:var(--title-font);text-align:center;pointer-events:none;user-select:none}
+.about-content h3{font-size:1.1rem;font-weight:400;letter-spacing:2px;text-transform:uppercase;margin-top:32px;margin-bottom:16px;color:var(--muted-2);font-family:var(--ui-font);border-bottom:1px solid var(--card-bd);padding-bottom:8px}
 .about-content p{font-size:.95rem;line-height:1.75;color:var(--muted-3);font-weight:300;margin-bottom:14px;text-align:justify}
 .about-content p:last-child{margin-bottom:0}
 .about-content a{color:var(--fg);opacity:0.85;text-decoration:none;border-bottom:1px solid var(--card-bd-hover);transition:all .3s ease;cursor:pointer}
 .about-content a:hover{opacity:1;border-bottom-color:var(--fg)}
+
+/* Grid de asignaturas */
+.cyber-skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:20px;margin-bottom:24px}
+.cyber-skill-card{background:var(--card-bg);border:1px solid var(--card-bd);border-radius:6px;padding:16px;transition:all .3s ease}
+.cyber-skill-card:hover{border-color:var(--card-bd-hover);background:rgba(255,255,255,0.03)}
+.cyber-skill-title{font-family:var(--title-font);font-size:.95rem;font-weight:400;color:var(--fg);margin-bottom:8px;letter-spacing:.5px}
+.cyber-skill-desc{font-size:.82rem;line-height:1.6;color:var(--muted-3);font-weight:300}
+.cyber-skill-tools{font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;font-size:.68rem;letter-spacing:1px;color:var(--meta);opacity:.9;margin-top:6px}
 
 /* ── CONTACTO ── */
 #contacto{padding:80px 0;min-height:70vh}
@@ -252,6 +261,7 @@ footer{background:var(--bg);border-top:1px solid var(--card-bd);padding:30px 40p
   .projects-grid .project-card:nth-child(4){grid-column:auto;margin-left:0}
   .projects-grid .project-card:nth-child(5){grid-column:auto}
   .writeups-slide{grid-template-columns:repeat(2,1fr)}
+  .cyber-skills-grid{grid-template-columns:1fr}
 }
 @media(max-width:768px){
   #cursor-container{display:none}
@@ -272,6 +282,7 @@ footer{background:var(--bg);border-top:1px solid var(--card-bd);padding:30px 40p
   .container{padding:0 20px}
   .section-title{font-size:1.8rem;letter-spacing:4px}
   .about-content{padding:28px 22px}
+  .cyber-skills-grid{grid-template-columns:1fr}
   .contact-box{padding:40px 25px}
   footer{flex-direction:column;gap:20px;text-align:center}
   .footer-socials{margin-right:0}
@@ -483,6 +494,53 @@ footer{background:var(--bg);border-top:1px solid var(--card-bd);padding:30px 40p
       <p>
         Este portfolio recoge proyectos formativos e iniciativas personales en áreas como bastionado de sistemas, análisis forense, evaluación de riesgos y auditoría de seguridad, con un enfoque práctico y metodológico orientado a la aplicación rigurosa de estándares y normativas vigentes.
       </p>
+
+      <h3>Formación en Ciberseguridad</h3>
+      <p>
+        Durante el curso 2025-2026, estoy adquiriendo conocimientos especializados en protección de sistemas, redes y datos frente a amenazas digitales. Las competencias que estoy desarrollando incluyen:
+      </p>
+
+      <div class="cyber-skills-grid">
+        <div class="cyber-skill-card">
+          <div class="cyber-skill-title">Hacking Ético</div>
+          <div class="cyber-skill-desc">Técnicas de pentesting para identificar y mitigar vulnerabilidades en sistemas y redes mediante reconocimiento, enumeración y explotación controlada.</div>
+          <div class="cyber-skill-tools">Kali Linux · Metasploit · Burp Suite · Nmap</div>
+        </div>
+
+        <div class="cyber-skill-card">
+          <div class="cyber-skill-title">Incidentes de Ciberseguridad</div>
+          <div class="cyber-skill-desc">Gestión y respuesta ante eventos de seguridad. Análisis de riesgos, elaboración de planes de director de seguridad (PDS), taxonomías de amenazas y respuesta a incidentes.</div>
+          <div class="cyber-skill-tools">MITRE ATT&CK · ELK Stack · Snort · Filebeat</div>
+        </div>
+
+        <div class="cyber-skill-card">
+          <div class="cyber-skill-title">Puesta en Producción Segura</div>
+          <div class="cyber-skill-desc">Implementación segura de aplicaciones y servicios, garantizando que el software desplegado cumpla con estándares de seguridad mediante pruebas de código y detección de vulnerabilidades.</div>
+          <div class="cyber-skill-tools">OWASP Top Ten · DevSecOps</div>
+        </div>
+
+        <div class="cyber-skill-card">
+          <div class="cyber-skill-title">Análisis Forense</div>
+          <div class="cyber-skill-desc">Adquisición e investigación de evidencias digitales para procedimientos legales, análisis de sistemas de archivos, memoria RAM, cadena de custodia digital y recuperación de datos.</div>
+          <div class="cyber-skill-tools">FTK Imager · Autopsy · Volatility</div>
+        </div>
+
+        <div class="cyber-skill-card">
+          <div class="cyber-skill-title">Bastionado de Redes y Sistemas</div>
+          <div class="cyber-skill-desc">Minimización de superficie de ataque mediante configuraciones seguras, implementación de firewalls, segmentación de redes, monitorización continua y gestión de copias de seguridad.</div>
+          <div class="cyber-skill-tools">OPNsense · Bacula · Wazuh · Wireshark</div>
+        </div>
+
+        <div class="cyber-skill-card">
+          <div class="cyber-skill-title">Normativa de Ciberseguridad</div>
+          <div class="cyber-skill-desc">Estudio y aplicación de leyes y normas nacionales e internacionales en ciberseguridad para mantener el cumplimiento normativo y los estándares de seguridad digital actualizados.</div>
+          <div class="cyber-skill-tools">RGPD · ENS · ISO/IEC</div>
+        </div>
+      </div>
+
+      <p>
+        Mi formación combina conocimientos técnicos avanzados con una base práctica sólida, orientada a la seguridad informática en entornos empresariales. 
+      </p>
     </div>
   </section>
 
@@ -493,7 +551,10 @@ footer{background:var(--bg);border-top:1px solid var(--card-bd);padding:30px 40p
       <div class="contact-box">
         <div class="contact-item">
           <span class="contact-label">Email</span>
-          <p class="contact-value"><a href="https://mail.google.com/mail/?view=cm&to=cybersec.dga@gmail.com" target="_blank" rel="noopener noreferrer">cybersec.dga@gmail.com</a></p>
+          <p class="contact-value">
+            <a href="https://mail.google.com/mail/?view=cm&to=abelgarciadominguez8@gmail.com" target="_blank" rel="noopener noreferrer">abelgarciadominguez8@gmail.com</a><br>
+            <a href="https://mail.google.com/mail/?view=cm&to=cybersec.dga@gmail.com" target="_blank" rel="noopener noreferrer">cybersec.dga@gmail.com</a>
+          </p>
         </div>
         <div class="contact-item">
           <span class="contact-label">Ubicación</span>
