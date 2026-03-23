@@ -109,14 +109,14 @@ h1{font-family:var(--title-font);font-size:5rem;font-weight:400;letter-spacing:1
 
 /* ── TALLERES ── */
 #talleres{padding:80px 0}
-.workshops-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:40px;max-width:900px;margin-left:auto;margin-right:auto}
-.workshop-card{background:var(--card-bg);backdrop-filter:blur(10px);background-color:var(--bg);border:1px solid var(--card-bd);border-radius:8px;padding:16px 18px;transition:all .5s cubic-bezier(.4,0,.2,1);cursor:pointer;position:relative;overflow:hidden;z-index:3;display:flex;flex-direction:column;min-height:0}
+.workshops-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px;max-width:1200px;margin-left:auto;margin-right:auto}
+.workshop-card{background:var(--card-bg);backdrop-filter:blur(10px);background-color:var(--bg);border:1px solid var(--card-bd);border-radius:8px;padding:13px 15px;transition:all .5s cubic-bezier(.4,0,.2,1);cursor:pointer;position:relative;overflow:hidden;z-index:3;display:flex;flex-direction:column;min-height:0}
 .workshop-card::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,var(--card-bg),transparent);transition:left .6s ease}
 .workshop-card:hover::before{left:100%}
 .workshop-card:hover{transform:translateY(-5px) scale(1.02);border-color:var(--card-bd-hover);box-shadow:0 12px 30px var(--card-bd-hover)}
 .workshop-content{position:relative;z-index:1;display:flex;flex-direction:column;height:100%}
-.workshop-title{font-size:1rem;font-weight:400;letter-spacing:1px;margin-bottom:8px;color:var(--fg);font-family:var(--title-font);display:flex;align-items:flex-start}
-.workshop-description{font-size:0.8rem;line-height:1.6;color:var(--muted-2);font-weight:300;flex-grow:1}
+.workshop-title{font-size:.9rem;font-weight:400;letter-spacing:1px;margin-bottom:7px;color:var(--fg);font-family:var(--title-font);display:flex;align-items:flex-start}
+.workshop-description{font-size:0.75rem;line-height:1.6;color:var(--muted-2);font-weight:300;flex-grow:1}
 .workshop-locations{margin-top:12px;display:flex;flex-direction:column;gap:8px}
 .workshop-location-item{display:flex;flex-direction:column;gap:2px;font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;padding-left:10px;border-left:2px solid var(--meta)}
 .workshop-location-item .location-name{color:var(--meta);opacity:.95;font-weight:500}
@@ -447,6 +447,26 @@ footer{background:var(--bg);border-top:1px solid var(--card-bd);padding:30px 40p
             <div class="workshop-location-item">
               <span class="location-name">IES Rafael Alberti, Cádiz</span>
               <span class="location-date">23 Febrero 2026 · 25 Febrero 2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="workshop-card">
+        <a href="https://github.com/abelgd/Proyectos_AGD/tree/main/P3_CTF" target="_blank" rel="noopener noreferrer" class="workshop-github-icon" aria-label="Ver repositorio en GitHub">
+          <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        </a>
+        <div class="workshop-content">
+          <h3 class="workshop-title">CTF IES Rafael Alberti 2025/2026</h3>
+          <p class="workshop-description">Retos de Capture The Flag organizados por el IES Rafael Alberti en categorías de criptografía y forense. </p>
+          <div class="workshop-locations">
+            <div class="workshop-location-item">
+              <span class="location-name">Fase Online</span>
+              <span class="location-date">20 Marzo 2026 · 22 Marzo 2026</span>
+            </div>
+            <div class="workshop-location-item">
+              <span class="location-name">Final Presencial</span>
+              <span class="location-date">26 Marzo 2026</span>
             </div>
           </div>
         </div>
