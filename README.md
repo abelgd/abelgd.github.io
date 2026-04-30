@@ -8,7 +8,7 @@ Este repositorio publica a través de Github Pages, mi portfolio técnico con pr
 - Proyectos técnicos de bastionado, análisis de riesgos, forense digital y auditoría de seguridad, con foco didáctico y aplicable.
 - Guías en formato Codelab y repositorios en GitHub con pasos claros, prerrequisitos y validaciones para su verificación.
 - Documentación con ejemplos, comandos y buenas prácticas para entornos reales y formativos.
-- Writeups de retos CTF y laboratorios prácticos (TryHackMe, HackTheBox, DoctorLabs) con metodología documentada.
+- Writeups de retos CTF y laboratorios prácticos (TryHackMe) con metodología documentada.
 - Configuración de entornos SIEM (ELK Stack, Zabbix, Check_mk) desplegados con Docker, con guías paso a paso.
 - Material orientado a entornos reales y formativos, alineado con normativas vigentes (ENS, ISO/IEC 27001, RGPD).
 
